@@ -1,0 +1,6 @@
+{
+  "name": "Jaotem Foundation",
+  "description": "A purpose-driven non-profit organization dedicated to community development, empowerment, and humanitarian support across the globe.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

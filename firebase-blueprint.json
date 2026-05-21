@@ -1,0 +1,41 @@
+{
+  "entities": {
+    "Post": {
+      "title": "Blog Post",
+      "description": "A blog post detailing foundation impact and stories",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "description": "Post title" },
+        "excerpt": { "type": "string", "description": "Short summary" },
+        "content": { "type": "string", "description": "Full post content in markdown" },
+        "date": { "type": "string", "description": "Display date" },
+        "author": { "type": "string", "description": "Author name" },
+        "category": { "type": "string", "description": "Category tag" },
+        "img": { "type": "string", "description": "Hero image URL" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server timestamp" },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Last update timestamp" },
+        "authorId": { "type": "string", "description": "UID of the creator" }
+      },
+      "required": ["title", "excerpt", "content", "author", "category", "img", "createdAt", "authorId"]
+    },
+    "Admin": {
+      "title": "Admin User",
+      "description": "Users with administrative privileges",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string", "description": "Admin email" }
+      },
+      "required": ["email"]
+    }
+  },
+  "firestore": {
+    "posts": {
+      "schema": "Post",
+      "description": "Collection of blog posts"
+    },
+    "admins": {
+      "schema": "Admin",
+      "description": "Registry of authorized admins"
+    }
+  }
+}

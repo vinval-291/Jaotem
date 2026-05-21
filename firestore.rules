@@ -1,0 +1,90 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // 0. Global Safety Net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // --- Phase 3: Primitive Definitions ---
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isEmailVerified() {
+      return isSignedIn() && request.auth.token.email_verified == true;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    // Phase 4.8: Bootstrapped Admin check + Relational Admin check
+    function isAdmin() {
+      return isSignedIn() && (
+        request.auth.token.email == 'kuteyioluwaloyevincent291@gmail.com' && request.auth.token.email_verified == true ||
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid))
+      );
+    }
+
+    // --- Entity Validations ---
+    
+    // Validation Blueprint for Post
+    function isValidPost(data) {
+      return data.keys().hasAll(['title', 'excerpt', 'content', 'author', 'category', 'img', 'createdAt', 'authorId']) &&
+             data.keys().size() >= 8 && data.keys().size() <= 10 &&
+             data.title is string && data.title.size() <= 200 &&
+             data.excerpt is string && data.excerpt.size() <= 1000 &&
+             data.content is string && data.content.size() <= 100000 &&
+             data.author is string && data.author.size() <= 100 &&
+             data.category is string && data.category.size() <= 50 &&
+             data.img is string && data.img.size() <= 2000 &&
+             data.createdAt is timestamp &&
+             data.authorId == request.auth.uid;
+    }
+
+    // --- Collection Routes ---
+
+    // Collection: Posts
+    // 8. Secure List Queries: Explicitly evaluate resource.data (publicly visible posts)
+    match /posts/{postId} {
+      allow list: if true; // Posts are meant to be public in this app
+      allow get: if true;
+      
+      allow create: if isAdmin() && isValidId(postId) && isValidPost(incoming()) &&
+                      incoming().createdAt == request.time;
+      
+      // 4. Tiered Identity Logic + 2. Action-Based Update Pattern
+      allow update: if isAdmin() && 
+                      isValidId(postId) && 
+                      isValidPost(incoming()) &&
+                      // Immutable constraints
+                      incoming().createdAt == existing().createdAt &&
+                      incoming().authorId == existing().authorId &&
+                      // Action: Edit Content
+                      (incoming().diff(existing()).affectedKeys().hasOnly(['title', 'excerpt', 'content', 'author', 'category', 'img', 'updatedAt']) &&
+                       incoming().updatedAt == request.time);
+      
+      allow delete: if isAdmin() && isValidId(postId);
+    }
+
+    // Collection: Admins
+    match /admins/{userId} {
+      // 6. PII Isolation: only the user or an existing admin can read admin details
+      allow get: if isSignedIn() && (request.auth.uid == userId || isAdmin());
+      // List only for admins
+      allow list: if isAdmin();
+      // No client-side creation/update/delete for admins to prevent escalation
+      allow write: if false;
+    }
+  }
+}

@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", "Cormorant Garamond", ui-serif, Georgia, serif;
+
+  --color-brand-cream: #f5f2ed;
+  --color-brand-warm-black: #1a1a1a;
+  --color-brand-green: #2D4F1E;
+  --color-brand-gold: #D48D37;
+  --color-brand-orange: #D48D37;
+  --color-brand-soft-gray: #F5F5F5;
+  
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-3xl: 3rem;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-cream text-brand-warm-black font-sans antialiased relative min-h-screen;
+  }
+  
+  body::before {
+    content: "";
+    @apply fixed inset-0 -z-50 pointer-events-none;
+    background: 
+      radial-gradient(circle at -10% -10%, #e3e9d2 0%, transparent 50%),
+      radial-gradient(circle at 110% 110%, #fce8cc 0%, transparent 60%),
+      radial-gradient(circle at 90% 20%, rgba(212, 175, 55, 0.2) 0%, transparent 40%);
+    filter: blur(100px);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif tracking-tight text-brand-green;
+  }
+}
+
+.glass {
+  @apply bg-white/40 backdrop-blur-xl border border-white/40;
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-green to-brand-orange;
+}
+
+.smooth-scroll {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-brand-cream;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-brand-green/20 rounded-full hover:bg-brand-green/40 transition-colors;
+}
