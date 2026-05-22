@@ -29,7 +29,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       }
 
       if (user) {
-        const isBootstrapped = user.email === 'kuteyioluwaloyevincent291@gmail.com' && user.emailVerified;
+        const bootstrappedEmails = [
+          'kuteyioluwaloyevincent291@gmail.com',
+          'admin@jaotem.com',
+          // Add any other administrative email address here for immediate access:
+          // 'new-admin@example.com',
+        ];
+
+        const isBootstrapped = !!(user.email && bootstrappedEmails.includes(user.email) && user.emailVerified);
 
         // Use onSnapshot to listen for real-time changes to the admin status
         unsubscribeAdmin = onSnapshot(doc(db, 'admins', user.uid), (docSnap) => {

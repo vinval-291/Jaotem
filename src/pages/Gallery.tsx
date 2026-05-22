@@ -4,11 +4,11 @@ import { PageHeader } from '../components/PageHeader';
 import { SEO } from '../components/SEO';
 import { Camera, PlayCircle, Maximize2 } from 'lucide-react';
 
-const EDUCATION_IMG = "/src/assets/images/african_education_learning_1779020205943.png";
-const EMPOWERMENT_IMG = "/src/assets/images/african_women_empowerment_1779020223070.png";
-const FOOD_IMG = "/src/assets/images/african_community_outreach_food_1779020238830.png";
-const HERO_IMG = "/src/assets/images/african_foundation_hero_1779020187354.png";
-const TEAM_IMG = "/src/assets/images/african_volunteer_mission_1779020254330.png";
+const EDUCATION_IMG = "https://images.unsplash.com/photo-1542810634-71277d95dcbb?q=80&w=1200&auto=format&fit=crop";
+const EMPOWERMENT_IMG = "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=1200&auto=format&fit=crop";
+const FOOD_IMG = "https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=1200&auto=format&fit=crop";
+const HERO_IMG = "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1200&auto=format&fit=crop";
+const TEAM_IMG = "https://images.unsplash.com/photo-1559027615-cd2428ee0a2a?q=80&w=1200&auto=format&fit=crop";
 
 const items = [
   { id: 1, type: 'image', src: HERO_IMG, title: 'Annual Gala 2024', category: 'Events' },

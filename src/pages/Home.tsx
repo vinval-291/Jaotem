@@ -6,10 +6,10 @@ import { SEO } from '../components/SEO';
 import { cn } from '../lib/utils';
 
 // Image paths from generator
-const HERO_IMAGE = "/src/assets/images/african_foundation_hero_1779020187354.png";
-const EDUCATION_IMG = "/src/assets/images/african_education_learning_1779020205943.png";
-const EMPOWERMENT_IMG = "/src/assets/images/african_women_empowerment_1779020223070.png";
-const FOOD_IMG = "/src/assets/images/african_community_outreach_food_1779020238830.png";
+const HERO_IMAGE = "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1200&auto=format&fit=crop";
+const EDUCATION_IMG = "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200&auto=format&fit=crop";
+const EMPOWERMENT_IMG = "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=1200&auto=format&fit=crop";
+const FOOD_IMG = "https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=1200&auto=format&fit=crop";
 
 const stats = [
   { label: 'Lives Impacted', value: '50k+', icon: Users },
@@ -44,13 +44,13 @@ const testimonials = [
     name: "Amina Okoro",
     role: "Community Teacher",
     text: "Jaotem Foundation didn't just give us resources; they gave us a future. Our school has transformed completely.",
-    avatar: "/src/assets/images/african_testimonial_woman_1779020372018.png"
+    avatar: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=200&auto=format&fit=crop"
   },
   {
     name: "Kofi Mensah",
     role: "Volunteer",
     text: "Being a volunteer here has been the most fulfilling experience of my life. The impact is real and visible.",
-    avatar: "/src/assets/images/african_testimonial_man_1779020386729.png"
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop"
   }
 ];
 

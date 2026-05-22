@@ -5,9 +5,9 @@ import { SEO } from '../components/SEO';
 import { GraduationCap, Coffee, HeartPulse, Zap, Globe, BookOpen, ArrowRight } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 
-const EDUCATION_IMG = "/src/assets/images/african_education_learning_1779020205943.png";
-const EMPOWERMENT_IMG = "/src/assets/images/african_women_empowerment_1779020223070.png";
-const FOOD_IMG = "/src/assets/images/african_community_outreach_food_1779020238830.png";
+const EDUCATION_IMG = "https://images.unsplash.com/photo-1542810634-71277d95dcbb?q=80&w=1200&auto=format&fit=crop";
+const EMPOWERMENT_IMG = "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=1200&auto=format&fit=crop";
+const FOOD_IMG = "https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=1200&auto=format&fit=crop";
 
 const programs = [
   {

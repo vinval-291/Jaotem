@@ -5,7 +5,7 @@ import { SEO } from '../components/SEO';
 import { Calendar, MapPin, Clock, ArrowRight, Users, Ticket } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 
-const EVENTS_IMAGE = "/src/assets/images/african_foundation_hero_1779020187354.png";
+const EVENTS_IMAGE = "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1200&auto=format&fit=crop";
 
 const upcomingEvents = [
   {
@@ -24,7 +24,7 @@ const upcomingEvents = [
     time: '9:00 AM - 4:00 PM',
     location: 'Central Community Park',
     type: 'Outreach',
-    img: '/src/assets/images/african_volunteer_mission_1779020254330.png'
+    img: 'https://images.unsplash.com/photo-1559027615-cd2428ee0a2a?q=80&w=1200&auto=format&fit=crop'
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ const upcomingEvents = [
     time: '10:00 AM - 3:00 PM',
     location: 'Jaotem Innovation Hub',
     type: 'Educational',
-    img: '/src/assets/images/african_women_empowerment_1779020223070.png'
+    img: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=1200&auto=format&fit=crop'
   }
 ];
 

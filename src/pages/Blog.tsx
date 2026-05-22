@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom';
 import { collection, query, orderBy, onSnapshot } from 'firebase/firestore';
 import { db, handleFirestoreError, OperationType } from '../lib/firebase';
 
-const BLOG_IMAGE = "/src/assets/images/african_foundation_hero_1779020187354.png";
+const BLOG_IMAGE = "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1200&auto=format&fit=crop";
 
 const FALLBACK_POSTS = [
   {
@@ -17,7 +17,7 @@ const FALLBACK_POSTS = [
     date: 'May 12, 2024',
     author: 'Dr. Jane Jaotem',
     category: 'Education',
-    img: '/src/assets/images/african_education_learning_1779020205943.png'
+    img: 'https://images.unsplash.com/photo-1542810634-71277d95dcbb?q=80&w=1200&auto=format&fit=crop'
   },
   {
     id: 'fallback-2',
@@ -26,7 +26,7 @@ const FALLBACK_POSTS = [
     date: 'April 28, 2024',
     author: 'Kweku Adebayo',
     category: 'Community',
-    img: '/src/assets/images/african_community_outreach_food_1779020238830.png'
+    img: 'https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=1200&auto=format&fit=crop'
   }
 ];
 

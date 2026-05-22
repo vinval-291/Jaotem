@@ -4,7 +4,7 @@ import { PageHeader } from '../components/PageHeader';
 import { SEO } from '../components/SEO';
 import { Mail, Phone, MapPin, Send, MessageSquare, Clock, Globe } from 'lucide-react';
 
-const CONTACT_IMG = "/src/assets/images/african_volunteer_mission_1779020254330.png";
+const CONTACT_IMG = "https://images.unsplash.com/photo-1559027615-cd2428ee0a2a?q=80&w=1200&auto=format&fit=crop";
 
 const Contact: React.FC = () => {
   return (

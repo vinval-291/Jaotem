@@ -5,7 +5,7 @@ import { SEO } from '../components/SEO';
 import { Heart, CreditCard, ShieldCheck, DollarSign, Gift, CheckCircle2 } from 'lucide-react';
 import { cn } from '../lib/utils';
 
-const DONATE_IMG = "/src/assets/images/african_foundation_hero_1779020187354.png";
+const DONATE_IMG = "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1200&auto=format&fit=crop";
 
 const donationTiers = [
   { amount: '$25', label: 'Supporter', desc: 'Provides school supplies for one child for a term.', icon: Gift },

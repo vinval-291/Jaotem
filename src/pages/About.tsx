@@ -4,7 +4,7 @@ import { PageHeader } from '../components/PageHeader';
 import { SEO } from '../components/SEO';
 import { Heart, Target, Sparkles, ShieldCheck, TrendingUp, Users } from 'lucide-react';
 
-const TEAM_IMG = "/src/assets/images/african_volunteer_mission_1779020254330.png";
+const TEAM_IMG = "https://images.unsplash.com/photo-1559027615-cd2428ee0a2a?q=80&w=1200&auto=format&fit=crop";
 
 const values = [
   { title: 'Compassion', desc: 'Heart-led actions in everything we do.', icon: Heart },
@@ -57,12 +57,12 @@ const About: React.FC = () => {
                     <p className="text-xs opacity-60 font-medium">Built by people, for people.</p>
                 </div>
                 <div className="aspect-[3/4] rounded-3xl overflow-hidden shadow-lg">
-                   <img src="/src/assets/images/african_education_learning_1779020205943.png" className="w-full h-full object-cover" alt="community" />
+                   <img src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?q=80&w=1200&auto=format&fit=crop" className="w-full h-full object-cover" alt="community" />
                 </div>
              </div>
              <div className="space-y-4">
                 <div className="aspect-[3/4] rounded-3xl overflow-hidden shadow-lg">
-                   <img src="/src/assets/images/african_community_outreach_food_1779020238830.png" className="w-full h-full object-cover" alt="community outreach" />
+                   <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=1200&auto=format&fit=crop" className="w-full h-full object-cover" alt="community outreach" />
                 </div>
                 <div className="aspect-square rounded-3xl bg-brand-green/5 flex flex-col items-center justify-center p-8 text-center border border-brand-green/10">
                     <Heart className="mb-4 text-brand-green" size={32} />
@@ -116,9 +116,9 @@ const About: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {[
-            { name: 'Dr. Jane Jaotem', role: 'Founder & CEO', bio: 'A humanitarian at heart with 20+ years of experience in community development.', img: '/src/assets/images/african_leader_woman_1779020316598.png' },
-            { name: 'Kweku Adebayo', role: 'Director of Programs', bio: 'Strategic lead overseeing all our educational and health initiatives.', img: '/src/assets/images/african_leader_man_1779020334557.png' },
-            { name: 'Abeni Okafor', role: 'Head of Outreach', bio: 'Mastering the art of field work and volunteer coordination.', img: '/src/assets/images/african_leader_young_woman_1779020354084.png' }
+            { name: 'Dr. Jane Jaotem', role: 'Founder & CEO', bio: 'A humanitarian at heart with 20+ years of experience in community development.', img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop' },
+            { name: 'Kweku Adebayo', role: 'Director of Programs', bio: 'Strategic lead overseeing all our educational and health initiatives.', img: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=400&auto=format&fit=crop' },
+            { name: 'Abeni Okafor', role: 'Head of Outreach', bio: 'Mastering the art of field work and volunteer coordination.', img: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=400&auto=format&fit=crop' }
           ].map((member) => (
             <div key={member.name} className="group">
               <div className="aspect-[4/5] rounded-[3rem] overflow-hidden mb-6 relative shadow-xl">
