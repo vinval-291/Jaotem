@@ -68,7 +68,7 @@ const AdminDashboard: React.FC = () => {
               <code className="text-xs font-mono font-bold text-brand-orange break-all select-all focus:bg-brand-orange/10 p-2 block">{auth.currentUser?.uid}</code>
             </div>
             <a 
-              href="https://console.firebase.google.com/project/utilitarian-parser-9fbwx/firestore" 
+              href="https://console.firebase.google.com/project/jaotem-foundation/firestore" 
               target="_blank" 
               rel="noreferrer"
               className="inline-block px-8 py-3 bg-brand-green text-white rounded-xl font-bold text-sm shadow-lg hover:scale-105 transition-transform"
