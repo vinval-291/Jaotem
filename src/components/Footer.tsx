@@ -78,7 +78,21 @@ export const Footer: React.FC = () => {
         </div>
 
         <div className="border-t border-white/5 pt-10 flex flex-col md:flex-row justify-between items-center gap-6 text-brand-soft-gray/40 text-xs">
-          <p>© {new Date().getFullYear()} Jaotem Foundation. All rights reserved.</p>
+          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4 text-center md:text-left">
+            <p>© {new Date().getFullYear()} Jaotem Foundation. All rights reserved.</p>
+            <span className="hidden md:inline text-white/10">|</span>
+            <p>
+              Website created by{' '}
+              <a 
+                href="https://linkedin.com/in/kuteyi-oluwaloye-vincent" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hover:text-brand-orange text-brand-soft-gray/60 transition-colors font-semibold"
+              >
+                Kuteyi Vincent
+              </a>
+            </p>
+          </div>
           <div className="flex gap-6">
             <a href="#" className="hover:text-brand-soft-gray">Privacy Policy</a>
             <a href="#" className="hover:text-brand-soft-gray">Terms of Service</a>
