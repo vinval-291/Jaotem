@@ -52,6 +52,18 @@ service cloud.firestore {
              data.authorId == request.auth.uid;
     }
 
+    // Validation Blueprint for ContactSubmission
+    function isValidSubmission(data) {
+      return data.keys().hasAll(['firstName', 'lastName', 'email', 'inquiryType', 'message', 'createdAt']) &&
+             data.keys().size() == 6 &&
+             data.firstName is string && data.firstName.size() >= 1 && data.firstName.size() <= 100 &&
+             data.lastName is string && data.lastName.size() >= 1 && data.lastName.size() <= 100 &&
+             data.email is string && data.email.size() >= 3 && data.email.size() <= 200 &&
+             data.inquiryType is string && data.inquiryType.size() >= 1 && data.inquiryType.size() <= 100 &&
+             data.message is string && data.message.size() >= 1 && data.message.size() <= 5000 &&
+             data.createdAt is timestamp;
+    }
+
     // --- Collection Routes ---
 
     // Collection: Posts
@@ -85,6 +97,14 @@ service cloud.firestore {
       allow list: if isAdmin();
       // No client-side creation/update/delete for admins to prevent escalation
       allow write: if false;
+    }
+
+    // Collection: Submissions
+    match /submissions/{submissionId} {
+      allow get, list: if isAdmin();
+      allow create: if isValidId(submissionId) && isValidSubmission(incoming()) && incoming().createdAt == request.time;
+      allow update: if false; // immutable
+      allow delete: if isAdmin() && isValidId(submissionId);
     }
   }
 }

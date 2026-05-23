@@ -26,6 +26,20 @@
         "email": { "type": "string", "description": "Admin email" }
       },
       "required": ["email"]
+    },
+    "ContactSubmission": {
+      "title": "Contact Submission",
+      "description": "Form submissions received from the Contact Us page",
+      "type": "object",
+      "properties": {
+        "firstName": { "type": "string", "description": "First name of submitter" },
+        "lastName": { "type": "string", "description": "Last name of submitter" },
+        "email": { "type": "string", "description": "Email address of submitter" },
+        "inquiryType": { "type": "string", "description": "Inquiry selection" },
+        "message": { "type": "string", "description": "Message content" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Submission server timestamp" }
+      },
+      "required": ["firstName", "lastName", "email", "inquiryType", "message", "createdAt"]
     }
   },
   "firestore": {
@@ -36,6 +50,10 @@
     "admins": {
       "schema": "Admin",
       "description": "Registry of authorized admins"
+    },
+    "submissions": {
+      "schema": "ContactSubmission",
+      "description": "Contact and partnership form submissions"
     }
   }
 }

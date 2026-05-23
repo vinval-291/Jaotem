@@ -52,7 +52,7 @@ export const Footer: React.FC = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="text-brand-orange shrink-0" size={18} />
-                <span>contact@jaotem.org</span>
+                <span>admin@jaotem.com</span>
               </li>
             </ul>
           </div>

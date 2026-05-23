@@ -2,11 +2,62 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { PageHeader } from '../components/PageHeader';
 import { SEO } from '../components/SEO';
-import { Mail, Phone, MapPin, Send, MessageSquare, Clock, Globe } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, MessageSquare, Clock, Globe, CheckCircle2 } from 'lucide-react';
+import { doc, setDoc, collection, serverTimestamp } from 'firebase/firestore';
+import { db, handleFirestoreError, OperationType } from '../lib/firebase';
 
 const CONTACT_IMG = "https://images.unsplash.com/photo-1559027615-cd2428ee0a2a?q=80&w=1200&auto=format&fit=crop";
 
 const Contact: React.FC = () => {
+  const [formData, setFormData] = React.useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    inquiryType: 'General Inquiry',
+    message: ''
+  });
+  const [submitting, setSubmitting] = React.useState(false);
+  const [success, setSuccess] = React.useState(false);
+  const [errorMsg, setErrorMsg] = React.useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.firstName.trim() || !formData.lastName.trim() || !formData.email.trim() || !formData.message.trim()) {
+      setErrorMsg('Please fill in all fields before submitting.');
+      return;
+    }
+    setSubmitting(true);
+    setErrorMsg('');
+    try {
+      const docId = `sub-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+      await setDoc(doc(db, 'submissions', docId), {
+        firstName: formData.firstName.trim(),
+        lastName: formData.lastName.trim(),
+        email: formData.email.trim(),
+        inquiryType: formData.inquiryType,
+        message: formData.message.trim(),
+        createdAt: serverTimestamp(),
+      });
+      setSuccess(true);
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        inquiryType: 'General Inquiry',
+        message: ''
+      });
+    } catch (e: any) {
+      setErrorMsg('Failed to submit form. Please check your connection and try again.');
+      try {
+        handleFirestoreError(e, OperationType.WRITE, 'submissions');
+      } catch (err) {
+        // Handled or logged
+      }
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -74,41 +125,108 @@ const Contact: React.FC = () => {
               <MessageSquare className="text-brand-orange" size={28} />
               Send a Message
             </h3>
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-xs font-bold text-brand-warm-black/40 uppercase tracking-widest pl-2">First Name</label>
-                  <input type="text" placeholder="John" className="w-full p-4 bg-white rounded-2xl border border-brand-warm-black/5 focus:outline-none focus:border-brand-orange transition-all" />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-xs font-bold text-brand-warm-black/40 uppercase tracking-widest pl-2">Last Name</label>
-                  <input type="text" placeholder="Doe" className="w-full p-4 bg-white rounded-2xl border border-brand-warm-black/5 focus:outline-none focus:border-brand-orange transition-all" />
-                </div>
-              </div>
-              <div className="space-y-2">
-                  <label className="text-xs font-bold text-brand-warm-black/40 uppercase tracking-widest pl-2">Email Address</label>
-                  <input type="email" placeholder="john@example.com" className="w-full p-4 bg-white rounded-2xl border border-brand-warm-black/5 focus:outline-none focus:border-brand-orange transition-all" />
-              </div>
-              <div className="space-y-2">
-                  <label className="text-xs font-bold text-brand-warm-black/40 uppercase tracking-widest pl-2">Inquiry Type</label>
-                  <select className="w-full p-4 bg-white rounded-2xl border border-brand-warm-black/5 focus:outline-none focus:border-brand-orange transition-all appearance-none cursor-pointer">
-                     <option>General Inquiry</option>
-                     <option>Partnership Proposal</option>
-                     <option>Volunteering Opportunities</option>
-                     <option>Media & Press</option>
-                  </select>
-              </div>
-              <div className="space-y-2">
-                  <label className="text-xs font-bold text-brand-warm-black/40 uppercase tracking-widest pl-2">Your Message</label>
-                  <textarea rows={4} placeholder="How can we help you?" className="w-full p-4 bg-white rounded-2xl border border-brand-warm-black/5 focus:outline-none focus:border-brand-orange transition-all resize-none"></textarea>
-              </div>
-              <button 
-                type="submit"
-                className="w-full py-5 bg-brand-green text-white rounded-2xl font-bold text-lg hover:bg-brand-green/90 transition-all shadow-xl shadow-brand-green/20 flex items-center justify-center gap-3"
+            
+            {success ? (
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="text-center py-12 space-y-4"
               >
-                Send Message <Send size={20} />
-              </button>
-            </form>
+                <div className="w-20 h-20 bg-brand-green/10 text-brand-green rounded-full flex items-center justify-center mx-auto shadow-inner">
+                  <CheckCircle2 size={48} />
+                </div>
+                <h4 className="text-2xl font-serif font-bold text-brand-green">Message Sent Successfully!</h4>
+                <p className="text-brand-warm-black/60 text-sm max-w-sm mx-auto">
+                  Thank you for reaching out to us. Our team has received your inquiry and will connect with you within 24 business hours.
+                </p>
+                <button
+                  onClick={() => setSuccess(false)}
+                  className="mt-6 px-6 py-3 bg-brand-green/10 text-brand-green hover:bg-brand-green hover:text-white transition-all rounded-xl font-bold text-xs uppercase tracking-widest"
+                >
+                  Send another message
+                </button>
+              </motion.div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {errorMsg && (
+                  <div className="bg-red-50 text-red-600 p-4 rounded-xl text-xs font-semibold border border-red-100">
+                    {errorMsg}
+                  </div>
+                )}
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold text-brand-warm-black/40 uppercase tracking-widest pl-2">First Name</label>
+                    <input 
+                      required
+                      type="text" 
+                      placeholder="John" 
+                      value={formData.firstName}
+                      onChange={e => setFormData({ ...formData, firstName: e.target.value })}
+                      disabled={submitting}
+                      className="w-full p-4 bg-white rounded-2xl border border-brand-warm-black/5 focus:outline-none focus:border-brand-orange transition-all disabled:opacity-50" 
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold text-brand-warm-black/40 uppercase tracking-widest pl-2">Last Name</label>
+                    <input 
+                      required
+                      type="text" 
+                      placeholder="Doe" 
+                      value={formData.lastName}
+                      onChange={e => setFormData({ ...formData, lastName: e.target.value })}
+                      disabled={submitting}
+                      className="w-full p-4 bg-white rounded-2xl border border-brand-warm-black/5 focus:outline-none focus:border-brand-orange transition-all disabled:opacity-50" 
+                    />
+                  </div>
+                </div>
+                <div className="space-y-2">
+                    <label className="text-xs font-bold text-brand-warm-black/40 uppercase tracking-widest pl-2">Email Address</label>
+                    <input 
+                      required
+                      type="email" 
+                      placeholder="john@example.com" 
+                      value={formData.email}
+                      onChange={e => setFormData({ ...formData, email: e.target.value })}
+                      disabled={submitting}
+                      className="w-full p-4 bg-white rounded-2xl border border-brand-warm-black/5 focus:outline-none focus:border-brand-orange transition-all disabled:opacity-50" 
+                    />
+                </div>
+                <div className="space-y-2">
+                    <label className="text-xs font-bold text-brand-warm-black/40 uppercase tracking-widest pl-2">Inquiry Type</label>
+                    <select 
+                      value={formData.inquiryType}
+                      onChange={e => setFormData({ ...formData, inquiryType: e.target.value })}
+                      disabled={submitting}
+                      className="w-full p-4 bg-white rounded-2xl border border-brand-warm-black/5 focus:outline-none focus:border-brand-orange transition-all appearance-none cursor-pointer disabled:opacity-50"
+                    >
+                       <option value="General Inquiry">General Inquiry</option>
+                       <option value="Partnership Proposal">Partnership Proposal</option>
+                       <option value="Volunteering Opportunities">Volunteering Opportunities</option>
+                       <option value="Media & Press">Media & Press</option>
+                    </select>
+                </div>
+                <div className="space-y-2">
+                    <label className="text-xs font-bold text-brand-warm-black/40 uppercase tracking-widest pl-2">Your Message</label>
+                    <textarea 
+                      required
+                      rows={4} 
+                      placeholder="How can we help you?" 
+                      value={formData.message}
+                      onChange={e => setFormData({ ...formData, message: e.target.value })}
+                      disabled={submitting}
+                      className="w-full p-4 bg-white rounded-2xl border border-brand-warm-black/5 focus:outline-none focus:border-brand-orange transition-all resize-none disabled:opacity-50"
+                    ></textarea>
+                </div>
+                <button 
+                  type="submit"
+                  disabled={submitting}
+                  className="w-full py-5 bg-brand-green text-white rounded-2xl font-bold text-lg hover:bg-brand-green/90 transition-all shadow-xl shadow-brand-green/20 flex items-center justify-center gap-3 disabled:opacity-50"
+                >
+                  {submitting ? 'Sending Message...' : 'Send Message'} <Send size={20} />
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </section>
