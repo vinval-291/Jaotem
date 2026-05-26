@@ -17,13 +17,11 @@ export const Footer: React.FC = () => {
               </span>
             </NavLink>
             <p className="text-brand-soft-gray/60 leading-relaxed max-w-xs text-sm">
-              Empowering underserved communities through sustainable outreach, youth development, and compassionate humanitarian support.
+              Bringing Hope to the future: Raising the next level of global future leaders.
             </p>
             <div className="flex gap-4">
-              <SocialLink href="#" Icon={Instagram} />
-              <SocialLink href="#" Icon={Facebook} />
-              <SocialLink href="#" Icon={Twitter} />
-              <SocialLink href="#" Icon={Linkedin} />
+              <SocialLink href="https://instagram.com/jaotemfoundation" Icon={Instagram} />
+              <SocialLink href="https://facebook.com/jaotemfoundation" Icon={Facebook} />
             </div>
           </div>
 
@@ -44,11 +42,11 @@ export const Footer: React.FC = () => {
             <ul className="space-y-4 text-brand-soft-gray/60 text-sm">
               <li className="flex items-start gap-3">
                 <MapPin className="text-brand-orange shrink-0" size={18} />
-                <span>123 Foundation Street, Hope Plaza,<br />Community City, World</span>
+                <span>Road 5, Ifeloju CDA,<br />Akingbala titun, Aregbe, Abeokuta, Nigeria</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="text-brand-orange shrink-0" size={18} />
-                <span>+1 (234) 567-890</span>
+                <span>+2347017239744</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="text-brand-orange shrink-0" size={18} />

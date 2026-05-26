@@ -89,20 +89,20 @@ const Contact: React.FC = () => {
               <ContactInfoItem 
                 Icon={Mail} 
                 title="Email Us" 
-                detail="hello@jaotem.org" 
-                subDetail="For general inquiries and support"
+                detail="admin@jaotem.com" 
+                subDetail="For general inquiries, support, and billing"
               />
               <ContactInfoItem 
                 Icon={Phone} 
                 title="Call Us" 
-                detail="+1 (234) 567-890" 
-                subDetail="Mon-Fri, 9am - 6pm EST"
+                detail="+2347017239744" 
+                subDetail="Mon-Fri, 9am - 6pm WAT"
               />
               <ContactInfoItem 
                 Icon={MapPin} 
                 title="Visit Us" 
-                detail="123 Foundation Street, Hope Plaza" 
-                subDetail="Community City, World"
+                detail="Road 5, Ifeloju CDA, Akingbala titun" 
+                subDetail="Aregbe, Abeokuta, Nigeria"
               />
             </div>
 
@@ -235,7 +235,7 @@ const Contact: React.FC = () => {
       <section className="px-6 pb-24">
          <div className="max-w-7xl mx-auto h-[500px] rounded-[3rem] overflow-hidden shadow-2xl grayscale hover:grayscale-0 transition-all duration-700">
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509374!2d144.95373531531615!3d-37.81732767975171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4c2b349649%3A0xb6899234e561db11!2sEnvato!5e0!3m2!1sen!2sau!4v1580814981442!5m2!1sen!2sau" 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126610.15082498226!2d3.2917719602330752!3d7.152345638202574!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103a0ae20ad013bb%3A0x633535bd787ad399!2sAbeokuta%2C%20Nigeria!5e0!3m2!1sen!2sng!4v1700000000000!5m2!1sen!2sng" 
               width="100%" 
               height="100%" 
               style={{ border: 0 }} 

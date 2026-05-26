@@ -7,9 +7,9 @@ import { cn } from '../lib/utils';
 
 // Image paths from generator
 const HERO_IMAGE = "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1200&auto=format&fit=crop";
-const EDUCATION_IMG = "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200&auto=format&fit=crop";
-const EMPOWERMENT_IMG = "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=1200&auto=format&fit=crop";
-const FOOD_IMG = "https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=1200&auto=format&fit=crop";
+const BOOK_IMG = "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200&auto=format&fit=crop";
+const SKILL_IMG = "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?q=80&w=1200&auto=format&fit=crop";
+const MENTOR_IMG = "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1200&auto=format&fit=crop";
 
 const stats = [
   { label: 'Lives Impacted', value: '50k+', icon: Users },
@@ -20,22 +20,22 @@ const stats = [
 
 const featuredPrograms = [
   {
-    title: 'Education Support',
-    desc: 'Empowering children with quality learning materials and scholarships.',
-    img: EDUCATION_IMG,
-    path: '/programs#education'
+    title: 'Project Book A Thousand Children',
+    desc: 'Encouraging academic excellence by providing books to primary children during our Odelemo Day celebrations.',
+    img: BOOK_IMG,
+    path: '/programs#book-thousand-children'
   },
   {
-    title: 'Women Empowerment',
-    desc: 'Skill development and micro-grants for aspiring female entrepreneurs.',
-    img: EMPOWERMENT_IMG,
-    path: '/programs#empowerment'
+    title: 'Skill Up Empowerment',
+    desc: 'Empowering communities through targeted vocational, creative, and technical skill acquisition training.',
+    img: SKILL_IMG,
+    path: '/programs#skill-up-empowerment'
   },
   {
-    title: 'Food Outreach',
-    desc: 'Ensuring no family goes hungry through our community kitchens.',
-    img: FOOD_IMG,
-    path: '/programs#food'
+    title: 'Jaotem Mentorship',
+    desc: 'Academic mentorship program supporting tertiary students with proven strategies for high excellence.',
+    img: MENTOR_IMG,
+    path: '/programs#jaotem-mentorship'
   }
 ];
 
@@ -91,7 +91,7 @@ const Home: React.FC = () => {
               <span className="italic text-brand-gold">Building Hope.</span>
             </h1>
             <p className="text-lg md:text-xl text-brand-warm-black/70 max-w-2xl mx-auto mb-12 leading-relaxed font-light">
-              Empowering underserved communities through sustainable outreach, youth development, and compassionate humanitarian support.
+              Bringing Hope to the future: Raising the next level of global future leaders.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <NavLink 
@@ -173,7 +173,7 @@ const Home: React.FC = () => {
             className="relative"
           >
             <div className="aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl relative z-10 border-[10px] border-white/30">
-              <img src={EDUCATION_IMG} alt="Education Impact" className="w-full h-full object-cover" />
+              <img src={BOOK_IMG} alt="Education Impact" className="w-full h-full object-cover" />
             </div>
             <div className="absolute -bottom-8 -right-8 w-64 h-64 bg-brand-gold/20 rounded-[2rem] -z-0 blur-3xl animate-pulse" />
             <div className="absolute top-10 -left-10 p-6 bg-white/40 backdrop-blur-xl border border-white/40 rounded-3xl shadow-xl z-20 max-w-[200px] flex flex-col items-center text-center">

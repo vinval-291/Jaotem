@@ -2,15 +2,15 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { PageHeader } from '../components/PageHeader';
 import { SEO } from '../components/SEO';
-import { Heart, Target, Sparkles, ShieldCheck, TrendingUp, Users } from 'lucide-react';
+import { Heart, Target, Sparkles, ShieldCheck, TrendingUp, Users, BookOpen, GraduationCap, Award } from 'lucide-react';
 
 const TEAM_IMG = "https://images.unsplash.com/photo-1559027615-cd2428ee0a2a?q=80&w=1200&auto=format&fit=crop";
 
-const values = [
-  { title: 'Compassion', desc: 'Heart-led actions in everything we do.', icon: Heart },
-  { title: 'Integrity', desc: 'Transparent management of every resource.', icon: ShieldCheck },
-  { title: 'Innovation', desc: 'Modern solutions for age-old challenges.', icon: Sparkles },
-  { title: 'Sustainability', desc: 'Building systems that outlast us.', icon: TrendingUp },
+const focusAreas = [
+  { title: 'Mentorship', desc: 'Providing guidance and support to individuals and students to help them thrive academically and professionally.', icon: GraduationCap },
+  { title: 'Education', desc: 'Enhancing access to quality education, literacy initiatives, and learning resources in local communities.', icon: BookOpen },
+  { title: 'Entrepreneurship', desc: 'Fostering innovation, economic self-reliance, and sustainable community growth.', icon: TrendingUp },
+  { title: 'Empowerment', desc: 'Supporting individuals and communities with vocational training and raw opportunities to reach their full potential.', icon: Award },
 ];
 
 const About: React.FC = () => {
@@ -34,18 +34,30 @@ const About: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <div className="space-y-8">
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-brand-green leading-tight">
-              Why We Exist: A Mission Beyond Charity.
+              A Global Mission Beyond Charity.
             </h2>
             <p className="text-brand-warm-black/70 text-lg leading-relaxed">
-              Founded in 2018, Jaotem Foundation emerged from a simple observation: charity is temporary, but empowerment is eternal. We saw communities with immense potential but lacking the structural support to unlock it.
+              Jaotem Foundation is a global non-profit organization dedicated to supporting charitable activities that drive community development. We improve the quality of life in underserved communities worldwide, partnering with local organizations and stakeholders to ensure our initiatives are effective, impactful, and sustainable.
             </p>
-            <div className="p-8 bg-brand-green text-white rounded-[2rem] shadow-xl relative overflow-hidden">
-               <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16" />
-               <Target className="text-brand-gold mb-4" size={40} />
-               <h3 className="text-2xl font-serif font-bold mb-4">Our Vision</h3>
-               <p className="text-white/80 leading-relaxed font-light">
-                 To create a world where geographical location or economic background doesn't limit a human being's potential for greatness.
-               </p>
+            
+            <div className="space-y-6">
+              <div className="p-8 bg-brand-green text-white rounded-[2rem] shadow-xl relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16" />
+                <Target className="text-brand-gold mb-4" size={40} />
+                <h3 className="text-2xl font-serif font-bold mb-4">Our Vision</h3>
+                <p className="text-white/80 leading-relaxed font-light">
+                  "Empowering a global community where every individual has the opportunity to thrive, regardless of their socio-economic background, by fostering sustainable development in mentorship, education, entrepreneurship, and empowerment. We strive to create a world where everyone has access to the resources and opportunities they need to reach their full potential."
+                </p>
+              </div>
+
+              <div className="p-8 bg-brand-orange text-white rounded-[2rem] shadow-xl relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16" />
+                <Sparkles className="text-white mb-4" size={40} />
+                <h3 className="text-2xl font-serif font-bold mb-4">Our Mission</h3>
+                <p className="text-white/90 leading-relaxed font-light">
+                  "Our mission is to empower underserved communities globally through targeted initiatives in education, training, skill acquisition, vocational training, and social services. We aim to ensure equitable access to resources and opportunities, enhancing quality of life and fostering sustainable development. We collaborate with local organizations and stakeholders to provide lasting solutions, addressing the unique needs of each community we serve."
+                </p>
+              </div>
             </div>
           </div>
           
@@ -74,18 +86,18 @@ const About: React.FC = () => {
         </div>
       </section>
 
-      {/* Values */}
+      {/* Focus Areas */}
       <section className="bg-brand-warm-black py-24 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-4">Our Core Values</h2>
-            <p className="text-white/40 max-w-xl mx-auto">The guiding principles that drive every single outreach and empowerment project.</p>
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-4">Our Key Focus Areas</h2>
+            <p className="text-white/40 max-w-xl mx-auto">The core pillars of our foundation dedicated to driving global community development and sustainability.</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((v, idx) => (
+            {focusAreas.map((f, idx) => (
               <motion.div
-                key={v.title}
+                key={f.title}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -93,10 +105,10 @@ const About: React.FC = () => {
                 className="p-8 border border-white/10 rounded-3xl hover:border-brand-gold transition-colors group"
               >
                 <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center text-brand-gold mb-6 group-hover:scale-110 transition-transform">
-                  <v.icon size={24} />
+                  <f.icon size={24} />
                 </div>
-                <h3 className="text-xl font-serif font-bold text-white mb-3">{v.title}</h3>
-                <p className="text-white/50 text-sm leading-relaxed">{v.desc}</p>
+                <h3 className="text-xl font-serif font-bold text-white mb-3">{f.title}</h3>
+                <p className="text-white/50 text-sm leading-relaxed">{f.desc}</p>
               </motion.div>
             ))}
           </div>

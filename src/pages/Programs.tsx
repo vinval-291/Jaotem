@@ -2,43 +2,65 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { PageHeader } from '../components/PageHeader';
 import { SEO } from '../components/SEO';
-import { GraduationCap, Coffee, HeartPulse, Zap, Globe, BookOpen, ArrowRight } from 'lucide-react';
+import { GraduationCap, HeartPulse, Zap, Globe, BookOpen, ArrowRight, Award, Users, Milestone } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 
-const EDUCATION_IMG = "https://images.unsplash.com/photo-1542810634-71277d95dcbb?q=80&w=1200&auto=format&fit=crop";
-const EMPOWERMENT_IMG = "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=1200&auto=format&fit=crop";
-const FOOD_IMG = "https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=1200&auto=format&fit=crop";
+const BOOK_IMG = "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200&auto=format&fit=crop";
+const TOUR_IMG = "https://images.unsplash.com/photo-1542810634-71277d95dcbb?q=80&w=1200&auto=format&fit=crop";
+const SKILL_IMG = "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?q=80&w=1200&auto=format&fit=crop";
+const GIRL_IMG = "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop";
+const MENTOR_IMG = "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1200&auto=format&fit=crop";
 
 const programs = [
   {
-    id: 'education',
-    title: 'Education Support',
-    subtitle: 'Bright Futures Initiative',
-    desc: 'Providing scholarships, school supplies, and vocational training to children and youth in underserved communities. We believe education is the ultimate equalizer.',
-    icon: GraduationCap,
-    img: EDUCATION_IMG,
+    id: 'book-thousand-children',
+    title: 'Project Book A Thousand Children',
+    subtitle: 'Odelemo Day Outreach',
+    desc: 'In celebration of Odelemo Day 2019, children were given exercise books in order to encourage them towards academics. This was paired with a powerful, guided talk session highlighting the critical importance of academic excellence.',
+    icon: BookOpen,
+    img: BOOK_IMG,
     color: 'bg-blue-50',
-    stats: { label: 'Students Funded', value: '1,200+' }
+    stats: { label: 'Books Given', value: '1,000+' }
   },
   {
-    id: 'empowerment',
-    title: 'Women Empowerment',
-    subtitle: 'Rise & Thrive Program',
-    desc: 'Supporting female entrepreneurs with micro-loans, business mentorship, and digital literacy training. Empowering a woman is empowering a community.',
-    icon: Zap,
-    img: EMPOWERMENT_IMG,
+    id: 'project-25-25',
+    title: 'Project 25 across 25',
+    subtitle: 'Secondary School Tour',
+    desc: 'An intensive outreach visiting 25 secondary schools across the 6 south-west states in Nigeria, where over 5,000 students have been directly impacted with educational mentorship, academic guidelines, and physical study resources between 2022 and 2023.',
+    icon: Milestone,
+    img: TOUR_IMG,
     color: 'bg-orange-50',
-    stats: { label: 'Businesses Started', value: '450+' }
+    stats: { label: 'Students Impacted', value: '5,000+' }
   },
   {
-    id: 'food',
-    title: 'Food Outreach',
-    subtitle: 'No Hungry Neighbor',
-    desc: 'Establishing community kitchens and sustainable agriculture programs to ensure food security for vulnerable families and the elderly.',
-    icon: Coffee,
-    img: FOOD_IMG,
+    id: 'skill-up-empowerment',
+    title: 'Skill Up Empowerment Program',
+    subtitle: 'Vocational Training & Capacity Building',
+    desc: 'Started in 2023, this initiative provides targeted vocational, creative, and technical skill acquisition training for local community members. It is designed to inspire self-reliance, entrepreneurship, and sustainable independent livelihood sources.',
+    icon: Zap,
+    img: SKILL_IMG,
     color: 'bg-green-50',
-    stats: { label: 'Meals Provided', value: '150k+' }
+    stats: { label: 'Vocational Capacity', value: 'Livelihoods' }
+  },
+  {
+    id: 'excellent-girl',
+    title: 'The Excellent Girl',
+    subtitle: 'Girl Child Day Celebration',
+    desc: 'Celebrated in commemoration of the International Day of the Girl Child. Started in 2023, this outreach focuses on visiting secondary schools to empower, guide, and provide sanitary, educational, and motivational resources specifically to the girl child.',
+    icon: Award,
+    img: GIRL_IMG,
+    color: 'bg-purple-50',
+    stats: { label: 'Girl Child Uplift', value: 'Empowered' }
+  },
+  {
+    id: 'jaotem-mentorship',
+    title: 'Jaotem Mentorship',
+    subtitle: 'Tertiary Institutions Network',
+    desc: 'A robust, high-impact mentorship program for students in tertiary institutions across south-west Nigeria. Launched in 2021, and helping students to thrive academically, we possess a proven track record of academic excellence, including outstanding First Class results.',
+    icon: Users,
+    img: MENTOR_IMG,
+    color: 'bg-yellow-50',
+    stats: { label: 'First Class Graduates', value: 'Proven Track' }
   }
 ];
 
@@ -55,7 +77,7 @@ const Programs: React.FC = () => {
       <PageHeader 
         title="Impactful Programs" 
         subtitle="Crafting sustainable solutions for real-world challenges through strategic initiatives and community collaboration."
-        image={EDUCATION_IMG}
+        image={TOUR_IMG}
         category="Our Core Initiatives"
       />
 
