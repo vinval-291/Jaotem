@@ -12,7 +12,7 @@ export const WhatsAppWidget: React.FC = () => {
   }, []);
 
   const openWhatsApp = () => {
-    const phone = "1234567890"; // Replace with real number
+    const phone = "+2347017239744"; // Replace with real number
     const message = "Hi Jaotem Foundation, I'd like to get involved!";
     window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
   };
