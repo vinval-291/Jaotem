@@ -13,26 +13,6 @@ const MENTOR_IMG = "https://images.unsplash.com/photo-1523240795612-9a054b0db644
 
 const programs = [
   {
-    id: 'book-thousand-children',
-    title: 'Project Book A Thousand Children',
-    subtitle: 'Odelemo Day Outreach',
-    desc: 'In celebration of Odelemo Day 2019, children were given exercise books in order to encourage them towards academics. This was paired with a powerful, guided talk session highlighting the critical importance of academic excellence.',
-    icon: BookOpen,
-    img: BOOK_IMG,
-    color: 'bg-blue-50',
-    stats: { label: 'Books Given', value: '1,000+' }
-  },
-  {
-    id: 'project-25-25',
-    title: 'Project 25 across 25',
-    subtitle: 'Secondary School Tour',
-    desc: 'An intensive outreach visiting 25 secondary schools across the 6 south-west states in Nigeria, where over 5,000 students have been directly impacted with educational mentorship, academic guidelines, and physical study resources between 2022 and 2023.',
-    icon: Milestone,
-    img: TOUR_IMG,
-    color: 'bg-orange-50',
-    stats: { label: 'Students Impacted', value: '5,000+' }
-  },
-  {
     id: 'skill-up-empowerment',
     title: 'Skill Up Empowerment Program',
     subtitle: 'Vocational Training & Capacity Building',
@@ -41,7 +21,7 @@ const programs = [
     img: SKILL_IMG,
     color: 'bg-green-50',
     stats: { label: 'Vocational Capacity', value: 'Livelihoods' }
-  },
+  }
   {
     id: 'excellent-girl',
     title: 'The Excellent Girl',
@@ -61,6 +41,26 @@ const programs = [
     img: MENTOR_IMG,
     color: 'bg-yellow-50',
     stats: { label: 'First Class Graduates', value: 'Proven Track' }
+  },
+  {
+    id: 'book-thousand-children',
+    title: 'Project Book A Thousand Children',
+    subtitle: 'Odelemo Day Outreach',
+    desc: 'In celebration of Odelemo Day 2019, children were given exercise books in order to encourage them towards academics. This was paired with a powerful, guided talk session highlighting the critical importance of academic excellence.',
+    icon: BookOpen,
+    img: BOOK_IMG,
+    color: 'bg-blue-50',
+    stats: { label: 'Books Given', value: '1,000+' }
+  },
+  {
+    id: 'project-25-25',
+    title: 'Project 25 across 25',
+    subtitle: 'Secondary School Tour',
+    desc: 'An intensive outreach visiting 25 secondary schools across the 6 south-west states in Nigeria, where over 5,000 students have been directly impacted with educational mentorship, academic guidelines, and physical study resources between 2022 and 2023.',
+    icon: Milestone,
+    img: TOUR_IMG,
+    color: 'bg-orange-50',
+    stats: { label: 'Students Impacted', value: '5,000+' }
   }
 ];
 
