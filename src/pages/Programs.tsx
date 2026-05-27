@@ -21,7 +21,7 @@ const programs = [
     img: SKILL_IMG,
     color: 'bg-green-50',
     stats: { label: 'Vocational Capacity', value: 'Livelihoods' }
-  }
+  },
   {
     id: 'excellent-girl',
     title: 'The Excellent Girl',
