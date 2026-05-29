@@ -98,7 +98,12 @@ const Programs: React.FC = () => {
                    <div className="w-14 h-14 rounded-2xl bg-brand-orange/10 text-brand-orange flex items-center justify-center">
                       <prog.icon size={28} />
                    </div>
-                   <h3 className="text-xl font-bold text-brand-orange tracking-widest uppercase">{prog.subtitle}</h3>
+                   <h3 
+                     style={idx === 0 ? { color: '#ffffff' } : undefined}
+                     className="text-xl font-bold text-brand-orange tracking-widest uppercase"
+                   >
+                     {prog.subtitle}
+                   </h3>
                 </div>
                 <h2 className="text-4xl md:text-5xl font-serif font-bold text-brand-green mb-6">{prog.title}</h2>
                 <p className="text-brand-warm-black/70 text-lg leading-relaxed mb-10">

@@ -1,8 +1,8 @@
 import React from 'react';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import { PageHeader } from '../components/PageHeader';
 import { SEO } from '../components/SEO';
-import { Camera, PlayCircle, Maximize2, FolderOpen, ArrowRight, ExternalLink } from 'lucide-react';
+import { Camera, PlayCircle, Maximize2, FolderOpen, ArrowRight, ExternalLink, ChevronLeft, ChevronRight, X } from 'lucide-react';
 
 const HERO_IMG = "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1200&auto=format&fit=crop";
 const BOOK_IMG = "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200&auto=format&fit=crop";
@@ -23,8 +23,42 @@ const items = [
   { id: 9, type: 'video', src: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=800&auto=format&fit=crop', title: 'Tertiary Academic Excellence Testimonial', category: 'Video Testimonials' },
 ];
 
+const archiveImages = [
+  { src: "https://i.postimg.cc/SRK4DFPT/IMG-5281.jpg", title: "Skill Up Summit Launch", desc: "Opening session of the 2024 intensive training program." },
+  { src: "https://i.postimg.cc/854DRPZn/IMG-5283.jpg", title: "Classroom Mentorship", desc: "Expert tutors guiding direct practical steps in digital literacy." },
+  { src: "https://i.postimg.cc/3Nwhn56Q/IMG-5286.jpg", title: "Creative Design Focus", desc: "Trainees collaborating on visual design blueprints." },
+  { src: "https://i.postimg.cc/0jNvcR3y/IMG-5289.jpg", title: "Empowered Scholars", desc: "Passionate classroom reactions and direct participation." },
+  { src: "https://i.postimg.cc/2y5Y2RJz/IMG-5291.jpg", title: "Group Synergy Class", desc: "Cooperative peer-to-peer training projects." },
+  { src: "https://i.postimg.cc/mDyZmSgP/IMG-5299.jpg", title: "Tech Skill Acquisition", desc: "Deep focus on practical technical and structural handbooks." },
+  { src: "https://i.postimg.cc/J0TrL4J8/IMG-5301.jpg", title: "Youth Development", desc: "Future leaders collaborating during interactive workshop hours." },
+  { src: "https://i.postimg.cc/rsyV3tDv/IMG-5304.jpg", title: "Vocational Inspiration", desc: "Engaged attendees taking key notes during motivational talks." },
+  { src: "https://i.postimg.cc/ZnYb2y9t/IMG-5307.jpg", title: "Interactive Workshop", desc: "Practical hands-on lab sessions designed for self-reliance." },
+  { src: "https://i.postimg.cc/gjMzWkRb/IMG-5309.jpg", title: "Classroom Engagement", desc: "Dedicated student sessions fostering strong future prospects." },
+  { src: "https://i.postimg.cc/kMwX8wZ3/IMG-5312.jpg", title: "Fostering Innovation", desc: "Scholars building creative assets and business prototypes." },
+  { src: "https://i.postimg.cc/Gh23jGwt/IMG-5316.jpg", title: "Skill Exhibition Session", desc: "Demonstration of practical milestones completed by cohort teams." },
+  { src: "https://i.postimg.cc/3Jc8fNY0/IMG-5320.jpg", title: "Mentorship Circle", desc: "Direct one-on-one professional guidance and support loops." },
+  { src: "https://i.postimg.cc/RCGVfG8v/IMG-5323.jpg", title: "Dynamic Lecture Hall", desc: "Impactful presentations during the core summit hours." },
+  { src: "https://i.postimg.cc/65mWbqtH/IMG-5326.jpg", title: "Empowerment Cohort", desc: "Trainees showcasing certificates and completed study modules." },
+  { src: "https://i.postimg.cc/JzH1f8zT/IMG-5329.jpg", title: "Bright Future Path", desc: "Young girls expressing gratitude for academic resources." },
+  { src: "https://i.postimg.cc/P5vtgH5B/IMG-5331.jpg", title: "Practical Workshop Lab", desc: "Classroom environments tailored for immersive technical training." },
+  { src: "https://i.postimg.cc/rwR8BTp8/IMG-5332.jpg", title: "Cohort Group Capture", desc: "Socio-economic empowerment sessions uniting enthusiastic minds." },
+  { src: "https://i.postimg.cc/HLGpHNJW/IMG-5346.jpg", title: "Leadership Seminars", desc: "Encouraging higher education and standard work ethics." },
+  { src: "https://i.postimg.cc/zfmJ5QLb/IMG-5348.jpg", title: "Inspiring Academic Goals", desc: "Special panels directing guides for tertiary excellence." },
+  { src: "https://i.postimg.cc/43CJZ0Ks/IMG-5351.jpg", title: "Success Mentoring", desc: "First-class mentorship graduates sharing real success strategies." },
+  { src: "https://i.postimg.cc/TP8RGsym/IMG-5353.jpg", title: "Empowerment and Beyond", desc: "Dedicated support structures building generational pathways." },
+  { src: "https://i.postimg.cc/9fGcfBTt/IMG-5357.jpg", title: "Global Summit Outreach", desc: "Field coordinators distributing academic manuals and supplies." },
+  { src: "https://i.postimg.cc/cJQdJcYX/IMG-5361.jpg", title: "Community Development", desc: "Vibrant and celebratory moments highlighting regional progress." },
+  { src: "https://i.postimg.cc/gJmmL6Hr/IMG-5362.jpg", title: "Pistine Program Standards", desc: "Our committed trainers receiving well-deserved acknowledgments." },
+  { src: "https://i.postimg.cc/tTppnVNy/IMG-5364.jpg", title: "Celebrating Excellence", desc: "Smiles, awards, and certification moments for peak performers." },
+  { src: "https://i.postimg.cc/9MCCwqY4/IMG-5367.jpg", title: "Inspiring the Next Gen", desc: "Direct educational impacts raising future leaders of tomorrow." },
+  { src: "https://i.postimg.cc/xCnnNb38/IMG-5369.jpg", title: "Empowering communities", desc: "Vocational trainees celebrating their newfound independent skills." },
+  { src: "https://i.postimg.cc/50g1BNsY/IMG-5372.jpg", title: "Unified Under Hope", desc: "Our massive group souvenir capture of Skill Up Summit 2024." },
+  { src: "https://i.postimg.cc/fLDDS0fS/IMG-5451.jpg", title: "Strategic Milestones ahead", desc: "Reviewing progress metrics to scale future local impact." }
+];
+
 const Gallery: React.FC = () => {
   const [filter, setFilter] = React.useState('All');
+  const [selectedImageIndex, setSelectedImageIndex] = React.useState<number | null>(null);
   const categories = ['All', '2024 Trainees', 'Video Testimonials', 'Education', 'Volunteers'];
 
   const filteredItems = filter === 'All' ? items : items.filter(i => i.category === filter);
@@ -98,11 +132,11 @@ const Gallery: React.FC = () => {
             </div>
             
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-brand-green leading-tight">
-              Extract of training from 2024: Trainees & Testimonials.
+              Extract of Skill Up Summit 2024: Trainees & Testimonials.
             </h2>
             
             <p className="text-brand-warm-black/70 text-lg leading-relaxed">
-              We believe in deep transparency and real-world outcomes. Our complete repository of 2024 training photos, individual success snapshots of vocational trainees, and direct testimonial video recordings is safely managed on our official Google Drive archive.
+              We believe in deep transparency and real-world outcomes. Highlight of our complete repository of 2024 Skill Up Summit photos, individual success snapshots of vocational trainees, and direct testimonial video recordings.
             </p>
             
             <div className="flex flex-col gap-4">
@@ -129,37 +163,59 @@ const Gallery: React.FC = () => {
 
             <div className="pt-4">
               <a 
-                href="https://drive.google.com/drive/folders/1PG1PoieJ7Wx2VbZEatq2-CQXRj4R1fWe" 
+                href="https://drive.google.com/drive/folders/1b-66N2TzWmwkIkLkjT34y8B-0TsASDEU" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="inline-flex items-center gap-3 px-10 py-5 bg-brand-green text-white rounded-2xl font-bold shadow-xl shadow-brand-green/20 hover:scale-105 active:scale-95 transition-all w-full sm:w-auto justify-center"
               >
-                Access Google Drive Folder <FolderOpen size={20} />
+                Open to view all images <FolderOpen size={20} />
               </a>
             </div>
           </div>
 
           <div className="relative">
-            <div className="aspect-[4/3] rounded-[3rem] overflow-hidden shadow-2xl relative border-[8px] border-white/60">
-              <img 
-                src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=1200&auto=format&fit=crop" 
-                alt="2024 Trainees" 
-                className="w-full h-full object-cover" 
-              />
-              <div className="absolute inset-0 bg-brand-green/30 backdrop-blur-[1px] hover:backdrop-blur-none transition-all duration-500 flex items-center justify-center">
-                <a 
-                  href="https://drive.google.com/drive/folders/1PG1PoieJ7Wx2VbZEatq2-CQXRj4R1fWe" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="p-6 bg-white rounded-full shadow-2xl text-brand-orange hover:scale-110 active:scale-95 transition-all text-center flex flex-col items-center gap-2 group border border-brand-warm-black/5"
-                >
-                  <ExternalLink size={28} className="translate-x-0.5" />
-                </a>
-              </div>
+            <div className="absolute -inset-4 bg-brand-green/5 rounded-[3rem] -z-10 blur-xl" />
+            
+            {/* Live Interactive Grid of the 2024 Summit Photos */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 p-2 bg-white rounded-[2.5rem] shadow-xl border border-brand-warm-black/5">
+              {archiveImages.slice(0, 6).map((img, index) => {
+                const isLast = index === 5;
+                return (
+                  <motion.div 
+                    key={index}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => setSelectedImageIndex(index)}
+                    className="relative aspect-square rounded-2xl overflow-hidden cursor-pointer shadow-sm group border border-brand-warm-black/5"
+                  >
+                    <img 
+                      src={img.src} 
+                      alt={img.title}
+                      referrerPolicy="no-referrer"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                    />
+                    {isLast ? (
+                      <div className="absolute inset-0 bg-brand-green/90 backdrop-blur-[2px] flex flex-col items-center justify-center p-2 text-white transition-colors duration-300 group-hover:bg-brand-green/95">
+                        <span className="text-xl font-bold font-serif">+{archiveImages.length - 5}</span>
+                        <span className="text-[10px] uppercase tracking-widest font-bold text-brand-gold text-center">Summit Photos</span>
+                      </div>
+                    ) : (
+                      <div className="absolute inset-0 bg-brand-green/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <Maximize2 size={20} className="text-white transform scale-75 group-hover:scale-100 transition-transform duration-300" />
+                      </div>
+                    )}
+                  </motion.div>
+                );
+              })}
             </div>
             
-            <div className="absolute -bottom-6 -right-6 p-4 bg-brand-gold text-brand-green rounded-2xl font-bold shadow-lg text-xs tracking-widest uppercase">
-              2024 Media Drive
+            {/* Click Indicator */}
+            <p className="text-center text-xs text-brand-warm-black/50 mt-4 italic">
+              Click on any thumbnail above to enter fullscreen live-archive slideshow memory book
+            </p>
+
+            <div className="absolute -bottom-6 -right-3 p-3 bg-brand-orange text-white rounded-xl font-black shadow-lg text-[9px] tracking-widest uppercase">
+              {archiveImages.length} live memories
             </div>
           </div>
         </div>
@@ -176,6 +232,99 @@ const Gallery: React.FC = () => {
             </div>
          </div>
       </section>
+
+      {/* Immersive Sandbox Lightbox Modal */}
+      <AnimatePresence>
+        {selectedImageIndex !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-brand-warm-black/95 z-50 flex flex-col justify-between py-8 px-6 backdrop-blur-md"
+          >
+            {/* Top Bar info */}
+            <div className="max-w-7xl mx-auto w-full flex items-center justify-between text-white border-b border-white/10 pb-4 shrink-0">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-brand-gold text-brand-green rounded-xl flex items-center justify-center font-bold shrink-0">
+                  {selectedImageIndex + 1}
+                </div>
+                <div>
+                  <h4 className="font-bold text-white tracking-wide text-sm md:text-base">{archiveImages[selectedImageIndex].title}</h4>
+                  <p className="text-xs text-white/60 hidden sm:block">{archiveImages[selectedImageIndex].desc}</p>
+                </div>
+              </div>
+              
+              <button 
+                onClick={() => setSelectedImageIndex(null)}
+                className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-brand-orange hover:text-white transition-all hover:scale-110 active:scale-95 shrink-0"
+              >
+                <X size={20} />
+              </button>
+            </div>
+
+            {/* Main Stage viewport */}
+            <div className="flex-1 flex items-center justify-between gap-2 md:gap-6 max-w-7xl mx-auto w-full py-4 overflow-hidden">
+              {/* Prev Button */}
+              <button 
+                onClick={() => setSelectedImageIndex((prev) => (prev! - 1 + archiveImages.length) % archiveImages.length)}
+                className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-brand-green hover:text-white hover:scale-110 active:scale-95 transition-all shrink-0"
+              >
+                <ChevronLeft size={24} />
+              </button>
+
+              {/* Main Image container */}
+              <div className="relative flex-1 max-h-[55vh] flex items-center justify-center rounded-3xl overflow-hidden shadow-2xl p-2 bg-black/40">
+                <motion.img 
+                  key={selectedImageIndex}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.25 }}
+                  src={archiveImages[selectedImageIndex].src} 
+                  alt={archiveImages[selectedImageIndex].title}
+                  referrerPolicy="no-referrer"
+                  className="max-h-[50vh] max-w-full object-contain rounded-2xl" 
+                />
+              </div>
+
+              {/* Next Button */}
+              <button 
+                onClick={() => setSelectedImageIndex((prev) => (prev! + 1) % archiveImages.length)}
+                className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-brand-green hover:text-white hover:scale-110 active:scale-95 transition-all shrink-0"
+              >
+                <ChevronRight size={24} />
+              </button>
+            </div>
+
+            {/* Bottom bar carousel */}
+            <div className="max-w-7xl mx-auto w-full shrink-0">
+              <div className="flex items-center justify-between text-white/40 text-[10px] uppercase tracking-wider mb-2">
+                <span>SCROLL SKILL UP memories</span>
+                <span>{selectedImageIndex + 1} / {archiveImages.length}</span>
+              </div>
+              <div className="flex gap-2 overflow-x-auto py-2 scrollbar-none justify-start md:justify-center">
+                {archiveImages.map((img, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setSelectedImageIndex(idx)}
+                    className={cn(
+                      "relative w-12 h-12 md:w-14 md:h-14 rounded-lg overflow-hidden shrink-0 border-2 transition-all hover:scale-105 active:scale-95",
+                      selectedImageIndex === idx ? "border-brand-gold scale-105 shadow-md shadow-brand-gold/30" : "border-transparent opacity-50 hover:opacity-100"
+                    )}
+                  >
+                    <img 
+                      src={img.src} 
+                      alt="" 
+                      referrerPolicy="no-referrer"
+                      className="w-full h-full object-cover" 
+                    />
+                  </button>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 };
