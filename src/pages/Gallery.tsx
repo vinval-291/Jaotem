@@ -6,23 +6,6 @@ import { Camera, PlayCircle, Maximize2, FolderOpen, ArrowRight, ExternalLink, Ch
 import { cn } from '../lib/utils';
 
 const HERO_IMG = "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1200&auto=format&fit=crop";
-const BOOK_IMG = "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200&auto=format&fit=crop";
-const TOUR_IMG = "https://images.unsplash.com/photo-1542810634-71277d95dcbb?q=80&w=1200&auto=format&fit=crop";
-const SKILL_IMG = "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?q=80&w=1200&auto=format&fit=crop";
-const GIRL_IMG = "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop";
-const TEAM_IMG = "https://images.unsplash.com/photo-1559027615-cd2428ee0a2a?q=80&w=1200&auto=format&fit=crop";
-
-const items = [
-  { id: 1, type: 'image', src: 'https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=800&auto=format&fit=crop', title: '2024 Vocational Design Trainee Class', category: '2024 Trainees' },
-  { id: 2, type: 'image', src: BOOK_IMG, title: 'Project Book - 1000 Children', category: 'Education' },
-  { id: 3, type: 'video', src: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?q=80&w=800&auto=format&fit=crop', title: 'Vocational Skills Workshop Reel 2024', category: 'Video Testimonials' },
-  { id: 4, type: 'image', src: SKILL_IMG, title: 'Skillup Tech Trainees Workshop', category: '2024 Trainees' },
-  { id: 5, type: 'image', src: TEAM_IMG, title: 'Weekend Clean-up & Coordination', category: 'Volunteers' },
-  { id: 6, type: 'image', src: GIRL_IMG, title: 'The Excellent School Girls Initiative', category: 'Education' },
-  { id: 7, type: 'video', src: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800&auto=format&fit=crop', title: 'Skillup Trainee Success Video Interview', category: 'Video Testimonials' },
-  { id: 8, type: 'image', src: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=800&auto=format&fit=crop', title: 'Digital Literacy Graduate Session', category: '2024 Trainees' },
-  { id: 9, type: 'video', src: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=800&auto=format&fit=crop', title: 'Tertiary Academic Excellence Testimonial', category: 'Video Testimonials' },
-];
 
 const archiveImages = [
   { src: "https://i.postimg.cc/SRK4DFPT/IMG-5281.jpg", title: "Skill Up Summit Launch", desc: "Opening session of the 2024 intensive training program." },
@@ -121,11 +104,7 @@ const project25Images = [
 ];
 
 const Gallery: React.FC = () => {
-  const [filter, setFilter] = React.useState('All');
   const [lightbox, setLightbox] = React.useState<{ group: 'archive' | 'project25'; index: number } | null>(null);
-  const categories = ['All', '2024 Trainees', 'Video Testimonials', 'Education', 'Volunteers'];
-
-  const filteredItems = filter === 'All' ? items : items.filter(i => i.category === filter);
 
   return (
     <motion.div
@@ -142,49 +121,6 @@ const Gallery: React.FC = () => {
         image={HERO_IMG}
         category="Our Media Wall"
       />
-
-      <section className="py-20 px-6 max-w-7xl mx-auto">
-        <div className="flex flex-wrap items-center justify-center gap-4 mb-20 animate-fade-in">
-           {categories.map(c => (
-             <button
-               key={c}
-               onClick={() => setFilter(c)}
-               className={cn(
-                 "px-8 py-3 rounded-full text-sm font-bold transition-all border border-transparent",
-                 filter === c 
-                   ? "bg-brand-green text-white shadow-xl shadow-brand-green/20" 
-                   : "bg-brand-cream text-brand-green hover:bg-brand-green hover:text-white"
-               )}
-             >
-               {c}
-             </button>
-           ))}
-        </div>
-
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
-           {filteredItems.map((item, idx) => (
-             <motion.div
-               layout
-               initial={{ opacity: 0, scale: 0.9 }}
-               animate={{ opacity: 1, scale: 1 }}
-               key={item.id}
-               className="relative group rounded-3xl overflow-hidden shadow-xl cursor-pointer break-inside-avoid"
-             >
-                <img src={item.src} alt={item.title} className="w-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                <div className="absolute inset-0 bg-brand-green/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col items-center justify-center p-8 text-center text-white">
-                   {item.type === 'video' ? <PlayCircle size={48} className="mb-4" /> : <Maximize2 size={48} className="mb-4" />}
-                   <span className="text-xs font-bold uppercase tracking-widest text-brand-gold mb-2">{item.category}</span>
-                   <h3 className="text-xl font-serif font-bold">{item.title}</h3>
-                </div>
-                {item.type === 'video' && (
-                  <div className="absolute top-4 right-4 bg-brand-orange text-white w-10 h-10 rounded-full flex items-center justify-center">
-                     <PlayCircle size={20} />
-                  </div>
-                )}
-             </motion.div>
-           ))}
-        </div>
-      </section>
 
       {/* Trainees 2024 & Testimonials Google Drive Showcase */}
       <section className="py-24 px-6 max-w-7xl mx-auto border-t border-brand-warm-black/5">

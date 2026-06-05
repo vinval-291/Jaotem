@@ -98,7 +98,7 @@ const Home: React.FC = () => {
                 to="/donate" 
                 className="group relative px-10 py-5 bg-brand-green text-white rounded-2xl font-bold overflow-hidden shadow-2xl shadow-brand-green/20 transition-transform hover:-translate-y-1"
               >
-                Become a Volunteer
+                Become a Sponsor
               </NavLink>
               <NavLink 
                 to="/about" 
