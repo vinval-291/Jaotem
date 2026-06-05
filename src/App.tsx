@@ -12,20 +12,20 @@ import { WhatsAppWidget } from './components/WhatsAppWidget';
 import { SEO } from './components/SEO';
 
 // Pages
-const Home = React.lazy(() => import('./pages/Home'));
-const About = React.lazy(() => import('./pages/About'));
-const Programs = React.lazy(() => import('./pages/Programs'));
-const Blog = React.lazy(() => import('./pages/Blog'));
-const BlogPost = React.lazy(() => import('./pages/BlogPost'));
-const Events = React.lazy(() => import('./pages/Events'));
-const Gallery = React.lazy(() => import('./pages/Gallery'));
-const Donate = React.lazy(() => import('./pages/Donate'));
-const Contact = React.lazy(() => import('./pages/Contact'));
+import Home from './pages/Home';
+import About from './pages/About';
+import Programs from './pages/Programs';
+import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
+import Events from './pages/Events';
+import Gallery from './pages/Gallery';
+import Donate from './pages/Donate';
+import Contact from './pages/Contact';
 
 // Admin Pages
-const AdminLogin = React.lazy(() => import('./pages/AdminLogin'));
-const AdminDashboard = React.lazy(() => import('./pages/AdminDashboard'));
-const AdminPostEditor = React.lazy(() => import('./pages/AdminPostEditor'));
+import AdminLogin from './pages/AdminLogin';
+import AdminDashboard from './pages/AdminDashboard';
+import AdminPostEditor from './pages/AdminPostEditor';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
