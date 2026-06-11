@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { PageHeader } from '../components/PageHeader';
 import { SEO } from '../components/SEO';
-import { Calendar, MapPin, Clock, ArrowRight, Users, Ticket } from 'lucide-react';
+import { Calendar, MapPin, Clock, ArrowRight, Users, Ticket, History, Award } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 
 const EVENTS_IMAGE = "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1200&auto=format&fit=crop";
@@ -37,6 +37,39 @@ const upcomingEvents = [
   }
 ];
 
+const pastEvents = [
+  {
+    id: 'skill-up-empowerment',
+    title: 'Skill Up Empowerment Program',
+    date: 'Summits 2023 - 2025',
+    type: 'Vocational Training & Tech',
+    desc: 'An intensive vocational, digital, and technical capacity-building training program engineered to create sustainable micro-enterprises and local self-reliance.',
+    img: 'https://i.postimg.cc/8PNnKvYg/IMG-20260611-WA0012.jpg',
+    path: '/events/skill-up',
+    stats: '350+ Graduates Powered'
+  },
+  {
+    id: 'excellent-girl',
+    title: 'The Excellent Girl',
+    date: 'International Day of the Girl Child Outreach',
+    type: 'Advocacy & Girls Care',
+    desc: 'Empowering schoolgirls through comprehensive hygiene kit distribution, self-esteem workshops, coaching panels, and academic supplies.',
+    img: 'https://i.postimg.cc/rs4sDmWw/466631038-18052364986939617-6262507189763328855-n.jpg',
+    path: '/events/excellent-girl',
+    stats: '1,000+ Sanitary Packs Delivered'
+  },
+  {
+    id: 'project-25-25',
+    title: 'Project 25 across 25',
+    date: 'Regional School Tour',
+    type: 'Rural Education Mentorship',
+    desc: 'Visiting 25 underserved public secondary schools across key states to deliver intensive educational mentorship, reading blueprints, and critical scholastic libraries.',
+    img: 'https://i.postimg.cc/pTj0j5tB/476612979-8966573803453923-7390491861252115043-n.jpg',
+    path: '/events/project-25',
+    stats: '5,000+ Students Guided'
+  }
+];
+
 const Events: React.FC = () => {
   return (
     <motion.div
@@ -67,6 +100,8 @@ const Events: React.FC = () => {
                <button className="px-6 py-2 rounded-full bg-brand-green text-white font-bold">Calendar View</button>
             </div>
         </div>
+
+
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
            {upcomingEvents.map((event, idx) => (
@@ -109,6 +144,69 @@ const Events: React.FC = () => {
                 </div>
              </motion.div>
            ))}
+        </div>
+      </section>
+
+      {/* Completed Special Initiatives & Past Events Archive Section */}
+      <section className="py-24 px-6 max-w-7xl mx-auto border-t border-brand-warm-black/5">
+        <div className="mb-16">
+          <span className="text-brand-orange font-bold text-sm tracking-widest uppercase mb-4 block flex items-center gap-2">
+            <History size={16} /> Completed Special Outreaches
+          </span>
+          <h2 className="text-4xl md:text-5xl font-serif font-bold text-brand-green leading-tight">
+            Our Historic Footprints.
+          </h2>
+          <p className="text-brand-warm-black/60 mt-3 text-lg max-w-3xl leading-relaxed">
+            Discover the deep community value created during our landmark educational, vocational, and child advocacy achievements. Select an event below to inspect dedicated highlights, media archives, and on-ground results.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {pastEvents.map((pEvent) => (
+            <motion.div 
+              key={pEvent.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="group bg-white rounded-[2.5rem] overflow-hidden shadow-lg border border-brand-warm-black/5 flex flex-col justify-between hover:shadow-xl transition-shadow duration-300"
+            >
+              <div>
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <img 
+                    src={pEvent.img} 
+                    alt={pEvent.title} 
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                  />
+                  <div className="absolute top-4 left-4 bg-brand-green text-white px-4 py-2 rounded-2xl text-[10px] font-bold uppercase tracking-wider shadow-sm">
+                    {pEvent.type}
+                  </div>
+                </div>
+                <div className="p-8">
+                  <div className="flex items-center gap-2 text-brand-orange font-bold text-xs uppercase tracking-widest mb-3">
+                    <Calendar size={12} /> {pEvent.date}
+                  </div>
+                  <h3 className="text-2xl font-serif font-bold text-brand-green leading-snug mb-3 group-hover:text-brand-orange transition-colors">
+                    {pEvent.title}
+                  </h3>
+                  <p className="text-brand-warm-black/60 text-sm leading-relaxed mb-4">
+                    {pEvent.desc}
+                  </p>
+                </div>
+              </div>
+              <div className="px-8 pb-8">
+                <div className="pt-6 border-t border-brand-warm-black/5 flex flex-col sm:flex-row gap-4 items-center justify-between">
+                  <span className="text-[10px] font-black text-brand-gold bg-brand-green/10 px-3 py-1 rounded-full uppercase tracking-wider">{pEvent.stats}</span>
+                  <NavLink 
+                    to={pEvent.path} 
+                    className="text-brand-green font-bold text-sm flex items-center gap-2 hover:text-brand-orange transition-colors"
+                  >
+                    View Details <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                  </NavLink>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </section>
 

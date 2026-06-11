@@ -21,6 +21,9 @@ import Events from './pages/Events';
 import Gallery from './pages/Gallery';
 import Donate from './pages/Donate';
 import Contact from './pages/Contact';
+import SkillUpEvent from './pages/SkillUpEvent';
+import ExcellentGirlEvent from './pages/ExcellentGirlEvent';
+import Project25Event from './pages/Project25Event';
 
 // Admin Pages
 import AdminLogin from './pages/AdminLogin';
@@ -59,6 +62,9 @@ function Layout() {
             <Route path="/blog" element={<PageContainer><Blog /></PageContainer>} />
             <Route path="/blog/:id" element={<PageContainer><BlogPost /></PageContainer>} />
             <Route path="/events" element={<PageContainer><Events /></PageContainer>} />
+            <Route path="/events/skill-up" element={<PageContainer><SkillUpEvent /></PageContainer>} />
+            <Route path="/events/excellent-girl" element={<PageContainer><ExcellentGirlEvent /></PageContainer>} />
+            <Route path="/events/project-25" element={<PageContainer><Project25Event /></PageContainer>} />
             <Route path="/gallery" element={<PageContainer><Gallery /></PageContainer>} />
             <Route path="/donate" element={<PageContainer><Donate /></PageContainer>} />
             <Route path="/contact" element={<PageContainer><Contact /></PageContainer>} />
