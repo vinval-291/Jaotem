@@ -103,8 +103,48 @@ const project25Images = [
   }
 ];
 
+const skillup2025Images = [
+  { src: "https://i.postimg.cc/KzmN8bn3/DSC-9749.jpg", title: "Skill Up 2025 Summit Class", desc: "Interactive capacity training and theoretical lectures for community members." },
+  { src: "https://i.postimg.cc/vBXv1KzT/DSC-9758.jpg", title: "Practical Learning Dialogues", desc: "Facilitators reviewing trainee project sheets and blueprints with candidates." },
+  { src: "https://i.postimg.cc/mkDy7SXX/DSC-9763.jpg", title: "Educational Resources Library", desc: "Laying out specialized manuals, workbooks, and resource kits." },
+  { src: "https://i.postimg.cc/90ntbqsQ/DSC-9764.jpg", title: "Group Learning Brainstorm", desc: "Collaborating in peer groups to master contemporary digital paradigms." },
+  { src: "https://i.postimg.cc/HLY7DYGy/4abbf77b-786a-44c4-841c-df1c4f396724.jpg", title: "Interactive Workshop Launch", desc: "Welcoming participants to the 2025 Skill Up masterclasses." },
+  { src: "https://i.postimg.cc/Y92fM2fW/DSC-9710.jpg", title: "Hands-on Vocational Training", desc: "Developing vocational and handcraft expertise under expert guidance." },
+  { src: "https://i.postimg.cc/h45bRBJK/DSC-9715.jpg", title: "Guided Mentorship Session", desc: "Providing individual feedback and career path strategies to trainees." },
+  { src: "https://i.postimg.cc/0ygYr0d7/DSC-9724.jpg", title: "Technical Application Work", desc: "Step-by-step practical walk-throughs in software and web setup tools." },
+  { src: "https://i.postimg.cc/XvYgdcXD/DSC-9775.jpg", title: "Practical Materials Preparation", desc: "Handing out essential kits and instruments for hands-on tasks." },
+  { src: "https://i.postimg.cc/j5Z0vhhV/DSC-9786.jpg", title: "Project Evaluation Desk", desc: "One-on-one evaluations to measure skill acquisition progress." },
+  { src: "https://i.postimg.cc/WzzRyJ9t/DSC-9789.jpg", title: "Skill Mastery Showcase", desc: "Showing completed practical test designs to peers and coordinators." },
+  { src: "https://i.postimg.cc/HnwMfVV5/DSC-9820.jpg", title: "Digital Literacy Workshop", desc: "Focusing on typing, computing, and online navigation capabilities." },
+  { src: "https://i.postimg.cc/pTZx4vRc/DSC-9822.jpg", title: "Empowered Career Coaching", desc: "Teaching digital freelancing and remote workspace management models." },
+  { src: "https://i.postimg.cc/hvmFgqBK/DSC-9824.jpg", title: "Resource Delivery Event", desc: "Supplying additional modern instruments and equipment to top trainees." },
+  { src: "https://i.postimg.cc/fbq19bWW/DSC-9946.jpg", title: "Trainee Orientation Session", desc: "Aligning trainee goals with sustainable growth milestones." },
+  { src: "https://i.postimg.cc/fW91VZGd/DSC-9973.jpg", title: "Focused Training Exercises", desc: "Intense execution sessions to perfect newly learned trades." },
+  { src: "https://i.postimg.cc/gkbQRQpL/DSC-9982.jpg", title: "Team Leadership Coordination", desc: "Project coordinators verifying training parameters and logistics." },
+  { src: "https://i.postimg.cc/dQ8xj64h/DSC-0003.jpg", title: "General Assembly & Briefing", desc: "Gathering community trainees to review weekly progress." },
+  { src: "https://i.postimg.cc/tJtvRRY3/DSC-0004.jpg", title: "Group Synergy Snapshot", desc: "An inspired team memory of community facilitators and tech instructors." },
+  { src: "https://i.postimg.cc/RFtb8L9M/DSC-0011.jpg", title: "Trainee Excellence Recognition", desc: "Handing out certificates and starter kits to top-performing participants." },
+  { src: "https://i.postimg.cc/8kh0m4t5/DSC-0017.jpg", title: "Skill Up 2025 Graduation", desc: "Shovel-ready graduates ready to establish local independent enterprises." },
+  { src: "https://i.postimg.cc/DywP4PDm/DSC-0023.jpg", title: "Graduate Presentation Event", desc: "Showcasing the completed models for local stakeholders." },
+  { src: "https://i.postimg.cc/8PNnKvYg/IMG-20260611-WA0012.jpg", title: "Official Summit Kick-off", desc: "Celebrating the launch of Skill Up 2025 with program sponsors." }
+];
+
+const excellentImages = [
+  { src: "https://i.postimg.cc/rs4sDmWw/466631038-18052364986939617-6262507189763328855-n.jpg", title: "The Excellent Girl School Outreach", desc: "Visiting school girls to distribute educational and physical kits." },
+  { src: "https://i.postimg.cc/PfvP3670/466846370-18052365919939617-2117216860870530175-n.jpg", title: "Guided Talk Sessions", desc: "Empowering female pupils with hygiene guides and moral coaching." },
+  { src: "https://i.postimg.cc/ZnNnWR3b/466849251-18052365286939617-2775084372203690106-n.jpg", title: "Hygiene & Care Kits", desc: "Distributing personal care packs to help girls stay in classroom structures." },
+  { src: "https://i.postimg.cc/MZfvPsLV/466871015-18052365139939617-7904433499580482388-n.jpg", title: "Interactive Workshop", desc: "Engaging female scholars in goal-setting, confidence metrics, and self-belief workshops." },
+  { src: "https://i.postimg.cc/Vs0dG7hZ/466871879-18052366003939617-4671179048459699667-n.jpg", title: "Inspiring Group Mentorship", desc: "Gathering students for motivation talks and group advice sessions." },
+  { src: "https://i.postimg.cc/zDHVtdQ7/466891927-18052366057939617-7346772575134044440-n.jpg", title: "Study Pack Distributions", desc: "Encouraging secondary pupils to target core academic excellence." },
+  { src: "https://i.postimg.cc/WpqhW9yW/466900001-18052365850939617-3000447991805453161-n.jpg", title: "Leadership Seminars", desc: "Guiding future female icons through career maps and digital possibilities." },
+  { src: "https://i.postimg.cc/QNKH46zc/466900428-18052366030939617-1358317609975642915-n.jpg", title: "Supporter Collaborations", desc: "Working alongside community school staff to verify educational progress." },
+  { src: "https://i.postimg.cc/Vs0dG7ht/467022971-18052365148939617-7061924297581905393-n.jpg", title: "Classroom Motivation Briefings", desc: "Teaching secondary scholars about integrity, health, and bright futures." },
+  { src: "https://i.postimg.cc/c1tr9DzT/467036138-18052366072939617-1920907341595837609-n.jpg", title: "Empowering Next Leaders", desc: "Empowering young girls to champion community growth models." },
+  { src: "https://i.postimg.cc/SQYJTZ50/excelemt.jpg", title: "Excellent Girls Union", desc: "Celebrating girl child day and celebrating collective academic strength." }
+];
+
 const Gallery: React.FC = () => {
-  const [lightbox, setLightbox] = React.useState<{ group: 'archive' | 'project25'; index: number } | null>(null);
+  const [lightbox, setLightbox] = React.useState<{ group: 'archive' | 'project25' | 'skillup2025' | 'excellent'; index: number } | null>(null);
 
   return (
     <motion.div
@@ -320,6 +360,204 @@ const Gallery: React.FC = () => {
         </div>
       </section>
 
+      {/* SKILL UP 2025 Showcase Section */}
+      <section className="py-24 px-6 max-w-7xl mx-auto border-t border-brand-warm-black/5">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="space-y-8">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-orange/10 border border-brand-orange/20 rounded-full w-fit mb-2">
+              <span className="flex h-2 w-2 rounded-full bg-brand-orange"></span>
+              <span className="text-[10px] font-black uppercase tracking-widest text-brand-orange">Vocational Milestone 2025</span>
+            </div>
+            
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-brand-green leading-tight">
+              Skill Up Empowerment Program 2025 Archive
+            </h2>
+            
+            <p className="text-brand-warm-black/70 text-lg leading-relaxed">
+              Explore the intensive 2025 vocational masterclasses. Witness on-site snapshots of our facilitators, interactive peer collaborations, and trainees mastering core creative and digital skills to achieve self-reliance.
+            </p>
+            
+            <div className="flex flex-col gap-4">
+              <div className="flex items-start gap-4 p-5 bg-white rounded-2xl border border-brand-warm-black/5 shadow-sm">
+                <div className="w-10 h-10 bg-brand-green/10 text-brand-green rounded-xl flex items-center justify-center shrink-0">
+                  <Camera size={20} />
+                </div>
+                <div>
+                  <h4 className="font-bold text-brand-green">Interactive Tech Lab Workshops</h4>
+                  <p className="text-xs text-brand-warm-black/50">Trainees getting hands-on with digital literacy, design, and computational tool sets.</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4 p-5 bg-white rounded-2xl border border-brand-warm-black/5 shadow-sm">
+                <div className="w-10 h-10 bg-brand-gold/10 text-brand-gold rounded-xl flex items-center justify-center shrink-0">
+                  <Facebook size={20} className="fill-current" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-brand-green">Active Mentorship Desk</h4>
+                  <p className="text-xs text-brand-warm-black/50">Coordinators and professional guides delivering step-by-step vocational instructions.</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="pt-4">
+              <a 
+                href="https://facebook.com/jaotemfoundation" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="inline-flex items-center gap-3 px-10 py-5 bg-[#1877F2] text-white rounded-2xl font-bold shadow-xl shadow-blue-500/20 hover:bg-[#166FE5] hover:scale-105 active:scale-95 transition-all w-full sm:w-auto justify-center"
+              >
+                <Facebook size={20} className="fill-current" /> View More Images on Facebook <ArrowRight size={20} />
+              </a>
+            </div>
+          </div>
+
+          <div className="relative">
+            <div className="absolute -inset-4 bg-brand-orange/5 rounded-[3rem] -z-10 blur-xl" />
+            
+            {/* Live Interactive Grid of the Skill Up 2025 Photos */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 p-2 bg-white rounded-[2.5rem] shadow-xl border border-brand-warm-black/5">
+              {skillup2025Images.slice(0, 6).map((img, index) => {
+                const isLast = index === 5;
+                return (
+                  <motion.div 
+                    key={index}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => setLightbox({ group: 'skillup2025', index })}
+                    className="relative aspect-square rounded-2xl overflow-hidden cursor-pointer shadow-sm group border border-brand-warm-black/5"
+                  >
+                    <img 
+                      src={img.src} 
+                      alt={img.title}
+                      referrerPolicy="no-referrer"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                    />
+                    {isLast ? (
+                      <div className="absolute inset-0 bg-brand-green/90 backdrop-blur-[2px] flex flex-col items-center justify-center p-2 text-white transition-colors duration-300 group-hover:bg-brand-green/95">
+                        <span className="text-xl font-bold font-serif">+{skillup2025Images.length - 5}</span>
+                        <span className="text-[10px] uppercase tracking-widest font-bold text-brand-gold text-center">Summit Photos</span>
+                      </div>
+                    ) : (
+                      <div className="absolute inset-0 bg-brand-green/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <Maximize2 size={20} className="text-white transform scale-75 group-hover:scale-100 transition-transform duration-300" />
+                      </div>
+                    )}
+                  </motion.div>
+                );
+              })}
+            </div>
+            
+            {/* Click Indicator */}
+            <p className="text-center text-xs text-brand-warm-black/50 mt-4 italic">
+              Click on any thumbnail above to enter fullscreen Skill Up 2025 live-archive slideshow
+            </p>
+
+            <div className="absolute -bottom-6 -right-3 p-3 bg-brand-orange text-white rounded-xl font-black shadow-lg text-[9px] tracking-widest uppercase">
+              {skillup2025Images.length} project highlights
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* THE EXCELLENT Showcase Section */}
+      <section className="py-24 px-6 max-w-7xl mx-auto border-t border-brand-warm-black/5">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="space-y-8 w-full">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-orange/10 border border-brand-orange/20 rounded-full w-fit mb-2">
+              <span className="flex h-2 w-2 rounded-full bg-brand-orange"></span>
+              <span className="text-[10px] font-black uppercase tracking-widest text-brand-orange">Girls Empowerment Outreach</span>
+            </div>
+            
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-brand-green leading-tight">
+              The Excellent Initiative Showcase
+            </h2>
+            
+            <p className="text-brand-warm-black/70 text-lg leading-relaxed">
+              Witness our impactful Girl Child Day celebrations. Our teams visit secondary schools to provide hygiene kits, study notebooks, and guided motivation talks focused on building bold future female leaders.
+            </p>
+            
+            <div className="flex flex-col gap-4">
+              <div className="flex items-start gap-4 p-5 bg-white rounded-2xl border border-brand-warm-black/5 shadow-sm">
+                <div className="w-10 h-10 bg-brand-green/10 text-brand-green rounded-xl flex items-center justify-center shrink-0">
+                  <Camera size={20} />
+                </div>
+                <div>
+                  <h4 className="font-bold text-brand-green">School Outreach Support</h4>
+                  <p className="text-xs text-brand-warm-black/50">Broad supply drives bringing essential resources directly to classrooms.</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4 p-5 bg-white rounded-2xl border border-brand-warm-black/5 shadow-sm">
+                <div className="w-10 h-10 bg-brand-gold/10 text-brand-gold rounded-xl flex items-center justify-center shrink-0">
+                  <Facebook size={20} className="fill-current" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-brand-green">Hygiene & Educational Packs</h4>
+                  <p className="text-xs text-brand-warm-black/50">Enabling academic focus through personal health resources and physical supplies.</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="pt-4">
+              <a 
+                href="https://facebook.com/jaotemfoundation" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="inline-flex items-center gap-3 px-10 py-5 bg-[#1877F2] text-white rounded-2xl font-bold shadow-xl shadow-blue-500/20 hover:bg-[#166FE5] hover:scale-105 active:scale-95 transition-all w-full sm:w-auto justify-center"
+              >
+                <Facebook size={20} className="fill-current" /> View More Images on Facebook <ArrowRight size={20} />
+              </a>
+            </div>
+          </div>
+
+          <div className="relative">
+            <div className="absolute -inset-4 bg-brand-orange/5 rounded-[3rem] -z-10 blur-xl" />
+            
+            {/* Live Interactive Grid Of The Excellent Photos */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 p-2 bg-white rounded-[2.5rem] shadow-xl border border-brand-warm-black/5">
+              {excellentImages.slice(0, 6).map((img, index) => {
+                const isLast = index === 5;
+                return (
+                  <motion.div 
+                    key={index}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => setLightbox({ group: 'excellent', index })}
+                    className="relative aspect-square rounded-2xl overflow-hidden cursor-pointer shadow-sm group border border-brand-warm-black/5"
+                  >
+                    <img 
+                      src={img.src} 
+                      alt={img.title}
+                      referrerPolicy="no-referrer"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                    />
+                    {isLast ? (
+                      <div className="absolute inset-0 bg-brand-green/90 backdrop-blur-[2px] flex flex-col items-center justify-center p-2 text-white transition-colors duration-300 group-hover:bg-brand-green/95">
+                        <span className="text-xl font-bold font-serif">+{excellentImages.length - 5}</span>
+                        <span className="text-[10px] uppercase tracking-widest font-bold text-brand-gold text-center">Project Photos</span>
+                      </div>
+                    ) : (
+                      <div className="absolute inset-0 bg-brand-green/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <Maximize2 size={20} className="text-white transform scale-75 group-hover:scale-100 transition-transform duration-300" />
+                      </div>
+                    )}
+                  </motion.div>
+                );
+              })}
+            </div>
+            
+            {/* Click Indicator */}
+            <p className="text-center text-xs text-brand-warm-black/50 mt-4 italic">
+              Click on any thumbnail above to enter fullscreen Excellent Initiative live-archive slideshow
+            </p>
+
+            <div className="absolute -bottom-6 -right-3 p-3 bg-brand-orange text-white rounded-xl font-black shadow-lg text-[9px] tracking-widest uppercase">
+              {excellentImages.length} project highlights
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Social Feed Callout */}
       <section className="px-6 py-24 bg-brand-cream">
          <div className="max-w-4xl mx-auto text-center">
@@ -335,9 +573,17 @@ const Gallery: React.FC = () => {
       {/* Immersive Sandbox Lightbox Modal */}
       <AnimatePresence>
         {lightbox !== null && (() => {
-          const activeImages = lightbox.group === 'archive' ? archiveImages : project25Images;
+          const activeImages = 
+            lightbox.group === 'archive' ? archiveImages :
+            lightbox.group === 'project25' ? project25Images :
+            lightbox.group === 'skillup2025' ? skillup2025Images :
+            excellentImages;
           const activeIndex = lightbox.index;
-          const titleLabel = lightbox.group === 'archive' ? 'Skill Up memories' : 'Project 25 highlights';
+          const titleLabel = 
+            lightbox.group === 'archive' ? 'Skill Up memories' :
+            lightbox.group === 'project25' ? 'Project 25 highlights' :
+            lightbox.group === 'skillup2025' ? 'Skill Up 2025' :
+            'The Excellent Girl';
           const activeImg = activeImages[activeIndex];
 
           return (
