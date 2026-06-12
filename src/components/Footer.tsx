@@ -9,9 +9,12 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
           <div className="space-y-6">
             <NavLink to="/" className="flex items-center gap-2 group">
-              <div className="w-10 h-10 bg-brand-green rounded-full flex items-center justify-center text-white font-serif font-bold text-xl">
-                J
-              </div>
+              <img 
+                src="https://i.postimg.cc/Ss13r2Nh/JAOTEM-LOGO-NEW.png" 
+                alt="Jaotem Foundation Logo" 
+                className="w-10 h-10 object-contain transition-transform group-hover:scale-110"
+                referrerPolicy="no-referrer"
+              />
               <span className="font-sans text-xl font-bold tracking-tight text-white uppercase">
                 Jaotem <span className="font-light text-brand-soft-gray/60">Foundation</span>
               </span>

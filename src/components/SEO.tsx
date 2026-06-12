@@ -18,6 +18,8 @@ export const SEO: React.FC<SEOProps> = ({
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
+      <link rel="icon" type="image/png" href="https://i.postimg.cc/Kj5pR1k7/JAOTEM-LOGO-WITH-TEXT.png" />
+      <link rel="shortcut icon" type="image/png" href="https://i.postimg.cc/Kj5pR1k7/JAOTEM-LOGO-WITH-TEXT.png" />
       
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />

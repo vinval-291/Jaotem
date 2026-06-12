@@ -40,9 +40,12 @@ export const NavBar: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <NavLink to="/" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 bg-brand-green rounded-full flex items-center justify-center text-white transition-transform group-hover:scale-110 font-serif font-bold text-xl">
-            J
-          </div>
+          <img 
+            src="https://i.postimg.cc/Ss13r2Nh/JAOTEM-LOGO-NEW.png" 
+            alt="Jaotem Foundation Logo" 
+            className="w-10 h-10 object-contain transition-transform group-hover:scale-110"
+            referrerPolicy="no-referrer"
+          />
           <span className="font-sans text-xl font-bold tracking-tight text-brand-green uppercase">
             Jaotem <span className="font-light text-brand-warm-black">Foundation</span>
           </span>
