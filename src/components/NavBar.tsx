@@ -8,7 +8,6 @@ const navLinks = [
   { name: 'About', path: '/about' },
   { name: 'Programs', path: '/programs' },
   { name: 'Blog', path: '/blog' },
-  { name: 'Events', path: '/events' },
   { name: 'Gallery', path: '/gallery' },
   { name: 'Contact', path: '/contact' },
 ];
@@ -46,8 +45,14 @@ export const NavBar: React.FC = () => {
             className="w-10 h-10 object-contain transition-transform group-hover:scale-110"
             referrerPolicy="no-referrer"
           />
-          <span className="font-sans text-xl font-bold tracking-tight text-brand-green uppercase">
-            Jaotem <span className="font-light text-brand-warm-black">Foundation</span>
+          <span className={cn(
+            "font-sans text-xl font-bold tracking-tight uppercase transition-colors duration-300 text-brand-green",
+            scrolled ? "lg:text-brand-green" : "lg:text-white"
+          )}>
+            Jaotem <span className={cn(
+              "font-light transition-colors duration-300 text-brand-warm-black",
+              scrolled ? "lg:text-brand-warm-black" : "lg:text-white/90"
+            )}>Foundation</span>
           </span>
         </NavLink>
 
@@ -59,8 +64,10 @@ export const NavBar: React.FC = () => {
               to={link.path}
               className={({ isActive }) =>
                 cn(
-                  'text-[11px] font-bold uppercase tracking-widest transition-all hover:text-brand-green relative py-1',
-                  isActive ? 'text-brand-green' : 'text-brand-warm-black/60'
+                  'text-[11px] font-bold uppercase tracking-widest transition-all relative py-1 duration-300',
+                  isActive 
+                    ? (scrolled ? 'text-brand-green' : 'text-white') 
+                    : (scrolled ? 'text-brand-warm-black/60 hover:text-brand-green' : 'text-white/80 hover:text-white')
                 )
               }
             >

@@ -6,10 +6,12 @@ import { SEO } from '../components/SEO';
 import { cn } from '../lib/utils';
 
 // Image paths from generator
-const HERO_IMAGE = "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1200&auto=format&fit=crop";
-const BOOK_IMG = "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200&auto=format&fit=crop";
+const HERO_IMAGE = "https://i.postimg.cc/9M3hQf9B/DSC-9676.jpg";
+const BOOK_IMG = "https://i.postimg.cc/DywP4PDm/DSC-0023.jpg";
 const SKILL_IMG = "https://i.postimg.cc/8PNnKvYg/IMG-20260611-WA0012.jpg";
 const MENTOR_IMG = "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1200&auto=format&fit=crop";
+const GIRL_IMG = "https://i.postimg.cc/rs4sDmWw/466631038-18052364986939617-6262507189763328855-n.jpg";
+const TOUR_IMG = "https://i.postimg.cc/pTj0j5tB/476612979-8966573803453923-7390491861252115043-n.jpg";
 
 const stats = [
   { label: 'Lives Impacted', value: '50k+', icon: Users },
@@ -20,22 +22,22 @@ const stats = [
 
 const featuredPrograms = [
   {
-    title: 'Project Book A Thousand Children',
-    desc: 'Encouraging academic excellence by providing books to primary children during our Odelemo Day celebrations.',
-    img: BOOK_IMG,
-    path: '/programs#book-thousand-children'
-  },
-  {
     title: 'Skill Up Empowerment',
     desc: 'Empowering communities through targeted vocational, creative, and technical skill acquisition training.',
     img: SKILL_IMG,
-    path: '/programs#skill-up-empowerment'
+    path: '/programs/skill-up'
   },
   {
-    title: 'Jaotem Mentorship',
-    desc: 'Academic mentorship program supporting tertiary students with proven strategies for high excellence.',
-    img: MENTOR_IMG,
-    path: '/programs#jaotem-mentorship'
+    title: 'The Excellent Girl',
+    desc: 'Celebrating International Day of the Girl Child with critical hygiene support, leadership school visits, and academic empowerment.',
+    img: GIRL_IMG,
+    path: '/programs/excellent-girl'
+  },
+  {
+    title: 'Project 25 across 25',
+    desc: 'Our regional school tour visiting 25 secondary schools across 6 south-west Nigerian states to support over 5,000 pupils.',
+    img: TOUR_IMG,
+    path: '/programs/project-25'
   }
 ];
 

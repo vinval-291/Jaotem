@@ -60,7 +60,7 @@ export const Footer: React.FC = () => {
 
           <div>
             <h4 className="font-serif text-xl font-bold mb-6">Newsletter</h4>
-            <p className="text-brand-soft-gray/60 text-sm mb-4">Stay updated with our latest impact stories and events.</p>
+            <p className="text-brand-soft-gray/60 text-sm mb-4">Stay updated with our latest impact stories and programs.</p>
             <form className="flex flex-col gap-3">
               <input 
                 type="email" 

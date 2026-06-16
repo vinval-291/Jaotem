@@ -17,13 +17,12 @@ import About from './pages/About';
 import Programs from './pages/Programs';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
-import Events from './pages/Events';
 import Gallery from './pages/Gallery';
 import Donate from './pages/Donate';
 import Contact from './pages/Contact';
-import SkillUpEvent from './pages/SkillUpEvent';
-import ExcellentGirlEvent from './pages/ExcellentGirlEvent';
-import Project25Event from './pages/Project25Event';
+import SkillUpProgram from './pages/SkillUpProgram';
+import ExcellentGirlProgram from './pages/ExcellentGirlProgram';
+import Project25Program from './pages/Project25Program';
 
 // Admin Pages
 import AdminLogin from './pages/AdminLogin';
@@ -59,12 +58,11 @@ function Layout() {
             <Route path="/" element={<PageContainer><Home /></PageContainer>} />
             <Route path="/about" element={<PageContainer><About /></PageContainer>} />
             <Route path="/programs" element={<PageContainer><Programs /></PageContainer>} />
+            <Route path="/programs/skill-up" element={<PageContainer><SkillUpProgram /></PageContainer>} />
+            <Route path="/programs/excellent-girl" element={<PageContainer><ExcellentGirlProgram /></PageContainer>} />
+            <Route path="/programs/project-25" element={<PageContainer><Project25Program /></PageContainer>} />
             <Route path="/blog" element={<PageContainer><Blog /></PageContainer>} />
             <Route path="/blog/:id" element={<PageContainer><BlogPost /></PageContainer>} />
-            <Route path="/events" element={<PageContainer><Events /></PageContainer>} />
-            <Route path="/events/skill-up" element={<PageContainer><SkillUpEvent /></PageContainer>} />
-            <Route path="/events/excellent-girl" element={<PageContainer><ExcellentGirlEvent /></PageContainer>} />
-            <Route path="/events/project-25" element={<PageContainer><Project25Event /></PageContainer>} />
             <Route path="/gallery" element={<PageContainer><Gallery /></PageContainer>} />
             <Route path="/donate" element={<PageContainer><Donate /></PageContainer>} />
             <Route path="/contact" element={<PageContainer><Contact /></PageContainer>} />
