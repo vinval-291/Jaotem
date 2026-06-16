@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom';
 import { collection, query, orderBy, onSnapshot } from 'firebase/firestore';
 import { db, handleFirestoreError, OperationType } from '../lib/firebase';
 
-const BLOG_IMAGE = "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1200&auto=format&fit=crop";
+const BLOG_IMAGE = "https://i.postimg.cc/3xR7LV7n/DSC-9735.jpg";
 
 const FALLBACK_POSTS = [
   {

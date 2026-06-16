@@ -382,7 +382,7 @@ const Gallery: React.FC = () => {
 
               <div className="flex items-start gap-4 p-5 bg-white rounded-2xl border border-brand-warm-black/5 shadow-sm">
                 <div className="w-10 h-10 bg-brand-gold/10 text-brand-gold rounded-xl flex items-center justify-center shrink-0">
-                  <Facebook size={20} className="fill-current" />
+                  <FolderOpen size={20} />
                 </div>
                 <div>
                   <h4 className="font-bold text-brand-green">Active Mentorship Desk</h4>
@@ -393,12 +393,12 @@ const Gallery: React.FC = () => {
 
             <div className="pt-4 hidden lg:block">
               <a 
-                href="https://facebook.com/jaotemfoundation" 
+                href="https://drive.google.com/drive/folders/1b-66N2TzWmwkIkLkjT34y8B-0TsASDEU" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="inline-flex items-center gap-3 px-10 py-5 bg-[#1877F2] text-white rounded-2xl font-bold shadow-xl shadow-blue-500/20 hover:bg-[#166FE5] hover:scale-105 active:scale-95 transition-all w-full sm:w-auto justify-center"
+                className="inline-flex items-center gap-3 px-10 py-5 bg-brand-green text-white rounded-2xl font-bold shadow-xl shadow-brand-green/20 hover:scale-105 active:scale-95 transition-all w-full sm:w-auto justify-center"
               >
-                <Facebook size={20} className="fill-current" /> View More Images on Facebook <ArrowRight size={20} />
+                Open to view all images <FolderOpen size={20} />
               </a>
             </div>
           </div>
@@ -449,12 +449,12 @@ const Gallery: React.FC = () => {
             {/* Mobile View More Button */}
             <div className="mt-6 flex justify-center lg:hidden">
               <a 
-                href="https://facebook.com/jaotemfoundation" 
+                href="https://drive.google.com/drive/folders/1b-66N2TzWmwkIkLkjT34y8B-0TsASDEU" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="inline-flex items-center gap-3 px-8 py-4 bg-[#1877F2] text-white rounded-2xl font-bold shadow-lg shadow-blue-500/20 hover:bg-[#166FE5] hover:scale-105 active:scale-95 transition-all w-full justify-center text-sm"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-brand-green text-white rounded-2xl font-bold shadow-lg shadow-brand-green/20 hover:scale-105 active:scale-95 transition-all w-full justify-center text-sm"
               >
-                <Facebook size={18} className="fill-current" /> View More Images on Facebook <ArrowRight size={18} />
+                Open to view all images <FolderOpen size={18} />
               </a>
             </div>
 
