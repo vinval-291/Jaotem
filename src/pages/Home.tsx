@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Heart, Users, Target, ArrowRight, Star, Quote, ChevronRight } from 'lucide-react';
+import { Heart, Users, Target, ArrowRight, Star, Quote, ChevronRight, Play, ChevronLeft } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 import { SEO } from '../components/SEO';
 import { cn } from '../lib/utils';
@@ -69,7 +69,66 @@ const videoTestimonials = [
   }
 ];
 
+const textTestimonials = [
+  {
+    name: "Amina Okoro",
+    role: "Community Teacher",
+    text: "Jaotem Foundation didn't just give us resources; they gave us a future. Our school has transformed completely.",
+    avatar: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=200&auto=format&fit=crop"
+  },
+  {
+    name: "Kofi Mensah",
+    role: "Volunteer",
+    text: "Being a volunteer here has been the most fulfilling experience of my life. The impact is real and visible.",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop"
+  },
+  {
+    name: "David Alao",
+    role: "Scholar's Parent",
+    text: "My daughter received school supplies from Project 25. Her confidence in school skyrocketed, and she now aspires to be a solar engineer!",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop"
+  },
+  {
+    name: "Funmilayo Adebayo",
+    role: "Vocational Graduate",
+    text: "With the starter kit and sewing training from the Skill Up Program, I launched my backyard sewing venture and can now sponsor my siblings' education.",
+    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop"
+  }
+];
+
 const Home: React.FC = () => {
+  const [playingVideos, setPlayingVideos] = React.useState<Record<string, boolean>>({});
+  const [testimonialType, setTestimonialType] = React.useState<'video' | 'text'>('video');
+  const [activeVideoId, setActiveVideoId] = React.useState<string | null>(null);
+  const [activeVideoTitle, setActiveVideoTitle] = React.useState<string>("");
+  const [currentTextIdx, setCurrentTextIdx] = React.useState(0);
+  const [currentVideoIdx, setCurrentVideoIdx] = React.useState(0);
+
+  // Auto-cycle written testimonials
+  React.useEffect(() => {
+    if (testimonialType !== 'text') return;
+    const interval = setInterval(() => {
+      setCurrentTextIdx((prev) => (prev + 1) % textTestimonials.length);
+    }, 6000);
+    return () => clearInterval(interval);
+  }, [testimonialType]);
+
+  const nextTestimonial = () => {
+    setCurrentTextIdx((prev) => (prev + 1) % textTestimonials.length);
+  };
+
+  const prevTestimonial = () => {
+    setCurrentTextIdx((prev) => (prev - 1 + textTestimonials.length) % textTestimonials.length);
+  };
+
+  const nextVideo = () => {
+    setCurrentVideoIdx((prev) => (prev + 1) % videoTestimonials.length);
+  };
+
+  const prevVideo = () => {
+    setCurrentVideoIdx((prev) => (prev - 1 + videoTestimonials.length) % videoTestimonials.length);
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -241,66 +300,273 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Video Testimonials */}
+      {/* Voices of Impact Section */}
       <section className="py-24 px-6 bg-brand-cream relative overflow-hidden">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <Quote className="mx-auto text-brand-orange mb-6 opacity-20" size={60} />
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4 text-brand-green leading-tight">
-              Voices of Impact: Video Stories
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <Quote className="mx-auto text-brand-orange mb-4 opacity-20" size={60} />
+            <h2 className="text-3xl md:text-5xl font-serif font-bold mb-4 text-brand-green leading-tight">
+              Voices of Impact
             </h2>
             <p className="text-brand-warm-black/70 text-base md:text-lg leading-relaxed">
-              Listen directly to our beneficiaries, training scholars, and field leaders as they share how Jaotem Foundation has empowered their paths.
+              Discover real-life stories of hope, dedication, and growth. Switch between cinematic video stories and written reflections below.
             </p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {videoTestimonials.map((v, idx) => (
-              <motion.div
-                key={v.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1, duration: 0.5 }}
-                whileHover={{ y: -8 }}
-                className="bg-white/40 backdrop-blur-2xl border border-white/50 p-6 rounded-[2.5rem] shadow-xl flex flex-col h-full transition-all group"
+
+          {/* Tab Switcher Interface */}
+          <div className="flex justify-center mb-16">
+            <div className="bg-brand-green/5 p-1.5 rounded-2xl flex gap-1 border border-brand-green/10 shadow-inner">
+              <button
+                onClick={() => setTestimonialType('video')}
+                className={cn(
+                  "px-6 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all duration-300 cursor-pointer flex items-center gap-2",
+                  testimonialType === 'video'
+                    ? "bg-brand-green text-white shadow-lg shadow-brand-green/20"
+                    : "text-brand-green hover:bg-brand-green/10"
+                )}
               >
-                {/* Responsive Iframe Container */}
-                <div className="relative aspect-video rounded-3xl overflow-hidden shadow-inner bg-black border border-brand-warm-black/5 z-10">
-                  <iframe
-                    src={`https://drive.google.com/file/d/${v.id}/preview`}
-                    width="100%"
-                    height="100%"
-                    allow="autoplay"
-                    allowFullScreen
-                    className="absolute inset-0 w-full h-full"
-                    title={v.title}
-                  />
+                <Play size={14} className={cn("fill-current", testimonialType === 'video' ? "text-white" : "text-brand-green")} />
+                Video Stories
+              </button>
+              <button
+                onClick={() => setTestimonialType('text')}
+                className={cn(
+                  "px-6 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all duration-300 cursor-pointer flex items-center gap-2",
+                  testimonialType === 'text'
+                    ? "bg-brand-green text-white shadow-lg shadow-brand-green/20"
+                    : "text-brand-green hover:bg-brand-green/10"
+                )}
+              >
+                <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
+                </svg>
+                Written Voices
+              </button>
+            </div>
+          </div>
+
+          {testimonialType === 'video' ? (
+            <div className="relative max-w-4xl mx-auto px-4 md:px-12 py-2">
+              <div className="overflow-hidden">
+                <motion.div
+                  key={currentVideoIdx}
+                  initial={{ opacity: 0, scale: 0.98, y: 15 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.98, y: -15 }}
+                  transition={{ duration: 0.4 }}
+                  className="bg-white/40 backdrop-blur-2xl border border-white/50 p-6 md:p-8 rounded-[2.5rem] shadow-xl flex flex-col md:flex-row gap-8 items-center transition-all group"
+                >
+                  {/* Interactive Video Playback Cover/Poster */}
+                  <div className="w-full md:w-1/2 aspect-video rounded-3xl overflow-hidden shadow-inner bg-black border border-brand-warm-black/5 flex-shrink-0 relative">
+                    <button
+                      onClick={() => {
+                        setActiveVideoId(videoTestimonials[currentVideoIdx].id);
+                        setActiveVideoTitle(videoTestimonials[currentVideoIdx].title);
+                      }}
+                      className="absolute inset-0 w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-brand-green via-brand-green/90 to-brand-orange/40 text-white group/btn transition-all duration-300 hover:from-brand-green/95 hover:to-brand-orange/50 p-6 overflow-hidden cursor-pointer"
+                    >
+                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full bg-white/5 scale-50 group-hover/btn:scale-100 transition-transform duration-700 blur-xl pointer-events-none" />
+                      
+                      <div className="relative bg-white/20 backdrop-blur-md text-brand-gold p-4 rounded-full border border-white/30 shadow-lg group-hover/btn:scale-110 group-hover/btn:bg-white/35 transition-all duration-300 flex items-center justify-center animate-pulse">
+                        <Play size={24} className="fill-current text-white translate-x-[1.5px]" />
+                      </div>
+                      
+                      <span className="relative mt-4 text-[10px] font-black uppercase tracking-widest text-[#fce8cc]/90 group-hover/btn:text-white transition-colors duration-300">
+                        Play Fullscreen Video
+                      </span>
+                      
+                      <span className="relative text-[9px] text-white/50 mt-1 pointer-events-none">
+                        Cinematic Fullscreen Player
+                      </span>
+                    </button>
+                  </div>
+
+                  {/* Text details for the video story */}
+                  <div className="w-full md:w-1/2 flex flex-col justify-between text-left self-stretch py-2">
+                    <div>
+                      <span className="text-[10px] font-black uppercase tracking-widest text-[#cf762b] bg-brand-orange/5 px-3 py-1 rounded-full border border-brand-orange/10 inline-block mb-4">
+                        Verified Impact Video
+                      </span>
+                      <h4 className="text-xl md:text-2xl lg:text-3xl font-serif font-semibold text-brand-green leading-snug">
+                        {videoTestimonials[currentVideoIdx].title}
+                      </h4>
+                      <p className="text-base text-brand-warm-black/70 font-medium mt-3">
+                        Featuring: <span className="text-brand-green font-bold">{videoTestimonials[currentVideoIdx].name}</span>
+                      </p>
+                      <p className="text-sm text-brand-warm-black/60 leading-relaxed mt-4">
+                        Watch this inspiring testimonial detailing how Jaotem Foundation's specialized scholarship program provided tools and mentorship to facilitate lifelong leadership.
+                      </p>
+                    </div>
+
+                    <div className="mt-8 pt-4 border-t border-brand-warm-black/5 flex items-center justify-between">
+                      <span className="text-xs text-brand-warm-black/40 font-mono font-medium">
+                        Video Story {currentVideoIdx + 1} of {videoTestimonials.length}
+                      </span>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+
+              {/* Carousel Controls */}
+              <div className="flex items-center justify-between mt-8 px-2">
+                {/* Dots indicator */}
+                <div className="flex gap-2">
+                  {videoTestimonials.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setCurrentVideoIdx(idx)}
+                      className={cn(
+                        "w-2.5 h-2.5 rounded-full transition-all duration-300 cursor-pointer",
+                        idx === currentVideoIdx 
+                          ? "bg-brand-green w-8" 
+                          : "bg-brand-green/20 hover:bg-brand-green/45"
+                      )}
+                      aria-label={`Go to video story ${idx + 1}`}
+                    />
+                  ))}
                 </div>
-                
-                {/* Optional Title & Participant Info */}
-                <div className="mt-6 flex-grow flex flex-col justify-between">
+
+                {/* Arrow buttons */}
+                <div className="flex gap-3">
+                  <button
+                    onClick={prevVideo}
+                    className="p-3 rounded-full bg-white/80 backdrop-blur border border-brand-green/10 text-brand-green hover:bg-brand-green/10 transition-all cursor-pointer shadow-md hover:scale-105 active:scale-95 flex items-center justify-center"
+                    aria-label="Previous video story"
+                  >
+                    <ChevronLeft size={20} />
+                  </button>
+                  <button
+                    onClick={nextVideo}
+                    className="p-3 rounded-full bg-white/80 backdrop-blur border border-brand-green/10 text-brand-green hover:bg-brand-green/10 transition-all cursor-pointer shadow-md hover:scale-105 active:scale-95 flex items-center justify-center"
+                    aria-label="Next video story"
+                  >
+                    <ChevronRight size={20} />
+                  </button>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="relative max-w-4xl mx-auto px-4 md:px-12 py-2">
+              {/* Main Active Testimonial Card with responsive auto-height */}
+              <div className="overflow-hidden">
+                <motion.div
+                  key={currentTextIdx}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -15 }}
+                  transition={{ duration: 0.4 }}
+                  className="w-full bg-white/40 backdrop-blur-2xl border border-white/50 p-8 md:p-12 rounded-[2.5rem] shadow-xl flex flex-col justify-between transition-all"
+                >
                   <div>
-                    <h4 className="text-xl md:text-2xl font-serif font-semibold text-brand-green leading-snug">
-                      {v.title}
-                    </h4>
-                    <p className="text-sm md:text-base text-brand-warm-black/60 font-medium mt-2">
-                      {v.name}
+                    <div className="flex justify-between items-start mb-6">
+                      <Quote className="text-brand-orange opacity-25" size={48} />
+                      <span className="text-[10px] font-black uppercase tracking-widest text-[#cf762b] bg-brand-orange/5 px-3 py-1 rounded-full border border-brand-orange/10">
+                        Verified Impact Story
+                      </span>
+                    </div>
+                    <p className="text-brand-warm-black/80 italic leading-relaxed text-base md:text-xl lg:text-2xl mb-8 min-h-[100px] flex items-center">
+                      "{textTestimonials[currentTextIdx].text}"
                     </p>
                   </div>
-                  
-                  {/* Subtle status indicator matching the foundation vibe */}
-                  <div className="mt-4 pt-4 border-t border-brand-warm-black/5 flex items-center justify-between">
-                    <span className="text-[10px] font-black uppercase tracking-widest text-[#cf762b] bg-brand-orange/5 px-3 py-1 rounded-full border border-brand-orange/10">
-                      Verified Impact Video
-                    </span>
+                  <div className="flex items-center gap-4 mt-auto pt-6 border-t border-brand-warm-black/5">
+                    <img 
+                      src={textTestimonials[currentTextIdx].avatar} 
+                      alt={textTestimonials[currentTextIdx].name} 
+                      className="w-14 h-14 rounded-full border-2 border-white object-cover shadow-sm" 
+                    />
+                    <div>
+                      <h4 className="font-bold text-brand-green text-base md:text-lg">
+                        {textTestimonials[currentTextIdx].name}
+                      </h4>
+                      <p className="text-[10px] md:text-xs text-brand-warm-black/50 uppercase font-black tracking-widest mt-0.5">
+                        {textTestimonials[currentTextIdx].role}
+                      </p>
+                    </div>
                   </div>
+                </motion.div>
+              </div>
+
+              {/* Navigation Controls */}
+              <div className="flex items-center justify-between mt-8 px-2">
+                {/* Dots indicator */}
+                <div className="flex gap-2">
+                  {textTestimonials.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setCurrentTextIdx(idx)}
+                      className={cn(
+                        "w-2.5 h-2.5 rounded-full transition-all duration-300 cursor-pointer",
+                        idx === currentTextIdx 
+                          ? "bg-brand-green w-8" 
+                          : "bg-brand-green/20 hover:bg-brand-green/45"
+                      )}
+                      aria-label={`Get testimonial ${idx + 1}`}
+                    />
+                  ))}
                 </div>
-              </motion.div>
-            ))}
-          </div>
+
+                {/* Arrow buttons */}
+                <div className="flex gap-3">
+                  <button
+                    onClick={prevTestimonial}
+                    className="p-3 rounded-full bg-white/80 backdrop-blur border border-brand-green/10 text-brand-green hover:bg-brand-green/10 transition-all cursor-pointer shadow-md hover:scale-105 active:scale-95 flex items-center justify-center"
+                    aria-label="Previous story"
+                  >
+                    <ChevronLeft size={20} />
+                  </button>
+                  <button
+                    onClick={nextTestimonial}
+                    className="p-3 rounded-full bg-white/80 backdrop-blur border border-brand-green/10 text-brand-green hover:bg-brand-green/10 transition-all cursor-pointer shadow-md hover:scale-105 active:scale-95 flex items-center justify-center"
+                    aria-label="Next story"
+                  >
+                    <ChevronRight size={20} />
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </section>
+
+      {/* Full-Screen Video Modal Overlay - Play on clicked */}
+      {activeVideoId && (
+        <div className="fixed inset-0 bg-brand-warm-black/95 backdrop-blur-lg z-50 flex items-center justify-center p-4 md:p-8 animate-fade-in">
+          <div 
+            className="absolute inset-0 cursor-pointer" 
+            onClick={() => {
+              setActiveVideoId(null);
+              // Clean up local playing indicators if any
+              setPlayingVideos({});
+            }}
+          />
+          <div className="bg-neutral-950 w-full max-w-5xl rounded-[2rem] overflow-hidden shadow-2xl relative border border-white/10 z-10 aspect-video flex items-center justify-center transition-transform scale-100">
+            {/* Close Button overlay */}
+            <button 
+              onClick={() => {
+                setActiveVideoId(null);
+                setPlayingVideos({});
+              }}
+              className="absolute top-4 right-4 bg-white/10 hover:bg-white/20 text-white p-3 rounded-full backdrop-blur-md transition-all border border-white/20 z-20 cursor-pointer shadow-lg hover:scale-105 active:scale-95"
+              title="Close Video"
+            >
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            <iframe
+              src={`https://drive.google.com/file/d/${activeVideoId}/preview?autoplay=1`}
+              width="100%"
+              height="100%"
+              allow="autoplay; fullscreen"
+              allowFullScreen
+              referrerPolicy="no-referrer"
+              className="w-full h-full border-0 absolute inset-0"
+              title={activeVideoTitle || "Cinematic Testimony Video Player"}
+            />
+          </div>
+        </div>
+      )}
 
       {/* Donation CTA */}
       <section className="px-6 pb-24">
