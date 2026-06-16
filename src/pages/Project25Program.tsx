@@ -110,11 +110,11 @@ export default function Project25Program() {
               <span className="text-[10px] font-black uppercase tracking-widest text-brand-orange">Southwest Nigeria Tour</span>
             </div>
 
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-brand-green leading-tight">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-green leading-tight">
               Bridging the Educational Infrastructure Void.
             </h2>
 
-            <p className="text-brand-warm-black/70 text-lg leading-relaxed">
+            <p className="text-brand-warm-black/70 text-base md:text-lg leading-relaxed">
               Between 2022 and 2023, Jaotem Foundation executed one of its most ambitious educational campaign series: <strong>Project 25 across 25</strong>. 
               Our teams traveled thousands of kilometers to engage, inspire, and physically equip secondary pupils situated in hard-to-reach, underserved public schools. 
               Over the course of the tour, we directly provided 5,000+ students with verified study kits, career navigation guidelines, and personal leadership models.
@@ -138,7 +138,7 @@ export default function Project25Program() {
             <div className="absolute -inset-4 bg-brand-orange/5 rounded-[3.5rem] -z-10 blur-xl" />
             
             <div className="bg-white p-8 rounded-[3rem] shadow-xl border border-brand-warm-black/5 space-y-6">
-              <h3 className="text-2xl font-serif font-bold text-brand-green pb-4 border-b border-brand-warm-black/5 flex items-center gap-2">
+              <h3 className="text-2xl md:text-3xl font-serif font-bold text-brand-green pb-4 border-b border-brand-warm-black/5 flex items-center gap-2">
                 <Compass size={22} className="text-brand-orange" /> States Highlight & Coverage
               </h3>
               
@@ -162,25 +162,25 @@ export default function Project25Program() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-20">
             <span className="text-brand-orange text-xs font-black uppercase tracking-widest block mb-4">Tour Footprint Outcomes</span>
-            <h2 className="text-4xl md:text-5xl font-serif font-bold">Project 25 Metrics</h2>
-            <p className="text-white/60 text-lg mt-4">Reviewing the transparent educational parameters and support delivery items completed throughout the multi-state tour.</p>
+            <h2 className="text-3xl md:text-4xl font-serif font-bold">Project 25 Metrics</h2>
+            <p className="text-white/60 text-base md:text-lg mt-4">Reviewing the transparent educational parameters and support delivery items completed throughout the multi-state tour.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white/5 border border-white/10 rounded-3xl p-8 hover:translate-y-[-4px] transition-all">
-              <h3 className="text-5xl font-serif font-bold text-brand-gold mb-2">25</h3>
+              <h3 className="text-4xl md:text-5xl font-serif font-bold text-brand-gold mb-2">25</h3>
               <p className="text-xs font-black tracking-wider text-white/50 uppercase mb-4">Targeted Secondary Schools</p>
               <p className="text-white/70 text-sm leading-relaxed">Systematically visiting both suburban and remote host institutions across all 6 southwestern Nigerian sovereign states.</p>
             </div>
 
             <div className="bg-white/5 border border-white/10 rounded-3xl p-8 hover:translate-y-[-4px] transition-all">
-              <h3 className="text-5xl font-serif font-bold text-brand-gold mb-2">5,000+</h3>
+              <h3 className="text-4xl md:text-5xl font-serif font-bold text-brand-gold mb-2">5,000+</h3>
               <p className="text-xs font-black tracking-wider text-white/50 uppercase mb-4">Scholars Mentored</p>
               <p className="text-white/70 text-sm leading-relaxed">Students attending intensive, live interactive briefings regarding moral strength, study plans, and career options.</p>
             </div>
 
             <div className="bg-white/5 border border-white/10 rounded-3xl p-8 hover:translate-y-[-4px] transition-all">
-              <h3 className="text-5xl font-serif font-bold text-brand-gold mb-2">1,000s</h3>
+              <h3 className="text-4xl md:text-5xl font-serif font-bold text-brand-gold mb-2">1,000s</h3>
               <p className="text-xs font-black tracking-wider text-white/50 uppercase mb-4">Exercise Notebooks & Supplies</p>
               <p className="text-white/70 text-sm leading-relaxed">Providing high-grade, physical notebooks, writing accessories, stationery, and math calculators directly to top pupils.</p>
             </div>
@@ -195,8 +195,8 @@ export default function Project25Program() {
             <Camera size={12} className="text-brand-orange" />
             <span className="text-[10px] font-black uppercase tracking-widest text-brand-orange">Tour Photo Archives</span>
           </div>
-          <h2 className="text-4xl font-serif font-bold text-brand-green mb-4">On the Field with Project 25</h2>
-          <p className="text-brand-warm-black/70 text-lg">
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-green mb-4">On the Field with Project 25</h2>
+          <p className="text-brand-warm-black/70 text-base md:text-lg">
             See our classroom distribution campaigns, mentorship circles, and team logistics across Nigerian secondary classrooms. Tap any frame to expand.
           </p>
         </div>
@@ -227,8 +227,8 @@ export default function Project25Program() {
       {/* CTA Section */}
       <section className="px-6 py-20">
         <div className="max-w-5xl mx-auto bg-brand-green text-center text-white p-16 rounded-[4rem] relative overflow-hidden shadow-2xl">
-          <h2 className="text-2xl font-serif font-bold text-white mb-4">  Invest in Southwest Classroom Futures. </h2>
-          <p className="text-white/75 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+          <h2 className="text-2xl md:text-3xl font-serif font-bold text-white mb-4">  Invest in Southwest Classroom Futures. </h2>
+          <p className="text-white/75 text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
             By supporting our next regional academic tours, you directly finance the procurement of high-grade calculators, workbook templates, maps, and coordinate packages.
           </p>
           <NavLink to="/donate" className="px-10 py-5 bg-brand-orange text-white font-bold rounded-2xl shadow-xl shadow-brand-orange/20 inline-flex items-center gap-3 hover:scale-105 active:scale-95 transition-all">

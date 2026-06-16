@@ -135,11 +135,11 @@ const Gallery: React.FC = () => {
               <span className="text-[10px] font-black uppercase tracking-widest text-brand-orange">Live Archive Portal</span>
             </div>
             
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-brand-green leading-tight">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-green leading-tight">
               Extract of Skill Up Summit 2024: Trainees & Testimonials.
             </h2>
             
-            <p className="text-brand-warm-black/70 text-lg leading-relaxed">
+            <p className="text-brand-warm-black/70 text-base md:text-lg leading-relaxed">
               We believe in deep transparency and real-world outcomes. Highlight of our complete repository of 2024 Skill Up Summit photos, individual success snapshots of vocational trainees, and direct testimonial video recordings.
             </p>
             
@@ -149,7 +149,7 @@ const Gallery: React.FC = () => {
                   <PlayCircle size={20} />
                 </div>
                 <div>
-                  <h4 className="font-bold text-brand-green">Trainee Voice Testimonials</h4>
+                  <h4 className="text-xl md:text-2xl font-semibold text-brand-green">Trainee Voice Testimonials</h4>
                   <p className="text-xs text-brand-warm-black/50">High-resolution video responses and statements from our vocational mechanics, tailors, and computer scholars.</p>
                 </div>
               </div>
@@ -159,7 +159,7 @@ const Gallery: React.FC = () => {
                   <Camera size={20} />
                 </div>
                 <div>
-                  <h4 className="font-bold text-brand-green">On-Site Media Records</h4>
+                  <h4 className="text-xl md:text-2xl font-semibold text-brand-green">On-Site Media Records</h4>
                   <p className="text-xs text-brand-warm-black/50">Capture shots of interactive classrooms and actual trainees completing their skill handbooks during 2024.</p>
                 </div>
               </div>
@@ -248,11 +248,11 @@ const Gallery: React.FC = () => {
               <span className="text-[10px] font-black uppercase tracking-widest text-brand-orange">Project 25 Across 25</span>
             </div>
             
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-brand-green leading-tight">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-green leading-tight">
               Empowering Nations: The Project 25 Across 25 Archive
             </h2>
             
-            <p className="text-brand-warm-black/70 text-lg leading-relaxed">
+            <p className="text-brand-warm-black/70 text-base md:text-lg leading-relaxed">
               Discover raw, unfiltered, live on-ground moments from our national youth educational empowerment initiatives. This showcase captures our teams in direct field dialogue, school-supply distributions, and capability building seminars across several regional hubs.
             </p>
             
@@ -262,7 +262,7 @@ const Gallery: React.FC = () => {
                   <Camera size={20} />
                 </div>
                 <div>
-                  <h4 className="font-bold text-brand-green">On-Field Supply Distribution</h4>
+                  <h4 className="text-xl md:text-2xl font-semibold text-brand-green">On-Field Supply Distribution</h4>
                   <p className="text-xs text-brand-warm-black/50">Delivering primary textbooks, workbooks, and core teaching modules directly to future generational minds.</p>
                 </div>
               </div>
@@ -272,7 +272,7 @@ const Gallery: React.FC = () => {
                   <Facebook size={20} className="fill-current" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-brand-green">Live Community Engagement</h4>
+                  <h4 className="text-xl md:text-2xl font-semibold text-brand-green">Live Community Engagement</h4>
                   <p className="text-xs text-brand-warm-black/50">Capturing our project supervisors working hand-in-hand with regional leaders to scale academic resources.</p>
                 </div>
               </div>
@@ -361,11 +361,11 @@ const Gallery: React.FC = () => {
               <span className="text-[10px] font-black uppercase tracking-widest text-brand-orange">Vocational Milestone 2025</span>
             </div>
             
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-brand-green leading-tight">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-green leading-tight">
               Skill Up Empowerment Program 2025 Archive
             </h2>
             
-            <p className="text-brand-warm-black/70 text-lg leading-relaxed">
+            <p className="text-brand-warm-black/70 text-base md:text-lg leading-relaxed">
               Explore the intensive 2025 vocational masterclasses. Witness on-site snapshots of our facilitators, interactive peer collaborations, and trainees mastering core creative and digital skills to achieve self-reliance.
             </p>
             
@@ -375,7 +375,7 @@ const Gallery: React.FC = () => {
                   <Camera size={20} />
                 </div>
                 <div>
-                  <h4 className="font-bold text-brand-green">Interactive Tech Lab Workshops</h4>
+                  <h4 className="text-xl md:text-2xl font-semibold text-brand-green">Interactive Tech Lab Workshops</h4>
                   <p className="text-xs text-brand-warm-black/50">Trainees getting hands-on with digital literacy, design, and computational tool sets.</p>
                 </div>
               </div>
@@ -385,7 +385,7 @@ const Gallery: React.FC = () => {
                   <FolderOpen size={20} />
                 </div>
                 <div>
-                  <h4 className="font-bold text-brand-green">Active Mentorship Desk</h4>
+                  <h4 className="text-xl md:text-2xl font-semibold text-brand-green">Active Mentorship Desk</h4>
                   <p className="text-xs text-brand-warm-black/50">Coordinators and professional guides delivering step-by-step vocational instructions.</p>
                 </div>
               </div>
@@ -474,11 +474,11 @@ const Gallery: React.FC = () => {
               <span className="text-[10px] font-black uppercase tracking-widest text-brand-orange">Girls Empowerment Outreach</span>
             </div>
             
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-brand-green leading-tight">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-green leading-tight">
               The Excellent Initiative Showcase
             </h2>
             
-            <p className="text-brand-warm-black/70 text-lg leading-relaxed">
+            <p className="text-brand-warm-black/70 text-base md:text-lg leading-relaxed">
               Witness our impactful Girl Child Day celebrations. Our teams visit secondary schools to provide hygiene kits, study notebooks, and guided motivation talks focused on building bold future female leaders.
             </p>
             
@@ -488,7 +488,7 @@ const Gallery: React.FC = () => {
                   <Camera size={20} />
                 </div>
                 <div>
-                  <h4 className="font-bold text-brand-green">School Outreach Support</h4>
+                  <h4 className="text-xl md:text-2xl font-semibold text-brand-green">School Outreach Support</h4>
                   <p className="text-xs text-brand-warm-black/50">Broad supply drives bringing essential resources directly to classrooms.</p>
                 </div>
               </div>
@@ -498,7 +498,7 @@ const Gallery: React.FC = () => {
                   <Facebook size={20} className="fill-current" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-brand-green">Hygiene & Educational Packs</h4>
+                  <h4 className="text-xl md:text-2xl font-semibold text-brand-green">Hygiene & Educational Packs</h4>
                   <p className="text-xs text-brand-warm-black/50">Enabling academic focus through personal health resources and physical supplies.</p>
                 </div>
               </div>
@@ -581,8 +581,8 @@ const Gallery: React.FC = () => {
       {/* Social Feed Callout */}
       <section className="px-6 py-24 bg-brand-cream">
          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-serif font-bold text-brand-green mb-8 tracking-tight">Follow Our Live Journey</h2>
-            <p className="text-brand-warm-black/60 text-lg mb-12">Get daily updates and behind-the-scenes moments from our field missions on social media.</p>
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-green mb-8 tracking-tight">Follow Our Live Journey</h2>
+            <p className="text-brand-warm-black/60 text-base md:text-lg mb-12">Get daily updates and behind-the-scenes moments from our field missions on social media.</p>
             <div className="flex justify-center gap-6">
                <SocialFollowBtn Icon={Camera} label="Instagram" color="#E1306C" />
                <SocialFollowBtn Icon={PlayCircle} label="YouTube" color="#FF0000" />

@@ -41,18 +41,31 @@ const featuredPrograms = [
   }
 ];
 
-const testimonials = [
+const videoTestimonials = [
   {
-    name: "Amina Okoro",
-    role: "Community Teacher",
-    text: "Jaotem Foundation didn't just give us resources; they gave us a future. Our school has transformed completely.",
-    avatar: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=200&auto=format&fit=crop"
+    id: "1uVkthQYR5cpICk5IZwNnheXgsTUdW1SL",
+    name: "Amina Bello",
+    title: "Vocational Graduate Success",
   },
   {
-    name: "Kofi Mensah",
-    role: "Volunteer",
-    text: "Being a volunteer here has been the most fulfilling experience of my life. The impact is real and visible.",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop"
+    id: "1zjSjtk9h5OEXfT2FTfNcpdRMJnZZo1jc",
+    name: "Tunde Alabi",
+    title: "Skill Acquisition Impact",
+  },
+  {
+    id: "1ofxELTgDbapBYC3mNL0Y19LEAawnEjFo",
+    name: "Deborah Oguntoye",
+    title: "Empowerment Program Testimonial",
+  },
+  {
+    id: "1-fhpdkm0wOLjeqEDm-U4b-_8rV0xmASj",
+    name: "Chinonso Eze",
+    title: "Project 25 Participant Voice",
+  },
+  {
+    id: "1o7ymrZskuJYSoLPfbbOB0wT_kzvYTTN8",
+    name: "Fatima Yusuf",
+    title: "Capacity Building Success Story",
   }
 ];
 
@@ -75,7 +88,7 @@ const Home: React.FC = () => {
             className="w-full h-full object-cover scale-105"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-brand-warm-black/60 via-brand-warm-black/40 to-brand-cream/100" />
+          <div className="absolute inset-0 bg-gradient-to-b from-brand-warm-black/75 via-brand-warm-black/55 to-brand-cream/100" />
         </div>
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center mt-20">
@@ -84,15 +97,15 @@ const Home: React.FC = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2 }}
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/40 backdrop-blur-md border border-white/40 rounded-full w-fit mx-auto mb-8 shadow-sm">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/20 backdrop-blur-md border border-white/30 rounded-full w-fit mx-auto mb-8 shadow-sm">
               <span className="flex h-2 w-2 rounded-full bg-brand-orange animate-pulse"></span>
-              <span className="text-[10px] font-bold uppercase tracking-widest text-brand-green/70">Transforming Lives Together</span>
+              <span className="text-[10px] font-bold uppercase tracking-widest text-white">Transforming Lives Together</span>
             </div>
-            <h1 className="text-6xl md:text-[84px] font-serif font-medium mb-8 leading-[1.05] tracking-tight text-brand-green">
+            <h1 className="text-6xl md:text-[84px] font-serif font-medium mb-8 leading-[1.05] tracking-tight text-white drop-shadow-sm">
               Changing Lives, <br />
               <span className="italic text-brand-gold">Building Hope.</span>
             </h1>
-            <p className="text-lg md:text-xl text-brand-warm-black/70 max-w-2xl mx-auto mb-12 leading-relaxed font-light">
+            <p className="text-lg md:text-xl text-white/95 max-w-2xl mx-auto mb-12 leading-relaxed font-normal drop-shadow-sm">
               Bringing Hope to the future: Raising the next level of global future leaders.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
@@ -228,32 +241,64 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Video Testimonials */}
       <section className="py-24 px-6 bg-brand-cream relative overflow-hidden">
-        <div className="max-w-4xl mx-auto text-center">
-            <Quote className="mx-auto text-brand-orange mb-8 opacity-20" size={80} />
-            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-16 text-brand-green">Voices of Impact</h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              {testimonials.map((t, idx) => (
-                <motion.div
-                  key={t.name}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  className="bg-white/30 backdrop-blur-2xl border border-white/40 p-10 rounded-[2.5rem] shadow-xl text-left relative"
-                >
-                  <div className="flex items-center gap-4 mb-6">
-                    <img src={t.avatar} alt={t.name} className="w-14 h-14 rounded-full border-2 border-white" />
-                    <div>
-                      <h4 className="font-bold text-brand-green">{t.name}</h4>
-                      <p className="text-[10px] text-brand-warm-black/40 uppercase font-black tracking-widest">{t.role}</p>
-                    </div>
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <Quote className="mx-auto text-brand-orange mb-6 opacity-20" size={60} />
+            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4 text-brand-green leading-tight">
+              Voices of Impact: Video Stories
+            </h2>
+            <p className="text-brand-warm-black/70 text-base md:text-lg leading-relaxed">
+              Listen directly to our beneficiaries, training scholars, and field leaders as they share how Jaotem Foundation has empowered their paths.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {videoTestimonials.map((v, idx) => (
+              <motion.div
+                key={v.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1, duration: 0.5 }}
+                whileHover={{ y: -8 }}
+                className="bg-white/40 backdrop-blur-2xl border border-white/50 p-6 rounded-[2.5rem] shadow-xl flex flex-col h-full transition-all group"
+              >
+                {/* Responsive Iframe Container */}
+                <div className="relative aspect-video rounded-3xl overflow-hidden shadow-inner bg-black border border-brand-warm-black/5 z-10">
+                  <iframe
+                    src={`https://drive.google.com/file/d/${v.id}/preview`}
+                    width="100%"
+                    height="100%"
+                    allow="autoplay"
+                    allowFullScreen
+                    className="absolute inset-0 w-full h-full"
+                    title={v.title}
+                  />
+                </div>
+                
+                {/* Optional Title & Participant Info */}
+                <div className="mt-6 flex-grow flex flex-col justify-between">
+                  <div>
+                    <h4 className="text-xl md:text-2xl font-serif font-semibold text-brand-green leading-snug">
+                      {v.title}
+                    </h4>
+                    <p className="text-sm md:text-base text-brand-warm-black/60 font-medium mt-2">
+                      {v.name}
+                    </p>
                   </div>
-                  <p className="text-brand-warm-black/70 italic leading-relaxed text-sm">"{t.text}"</p>
-                </motion.div>
-              ))}
-            </div>
+                  
+                  {/* Subtle status indicator matching the foundation vibe */}
+                  <div className="mt-4 pt-4 border-t border-brand-warm-black/5 flex items-center justify-between">
+                    <span className="text-[10px] font-black uppercase tracking-widest text-[#cf762b] bg-brand-orange/5 px-3 py-1 rounded-full border border-brand-orange/10">
+                      Verified Impact Video
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 

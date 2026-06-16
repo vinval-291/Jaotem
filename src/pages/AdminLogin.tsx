@@ -69,7 +69,7 @@ const AdminLogin: React.FC = () => {
         </div>
         
         <div className="space-y-1">
-          <h1 className="text-2xl font-serif font-bold text-brand-green">Admin Gateway</h1>
+          <h1 className="text-2xl md:text-3xl font-serif font-bold text-brand-green leading-tight">Admin Gateway</h1>
           <p className="text-brand-warm-black/50 text-xs">Enter your credentials to access the command center.</p>
         </div>
 

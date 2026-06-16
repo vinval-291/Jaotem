@@ -18,33 +18,13 @@ const MENTOR_IMG = "https://images.unsplash.com/photo-1523240795612-9a054b0db644
 const upcomingPrograms = [
   {
     id: 1,
-    title: 'Jaotem Annual Fundraising Gala',
-    date: 'June 28, 2026',
+    title: 'Jaotem Skill Up Summit 2026',
+    date: 'Date to be announced soon',
     time: '6:00 PM - 10:00 PM',
     location: 'Grand Ballroom, City Plaza',
     type: 'Fundraiser',
     img: 'https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
     desc: 'Join our founders, community partners, and sponsors for an impactful dinner to power future grassroots educational programs.'
-  },
-  {
-    id: 2,
-    title: 'Weekend Community Clean-up & Health Fair',
-    date: 'July 15, 2026',
-    time: '9:00 AM - 4:00 PM',
-    location: 'Central Community Park',
-    type: 'Outreach',
-    img: 'https://images.unsplash.com/photo-1559027615-cd2428ee0a2a?q=80&w=1200&auto=format&fit=crop',
-    desc: 'Bringing medical checkups, primary hygiene materials, and active sanitation mentoring to community households.'
-  },
-  {
-    id: 3,
-    title: 'Youth Empowerment Workshop: Digital Skills',
-    date: 'August 24, 2026',
-    time: '10:00 AM - 3:00 PM',
-    location: 'Jaotem Innovation Hub',
-    type: 'Educational',
-    img: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=1200&auto=format&fit=crop',
-    desc: 'An interactive seminar teaching high-impact digital tools, typing mechanics, and freelancing avenues to regional graduates.'
   }
 ];
 
@@ -74,16 +54,16 @@ const programs = [
     actionLabel: 'Explore Program Outreach Gallery'
   },
   {
-    id: 'jaotem-mentorship',
-    title: 'Jaotem Mentorship Network',
-    subtitle: 'Tertiary Institutions Network',
-    desc: 'A robust, high-impact mentorship program for students in tertiary institutions across south-west Nigeria. Launched in 2021, and helping students to thrive academically, we possess a proven track record of academic excellence, including outstanding First Class results.',
-    icon: Users,
-    img: MENTOR_IMG,
-    color: 'bg-yellow-50',
-    stats: { label: 'Active Scholars', value: '150+' },
-    path: null,
-    actionLabel: null
+      id: 'project-25-25',
+    title: 'Project 25 across 25',
+    subtitle: 'Secondary School Tour',
+    desc: 'An intensive outreach visiting 25 secondary schools across the 6 south-west states in Nigeria, where over 5,000 students have been directly impacted with educational mentorship, academic guidelines, and physical study resources between 2022 and 2023.',
+    icon: Milestone,
+    img: TOUR_IMG,
+    color: 'bg-orange-50',
+    stats: { label: 'Students Mentored', value: '5,000+' },
+    path: '/programs/project-25',
+    actionLabel: 'View Field Tour Photo Album'
   },
   {
     id: 'book-thousand-children',
@@ -96,18 +76,6 @@ const programs = [
     stats: { label: 'Study Aid Distributed', value: '1,000+' },
     path: null,
     actionLabel: null
-  },
-  {
-    id: 'project-25-25',
-    title: 'Project 25 across 25',
-    subtitle: 'Secondary School Tour',
-    desc: 'An intensive outreach visiting 25 secondary schools across the 6 south-west states in Nigeria, where over 5,000 students have been directly impacted with educational mentorship, academic guidelines, and physical study resources between 2022 and 2023.',
-    icon: Milestone,
-    img: TOUR_IMG,
-    color: 'bg-orange-50',
-    stats: { label: 'Students Mentored', value: '5,000+' },
-    path: '/programs/project-25',
-    actionLabel: 'View Field Tour Photo Album'
   }
 ];
 

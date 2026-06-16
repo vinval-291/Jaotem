@@ -55,11 +55,11 @@ export default function SkillUpProgram() {
               <span className="text-[10px] font-black uppercase tracking-widest text-brand-green">Estd. 2023</span>
             </div>
 
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-brand-green leading-tight">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-green leading-tight">
               Fueling Indigene Independence Through Skills.
             </h2>
 
-            <p className="text-brand-warm-black/70 text-lg leading-relaxed">
+            <p className="text-brand-warm-black/70 text-base md:text-lg leading-relaxed">
               Launched in 2023, the <strong>Skill Up Empowerment Program</strong> is Jaotem Foundation's premier vocational training ecosystem. 
               Our focus centers directly on eliminating local unemployment and encouraging high-growth small business creation. 
               By delivering physical handcraft training alongside fundamental computer applications, we empower trainees to establish independent, rewarding livelihoods.
@@ -82,7 +82,7 @@ export default function SkillUpProgram() {
           <div className="relative">
             <div className="absolute -inset-4 bg-brand-green/5 rounded-[3.5rem] -z-10 blur-xl" />
             <div className="bg-white p-8 rounded-[3rem] shadow-xl border border-brand-warm-black/5 space-y-6">
-              <h3 className="text-2xl font-serif font-bold text-brand-green pb-4 border-b border-brand-warm-black/5">Program Core Modules</h3>
+              <h3 className="text-2xl md:text-3xl font-serif font-bold text-brand-green pb-4 border-b border-brand-warm-black/5">Program Core Modules</h3>
               
               <div className="space-y-6">
                 <div className="flex gap-4">
@@ -90,7 +90,7 @@ export default function SkillUpProgram() {
                     <GraduationCap size={22} />
                   </div>
                   <div>
-                    <h4 className="font-bold text-brand-green">Advanced Technical Competence</h4>
+                    <h4 className="text-xl md:text-2xl font-semibold text-brand-green">Advanced Technical Competence</h4>
                     <p className="text-xs text-brand-warm-black/60 mt-1">Teaching fundamental digital tools, creative website assembly, remote workspace operations, and client management.</p>
                   </div>
                 </div>
@@ -100,7 +100,7 @@ export default function SkillUpProgram() {
                     <Sparkles size={22} />
                   </div>
                   <div>
-                    <h4 className="font-bold text-brand-green">Vocational Handcraft & Fashion</h4>
+                    <h4 className="text-xl md:text-2xl font-semibold text-brand-green">Vocational Handcraft & Fashion</h4>
                     <p className="text-xs text-brand-warm-black/60 mt-1">Intensive physical masterclasses in modern design, dressmaking, accessories, and culinary crafts.</p>
                   </div>
                 </div>
@@ -110,7 +110,7 @@ export default function SkillUpProgram() {
                     <Users size={22} />
                   </div>
                   <div>
-                    <h4 className="font-bold text-brand-green">Micro-Business Mentorship</h4>
+                    <h4 className="text-xl md:text-2xl font-semibold text-brand-green">Micro-Business Mentorship</h4>
                     <p className="text-xs text-brand-warm-black/60 mt-1">Sustained sessions focusing on basic ledger keeping, pricing, digital marketing, and local sales avenues.</p>
                   </div>
                 </div>
@@ -125,8 +125,8 @@ export default function SkillUpProgram() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-20">
             <span className="text-brand-orange text-xs font-black uppercase tracking-widest block mb-4">Milestone Timeline</span>
-            <h2 className="text-4xl md:text-5xl font-serif font-bold">The Journey of Skill Up</h2>
-            <p className="text-white/60 text-lg mt-4">Reviewing our consecutive annual summits and their direct impact footprint on community capacity building.</p>
+            <h2 className="text-3xl md:text-4xl font-serif font-bold">The Journey of Skill Up</h2>
+            <p className="text-white/60 text-base md:text-lg mt-4">Reviewing our consecutive annual summits and their direct impact footprint on community capacity building.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -139,8 +139,8 @@ export default function SkillUpProgram() {
                     </div>
                     <span className="text-white/20 text-3xl font-serif font-black">0{idx + 1}</span>
                   </div>
-                  <h3 className="text-xl font-serif font-bold text-brand-gold">{item.title}</h3>
-                  <p className="text-white/70 text-sm leading-relaxed">{item.desc}</p>
+                  <h3 className="text-xl md:text-2xl font-semibold font-serif text-brand-gold">{item.title}</h3>
+                  <p className="text-white/70 text-sm md:text-base leading-relaxed">{item.desc}</p>
                 </div>
                 <div className="pt-8 border-t border-white/5 mt-8 flex items-center gap-2 text-brand-gold text-xs font-bold uppercase tracking-wider">
                   Impact Action Completed <ChevronRight size={14} />
@@ -158,8 +158,8 @@ export default function SkillUpProgram() {
             <Camera size={12} className="text-brand-green" />
             <span className="text-[10px] font-black uppercase tracking-widest text-brand-green">On-Site Visual Archives</span>
           </div>
-          <h2 className="text-4xl font-serif font-bold text-brand-green mb-4">Inside the Skill Up Workshops</h2>
-          <p className="text-brand-warm-black/70 text-lg">
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-green mb-4">Inside the Skill Up Workshops</h2>
+          <p className="text-brand-warm-black/70 text-base md:text-lg">
             Witness our physical capacity building programs in action. Tap on any thumbnail below to enter full-screen immersive slideshow display.
           </p>
         </div>
@@ -205,15 +205,15 @@ export default function SkillUpProgram() {
       <section className="py-24 px-6 max-w-7xl mx-auto border-t border-brand-warm-black/5">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
           <div className="p-8 bg-white border border-brand-warm-black/5 rounded-[2.5rem] shadow-sm">
-            <p className="text-5xl font-serif font-bold text-brand-green mb-2">350+</p>
+            <p className="text-4xl md:text-5xl font-serif font-bold text-brand-green mb-2">350+</p>
             <p className="text-xs uppercase font-black text-brand-warm-black/40 tracking-wider">Vocational Graduates</p>
           </div>
           <div className="p-8 bg-white border border-brand-warm-black/5 rounded-[2.5rem] shadow-sm">
-            <p className="text-5xl font-serif font-bold text-brand-green mb-2">45+</p>
+            <p className="text-4xl md:text-5xl font-serif font-bold text-brand-green mb-2">45+</p>
             <p className="text-xs uppercase font-black text-brand-warm-black/40 tracking-wider">Businesses Seeded</p>
           </div>
           <div className="p-8 bg-white border border-brand-warm-black/5 rounded-[2.5rem] shadow-sm">
-            <p className="text-5xl font-serif font-bold text-brand-green mb-2">100%</p>
+            <p className="text-4xl md:text-5xl font-serif font-bold text-brand-green mb-2">100%</p>
             <p className="text-xs uppercase font-black text-brand-warm-black/40 tracking-wider">Free Scholarship Seats</p>
           </div>
         </div>
@@ -223,8 +223,8 @@ export default function SkillUpProgram() {
       <section className="px-6">
         <div className="max-w-5xl mx-auto bg-brand-green text-center text-white p-16 rounded-[4rem] relative overflow-hidden shadow-2xl">
           <div className="absolute inset-x-0 bottom-0 top-1/2 bg-gradient-to-t from-black/20 to-transparent -z-10" />
-          <h2 className="text-2xl font-serif font-bold text-white mb-4">  Invest in Sustainable Human Capacity. </h2>
-          <p className="text-white/75 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+          <h2 className="text-2xl md:text-3xl font-serif font-bold text-white mb-4">  Invest in Sustainable Human Capacity. </h2>
+          <p className="text-white/75 text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
             Your generous donations directly sponsor training material kits, laptop configurations, expert trainers, and micro-grant starter packs for ambitious local participants.
           </p>
           <NavLink to="/donate" className="px-10 py-5 bg-brand-orange text-white font-bold rounded-2xl shadow-xl shadow-brand-orange/20 inline-flex items-center gap-3 hover:scale-105 active:scale-95 transition-all">

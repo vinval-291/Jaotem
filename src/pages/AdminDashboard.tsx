@@ -110,7 +110,7 @@ const AdminDashboard: React.FC = () => {
             <div className="w-16 h-16 bg-red-50 text-red-500 rounded-2xl flex items-center justify-center mx-auto">
                <UserIcon size={32} />
             </div>
-            <h2 className="text-2xl font-serif font-bold text-brand-green">Access Restricted</h2>
+            <h2 className="text-2xl md:text-3xl font-serif font-bold text-brand-green leading-tight">Access Restricted</h2>
             <p className="text-brand-warm-black/60 text-sm leading-relaxed">
               You are logged in, but your account hasn't been authorized as an admin yet. 
               Please add your UID to the <code className="bg-brand-green/5 px-2 py-1 rounded text-brand-green font-bold text-xs">admins</code> collection in the Firebase Console.
@@ -348,7 +348,7 @@ const AdminDashboard: React.FC = () => {
                     </div>
                     
                     <div>
-                      <h3 className="text-3xl font-serif font-bold text-brand-green">
+                      <h3 className="text-3xl md:text-4xl font-serif font-bold text-brand-green leading-tight">
                         {selectedSubmission.firstName} {selectedSubmission.lastName}
                       </h3>
                       <a 
@@ -392,7 +392,7 @@ const AdminDashboard: React.FC = () => {
                   <div className="w-16 h-16 bg-brand-warm-black/5 rounded-full flex items-center justify-center text-brand-warm-black/10">
                     <Mail size={28} />
                   </div>
-                  <h4 className="font-serif font-bold text-brand-green text-lg">Select a Submission</h4>
+                  <h4 className="text-xl md:text-2xl font-semibold font-serif text-brand-green">Select a Submission</h4>
                   <p className="text-sm max-w-xs mx-auto">
                     Click on a submission from the inbox list to read the complete form message and take necessary action.
                   </p>
