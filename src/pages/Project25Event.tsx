@@ -126,7 +126,7 @@ export default function Project25Event() {
       {/* CTA Section */}
       <section className="px-6 py-20">
         <div className="max-w-5xl mx-auto bg-brand-green text-center text-white p-16 rounded-[4rem] relative overflow-hidden shadow-2xl">
-          <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6">Invest in Southwest Classroom Futures.</h2>
+          <h2 className="text-2xl font-serif font-bold text-white mb-4">  Invest in Southwest Classroom Futures. </h2>
           <p className="text-white/75 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
             By supporting our next regional academic tours, you directly finance the procurement of high-grade calculators, workbook templates, maps, and coordinate packages.
           </p>

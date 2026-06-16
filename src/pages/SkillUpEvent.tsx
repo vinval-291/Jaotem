@@ -160,7 +160,7 @@ export default function SkillUpEvent() {
       <section className="px-6">
         <div className="max-w-5xl mx-auto bg-brand-green text-center text-white p-16 rounded-[4rem] relative overflow-hidden shadow-2xl">
           <div className="absolute inset-x-0 bottom-0 top-1/2 bg-gradient-to-t from-black/20 to-transparent -z-10" />
-          <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6">Invest in Sustainable Human Capacity.</h2>
+          <h2 className="text-2xl font-serif font-bold text-white mb-4">  Invest in Sustainable Human Capacity. </h2>
           <p className="text-white/75 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
             Your generous donations directly sponsor training material kits, laptop configurations, expert trainers, and micro-grant starter packs for ambitious local participants.
           </p>

@@ -144,7 +144,7 @@ const Programs: React.FC = () => {
       <section className="px-6 py-24 bg-brand-green text-white">
         <div className="max-w-4xl mx-auto text-center">
            <Globe className="text-brand-gold mx-auto mb-8 animate-spin-slow" size={60} />
-           <h2 className="text-4xl md:text-6xl font-serif font-bold mb-8">Let's Expand Our Reach.</h2>
+           <h2 className="text-4xl md:text-6xl font-serif font-bold text-white mb-8">  Let's Expand Our Reach.</h2>
            <p className="text-white/70 text-xl mb-12 font-light leading-relaxed">
              We are constantly looking for partners, donors, and volunteers to scale these programs to more communities. Your support makes the difference.
            </p>

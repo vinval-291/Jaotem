@@ -44,7 +44,7 @@ const About: React.FC = () => {
               <div className="p-8 bg-brand-green text-white rounded-[2rem] shadow-xl relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16" />
                 <Target className="text-brand-gold mb-4" size={40} />
-                <h3 className="text-2xl font-serif font-bold mb-4">Our Vision</h3>
+                <h3 className="text-2xl font-serif font-bold text-white mb-4">   Our Vision </h3>
                 <p className="text-white/80 leading-relaxed font-light">
                   "Empowering a global community where every individual has the opportunity to thrive, regardless of their socio-economic background, by fostering sustainable development in mentorship, education, entrepreneurship, and empowerment. We strive to create a world where everyone has access to the resources and opportunities they need to reach their full potential."
                 </p>

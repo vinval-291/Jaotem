@@ -172,7 +172,7 @@ const Blog: React.FC = () => {
                 <div className="absolute -bottom-6 -right-6 text-white/5 pointer-events-none">
                   <Sparkles size={160} />
                 </div>
-                <h4 className="text-xl font-serif font-bold mb-4 relative z-10">Newsletter</h4>
+                <h4 className="text-2xl font-serif font-bold text-white mb-4">  Newsletter </h4>
                 <p className="text-white/60 text-sm mb-6 leading-relaxed relative z-10">Join 15,000+ others who receive our monthly impact report and success stories.</p>
                 <form className="space-y-4 relative z-10">
                    <input type="email" placeholder="Your Email" className="w-full p-4 bg-white/10 rounded-2xl border border-white/10 placeholder:text-white/30 text-sm focus:outline-none focus:border-brand-gold transition-all" />

@@ -126,7 +126,7 @@ const Donate: React.FC = () => {
 
             <div className="bg-brand-green p-8 rounded-[2.5rem] text-white shadow-xl relative overflow-hidden">
                <Heart className="absolute -bottom-10 -right-10 text-white/5" size={200} fill="currentColor" />
-               <h3 className="text-2xl font-serif font-bold mb-4">Why Give?</h3>
+               <h3 className="text-2xl font-serif font-bold text-white mb-4">  Why Give? </h3>
                <p className="text-white/70 text-sm leading-relaxed mb-6">
                  Your donation goes directly into the field. From school books in rural villages to micro-grants for single mothers, your impact is immediate and lasting.
                </p>
