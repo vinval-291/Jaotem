@@ -4,7 +4,7 @@ import { PageHeader } from '../components/PageHeader';
 import { SEO } from '../components/SEO';
 import { Heart, Target, Sparkles, ShieldCheck, TrendingUp, Users, BookOpen, GraduationCap, Award } from 'lucide-react';
 
-const TEAM_IMG = "https://images.unsplash.com/photo-1559027615-cd2428ee0a2a?q=80&w=1200&auto=format&fit=crop";
+const TEAM_IMG = "https://i.postimg.cc/GtdnvSq4/DSC-9673.jpg";
 
 const focusAreas = [
   { title: 'Mentorship', desc: 'Providing guidance and support to individuals and students to help them thrive academically and professionally.', icon: GraduationCap },
@@ -69,12 +69,12 @@ const About: React.FC = () => {
                     <p className="text-xs opacity-60 font-medium">Built by people, for people.</p>
                 </div>
                 <div className="aspect-[3/4] rounded-3xl overflow-hidden shadow-lg">
-                   <img src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?q=80&w=1200&auto=format&fit=crop" className="w-full h-full object-cover" alt="community" />
+                   <img src="https://i.postimg.cc/FsZNY98q/excelemt-18.jpg" className="w-full h-full object-cover" alt="community" />
                 </div>
              </div>
              <div className="space-y-4">
                 <div className="aspect-[3/4] rounded-3xl overflow-hidden shadow-lg">
-                   <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=1200&auto=format&fit=crop" className="w-full h-full object-cover" alt="community outreach" />
+                   <img src="https://i.postimg.cc/tJtvRRY3/DSC-0004.jpg" className="w-full h-full object-cover" alt="community outreach" />
                 </div>
                 <div className="aspect-square rounded-3xl bg-brand-green/5 flex flex-col items-center justify-center p-8 text-center border border-brand-green/10">
                     <Heart className="mb-4 text-brand-green" size={32} />

@@ -9,7 +9,7 @@ import { cn } from '../lib/utils';
 const HERO_IMAGE = "https://i.postimg.cc/9M3hQf9B/DSC-9676.jpg";
 const BOOK_IMG = "https://i.postimg.cc/DywP4PDm/DSC-0023.jpg";
 const SKILL_IMG = "https://i.postimg.cc/8PNnKvYg/IMG-20260611-WA0012.jpg";
-const MENTOR_IMG = "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1200&auto=format&fit=crop";
+const MENTOR_IMG = "https://i.postimg.cc/mDyZmSgP/IMG-5299.jpg";
 const GIRL_IMG = "https://i.postimg.cc/rs4sDmWw/466631038-18052364986939617-6262507189763328855-n.jpg";
 const TOUR_IMG = "https://i.postimg.cc/pTj0j5tB/476612979-8966573803453923-7390491861252115043-n.jpg";
 
@@ -112,20 +112,29 @@ const textTestimonials = [
 
 const Home: React.FC = () => {
   const [currentTextIdx, setCurrentTextIdx] = React.useState(0);
+  const [isExpanded, setIsExpanded] = React.useState(false);
 
   // Auto-cycle written testimonials
   React.useEffect(() => {
+    if (isExpanded) return; // Pause auto-cycle when viewing expanded content
     const interval = setInterval(() => {
       setCurrentTextIdx((prev) => (prev + 1) % textTestimonials.length);
-    }, 6000);
+    }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [isExpanded]);
+
+  // Reset expanded state on testimonial slide change
+  React.useEffect(() => {
+    setIsExpanded(false);
+  }, [currentTextIdx]);
 
   const nextTestimonial = () => {
+    setIsExpanded(false);
     setCurrentTextIdx((prev) => (prev + 1) % textTestimonials.length);
   };
 
   const prevTestimonial = () => {
+    setIsExpanded(false);
     setCurrentTextIdx((prev) => (prev - 1 + textTestimonials.length) % textTestimonials.length);
   };
 
@@ -187,8 +196,8 @@ const Home: React.FC = () => {
 
       {/* Stats Section (Impact Metrics) */}
       <section className="mt-12 relative z-20 px-6 max-w-7xl mx-auto mb-24">
-        <div className="bg-white/30 backdrop-blur-2xl border border-white/40 rounded-[32px] p-8 md:p-12 shadow-2xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 divide-y md:divide-y-0 lg:divide-x divide-brand-green/10">
+        <div className="bg-white/30 backdrop-blur-2xl border border-white/40 rounded-[32px] p-6 sm:p-8 md:p-12 shadow-2xl">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-0">
             {stats.map((stat, idx) => (
               <motion.div 
                 key={stat.label}
@@ -197,12 +206,16 @@ const Home: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
                 className={cn(
-                  "flex flex-col gap-1",
-                  idx > 0 && "pt-8 md:pt-0 lg:pl-8"
+                  "flex flex-col gap-1 transition-all duration-300",
+                  // 2x2 grid borders & padding on mobile/tablet (< lg)
+                  idx === 0 && "border-r border-b border-brand-green/10 pb-6 pr-4 sm:pr-6 lg:border-b-0 lg:pb-0 lg:pr-10",
+                  idx === 1 && "border-b border-brand-green/10 pb-6 pl-4 sm:pl-6 lg:border-b-0 lg:border-r lg:pb-0 lg:pr-10 lg:pl-10 lg:border-brand-green/10",
+                  idx === 2 && "border-r border-brand-green/10 pt-6 pr-4 sm:pr-6 lg:border-r lg:pt-0 lg:pr-10 lg:pl-10 lg:border-brand-green/10",
+                  idx === 3 && "pt-6 pl-4 sm:pl-6 lg:pt-0 lg:pl-10"
                 )}
               >
                 <h3 className="text-[10px] font-bold uppercase tracking-widest text-brand-green/60">{stat.label}</h3>
-                <p className="text-3xl font-serif text-brand-warm-black">{stat.value}</p>
+                <p className="text-3xl sm:text-4xl lg:text-5xl font-serif text-brand-warm-black">{stat.value}</p>
                 <p className="text-[10px] text-brand-warm-black/40 uppercase font-black tracking-tighter">Impact Documented</p>
               </motion.div>
             ))}
@@ -321,9 +334,22 @@ const Home: React.FC = () => {
                       Verified Impact Story
                     </span>
                   </div>
-                  <p className="text-brand-warm-black/80 italic leading-relaxed text-base md:text-xl lg:text-2xl mb-8 min-h-[100px] flex items-center">
-                    "{textTestimonials[currentTextIdx].text}"
-                  </p>
+                  <div className="mb-8 min-h-[100px]">
+                    <p className={cn(
+                      "text-brand-warm-black/80 italic leading-relaxed text-base md:text-xl lg:text-2xl transition-all duration-300",
+                      !isExpanded && "line-clamp-5"
+                    )}>
+                      "{textTestimonials[currentTextIdx].text}"
+                    </p>
+                    {textTestimonials[currentTextIdx].text.length > 200 && (
+                      <button
+                        onClick={() => setIsExpanded(!isExpanded)}
+                        className="mt-3 text-brand-orange hover:text-brand-green font-bold text-xs uppercase tracking-widest cursor-pointer flex items-center gap-1 transition-colors"
+                      >
+                        {isExpanded ? "Show Less" : "Show More"}
+                      </button>
+                    )}
+                  </div>
                 </div>
                 <div className="flex items-center gap-4 mt-auto pt-6 border-t border-brand-warm-black/5">
                   <div className="w-14 h-14 rounded-full border-2 border-white bg-gradient-to-br from-brand-green/10 to-brand-green/20 text-brand-green flex items-center justify-center shadow-md shrink-0">
