@@ -6,8 +6,7 @@ import firebaseConfig from '../../firebase-applet-config.json';
 const app = initializeApp(firebaseConfig);
 export const db = initializeFirestore(app, {
   experimentalForceLongPolling: true,
-  useFetchStreams: false,
-} as any, firebaseConfig.firestoreDatabaseId);
+}, firebaseConfig.firestoreDatabaseId);
 export const auth = getAuth(app);
 export const googleProvider = new GoogleAuthProvider();
 
@@ -22,9 +21,9 @@ async function testConnection() {
     console.log("Firebase connection successful");
   } catch (error) {
     if (error instanceof Error && error.message.includes('the client is offline')) {
-      console.error("Please check your Firebase configuration.");
+      console.warn("Firebase client is currently offline; offline cache will be used.");
     } else {
-      console.error("Firebase connection error:", error);
+      console.warn("Firebase connection info (pending active DB initialization):", error instanceof Error ? error.message : error);
     }
   }
 }

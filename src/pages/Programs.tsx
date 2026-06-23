@@ -4,7 +4,7 @@ import { PageHeader } from '../components/PageHeader';
 import { SEO } from '../components/SEO';
 import { 
   GraduationCap, HeartPulse, Zap, Globe, BookOpen, ArrowRight, Award, 
-  Users, Milestone, Calendar, MapPin, Clock, Ticket, Sparkles 
+  Users, Milestone, Calendar, MapPin, Clock, Ticket, Sparkles, ExternalLink
 } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 import { cn } from '../lib/utils';
@@ -13,22 +13,36 @@ const BOOK_IMG = "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q
 const TOUR_IMG = "https://i.postimg.cc/pTj0j5tB/476612979-8966573803453923-7390491861252115043-n.jpg";
 const SKILL_IMG = "https://i.postimg.cc/8PNnKvYg/IMG-20260611-WA0012.jpg";
 const GIRL_IMG = "https://i.postimg.cc/rs4sDmWw/466631038-18052364986939617-6262507189763328855-n.jpg";
-const MENTOR_IMG = "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1200&auto=format&fit=crop";
+const MENTOR_IMG = "https://i.postimg.cc/mDyZmSgP/IMG-5299.jpg";
 
 const upcomingPrograms = [
   {
     id: 1,
-    title: 'Jaotem Skill Up Summit 2026',
-    date: 'Date to be announced soon',
+    title: 'Skill Up Summit 2026!!!',
+    date: '29th of August, 2026',
     time: '6:00 PM - 10:00 PM',
-    location: 'Grand Ballroom, City Plaza',
-    type: 'Fundraiser',
-    img: 'https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-    desc: 'Join our founders, community partners, and sponsors for an impactful dinner to power future grassroots educational programs.'
+    location: 'Abeokuta, Nigeria',
+    type: 'Summit / Fundraiser',
+    img: 'https://i.postimg.cc/hG3R0bdv/Skill-Up-Summit-2026.jpg',
+    desc: `Registration is open.
+    Let’s join hands to make academic mentorship, vocational education, and youth empowerment thrive.`,
+    registrationUrl: 'https://bit.ly/skillupsummitregistrationform'
   }
 ];
 
 const programs = [
+  {
+    id: 'jaotem-mentorship',
+    title: 'Jaotem Mentorship Program',
+    subtitle: 'Academic Coaching & Value-Based Core Guiding',
+    desc: 'Mentoship program for students across tertiary institution with track records of proven academic excellence.',
+    icon: GraduationCap,
+    img: MENTOR_IMG,
+    color: 'bg-emerald-50',
+    stats: { label: 'Scholars Counselled', value: '1,500+' },
+    path: '/programs/mentorship',
+    actionLabel: 'Explore Mentorship Blueprint & Assemblies'
+  },
   {
     id: 'skill-up-empowerment',
     title: 'Skill Up Empowerment Program',
@@ -134,6 +148,11 @@ const Programs: React.FC = () => {
                   <div className="absolute top-4 left-4 bg-brand-orange text-white px-4 py-2 rounded-2xl text-[10px] font-bold uppercase tracking-widest">
                     {event.type}
                   </div>
+                  {event.registrationUrl && (
+                    <div className="absolute bottom-4 left-4 bg-brand-green/95 backdrop-blur-sm text-white px-4 py-2 rounded-[1rem] text-[9px] font-black uppercase tracking-wider shadow-md animate-pulse">
+                      Registration Open!
+                    </div>
+                  )}
                 </div>
                 <div className="p-8">
                   <div className="flex items-center gap-2 text-brand-orange font-bold text-xs uppercase tracking-widest mb-3">
@@ -158,13 +177,26 @@ const Programs: React.FC = () => {
                       <MapPin size={12} className="shrink-0" /> {event.location}
                     </div>
                   </div>
-                  <NavLink 
-                    to="/contact" 
-                    className="p-3 bg-brand-cream text-brand-green rounded-full hover:bg-brand-green hover:text-white transition-all hover:scale-110"
-                    title="Inquire / RSVP"
-                  >
-                    <Ticket size={18} />
-                  </NavLink>
+                  {event.registrationUrl ? (
+                    <a 
+                      href={event.registrationUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-brand-orange text-white text-xs font-black uppercase tracking-wider rounded-2xl hover:bg-brand-green hover:scale-105 transition-all shadow-md shadow-brand-orange/20 cursor-pointer"
+                      title="Register Now"
+                    >
+                      <span>Register</span>
+                      <ExternalLink size={12} className="shrink-0" />
+                    </a>
+                  ) : (
+                    <NavLink 
+                      to="/contact" 
+                      className="p-3 bg-brand-cream text-brand-green rounded-full hover:bg-brand-green hover:text-white transition-all hover:scale-110"
+                      title="Inquire / RSVP"
+                    >
+                      <Ticket size={18} />
+                    </NavLink>
+                  )}
                 </div>
               </div>
             </motion.div>

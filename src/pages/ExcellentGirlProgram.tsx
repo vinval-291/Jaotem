@@ -8,6 +8,28 @@ import { NavLink } from 'react-router-dom';
 const GIRL_IMG = "https://i.postimg.cc/rs4sDmWw/466631038-18052364986939617-6262507189763328855-n.jpg";
 
 const excellentImages = [
+  { src: "https://i.postimg.cc/MvL8KpsY/excelemt-10.jpg", title: "Joyful Girls Gathering", desc: "Smiles and academic confidence are bolstered during our school programs." },
+  { src: "https://i.postimg.cc/7fhkk2NY/excelemt-11.jpg", title: "Classroom Engagement Sessions", desc: "Interactive classroom conversations regarding girl empowerment topics." },
+  { src: "https://i.postimg.cc/svxrrhJg/excelemt-12.jpg", title: "Academic Success Celebration", desc: "Celebrating our young scholars for their academic milestones." },
+  { src: "https://i.postimg.cc/BXb00KC3/excelemt-13.jpg", title: "Distributing Educational Materials", desc: "Gifting academic books and pencils to enable secondary pupils." },
+  { src: "https://i.postimg.cc/18N1g12t/excelemt-14.jpg", title: "Mentorship and Support Seminars", desc: "Hosting structured motivational seminars with young school girls." },
+  { src: "https://i.postimg.cc/m12GhzfY/excelemt-15.jpg", title: "Excellence in Action Summit", desc: "Students listening to inspiring stories of academic achievers." },
+  { src: "https://i.postimg.cc/TLxxMNkG/excelemt-16.jpg", title: "School Outreach Moments", desc: "Handing out curated care boxes directly to enthusiastic secondary school girls." },
+  { src: "https://i.postimg.cc/1VzLskw2/excelemt-17.jpg", title: "Youth Leadership Forum", desc: "Encouraging female students to believe in their career dreams." },
+  { src: "https://i.postimg.cc/2VVPJfzF/excelemt-18.jpg", title: "On-Site Coordination", desc: "Ensuring every single girl gets direct counseling and packs." },
+  { src: "https://i.postimg.cc/DWLhN3PW/excelemt-19.jpg", title: "Empowering Secondary Classrooms", desc: "Inspiring talks emphasizing character development and hygiene." },
+  { src: "https://i.postimg.cc/p9zvSMBN/excelemt-20.jpg", title: "Confidence & Goals Workshop", desc: "Setting concrete standards for leadership, moral focus, and grading metrics." },
+  { src: "https://i.postimg.cc/grMCN0Px/excelemt-21.jpg", title: "Sponsor-Backed Outreach Packs", desc: "Distributing essential items to support educational longevity." },
+  { src: "https://i.postimg.cc/d7rFfcjH/excelemt-22.jpg", title: "Inspiring Bright Minds", desc: "Unlocking positive orientation in secondary school environments." },
+  { src: "https://i.postimg.cc/w7Mppmkg/excelemt-9.jpg", title: "Comprehensive Stationery Kits", desc: "Supplying notebook bundles with motivational stickers and goals card." },
+  { src: "https://i.postimg.cc/XB70XGSc/excelent-1.jpg", title: "Promoting Balanced Lifestyles", desc: "Guidance counseling discussions explaining self-care and studies balance." },
+  { src: "https://i.postimg.cc/CB4gFCtx/excelent-2.jpg", title: "Empowerment and Integrity Training", desc: "Encouraging high moral standing and consistent study habits." },
+  { src: "https://i.postimg.cc/4HNTn7kD/excelent-3.jpg", title: "Group Goal-Setting Assembly", desc: "Students drafting their personal term-goals maps under mentor guidance." },
+  { src: "https://i.postimg.cc/9zx6Jfjj/excelent-4.jpg", title: "Promoting Clean Hygiene Habits", desc: "Teaching girls how to utilize care items correctly." },
+  { src: "https://i.postimg.cc/G9qCVQGx/excelent-5.jpg", title: "Empowerment Dialogue Session", desc: "Listening to schoolgirls' specific challenges and creating recovery plans." },
+  { src: "https://i.postimg.cc/QHC33TqJ/excelent-6.jpg", title: "Excelling with Confidence Tour", desc: "Sponsoring confidence workshops across secondary schools." },
+  { src: "https://i.postimg.cc/q6MdghVc/excelent-7.jpg", title: "Dedicated Team of Volunteers", desc: "Our facilitators working persistently to cover partnering schools." },
+  { src: "https://i.postimg.cc/JtPLvqj7/excelent-8.jpg", title: "Dignified Care Handouts", desc: "Providing the essential resources to support standard health and schooling." },
   { src: "https://i.postimg.cc/rs4sDmWw/466631038-18052364986939617-6262507189763328855-n.jpg", title: "The Excellent Girl School Outreach", desc: "Visiting school girls to distribute educational and physical kits." },
   { src: "https://i.postimg.cc/PfvP3670/466846370-18052365919939617-2117216860870530175-n.jpg", title: "Guided Talk Sessions", desc: "Empowering female pupils with hygiene guides and moral coaching." },
   { src: "https://i.postimg.cc/ZnNnWR3b/466849251-18052365286939617-2775084372203690106-n.jpg", title: "Hygiene & Care Kits", desc: "Distributing personal care packs to help girls stay in classroom structures." },
@@ -23,6 +45,26 @@ const excellentImages = [
 
 export default function ExcellentGirlProgram() {
   const [lightbox, setLightbox] = React.useState<number | null>(null);
+  const [scrollProgress, setScrollProgress] = React.useState(0);
+  const carouselRef = React.useRef<HTMLDivElement>(null);
+
+  const handleScroll = () => {
+    if (carouselRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
+      const totalScroll = scrollWidth - clientWidth;
+      if (totalScroll > 0) {
+        setScrollProgress((scrollLeft / totalScroll) * 100);
+      }
+    }
+  };
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (carouselRef.current) {
+      const { clientWidth } = carouselRef.current;
+      const scrollAmount = direction === 'left' ? -clientWidth * 0.8 : clientWidth * 0.8;
+      carouselRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
 
   const objectives = [
     { title: "Menstrual Hygiene Advocacy", desc: "Providing premium sanitary resource kits directly to young girls, ensuring they never miss school due to lack of hygienic supplies." },
@@ -164,26 +206,70 @@ export default function ExcellentGirlProgram() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {excellentImages.map((img, idx) => (
-            <motion.div
-              key={idx}
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={() => setLightbox(idx)}
-              className="relative aspect-square rounded-[1.5rem] overflow-hidden cursor-pointer group shadow-sm border border-brand-warm-black/5 bg-white"
-            >
-              <img 
-                src={img.src} 
-                alt={img.title} 
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
-              />
-              <div className="absolute inset-0 bg-brand-green/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <Maximize2 size={24} className="text-white transform scale-75 group-hover:scale-100 transition-all duration-300" />
-              </div>
-            </motion.div>
-          ))}
+        <div className="relative">
+          {/* Scroll Buttons - Mobile Only */}
+          <div className="flex md:hidden justify-between items-center mb-6">
+            <span className="text-xs font-black tracking-wider text-brand-warm-black/40 uppercase">
+              Swipe to explore ({excellentImages.length} photos)
+            </span>
+            <div className="flex gap-2">
+              <button
+                onClick={() => scroll('left')}
+                className="w-10 h-10 rounded-full bg-white border border-brand-warm-black/10 flex items-center justify-center text-brand-green shadow-sm hover:bg-brand-cream active:scale-95 transition-all"
+                aria-label="Previous image"
+              >
+                <ChevronLeft size={18} />
+              </button>
+              <button
+                onClick={() => scroll('right')}
+                className="w-10 h-10 rounded-full bg-white border border-brand-warm-black/10 flex items-center justify-center text-brand-green shadow-sm hover:bg-brand-cream active:scale-95 transition-all"
+                aria-label="Next image"
+              >
+                <ChevronRightIcon size={18} />
+              </button>
+            </div>
+          </div>
+
+          <div 
+            ref={carouselRef}
+            onScroll={handleScroll}
+            className="flex md:grid md:grid-cols-4 gap-4 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none scrollbar-none pb-6 md:pb-0"
+          >
+            {excellentImages.map((img, idx) => (
+              <motion.div
+                key={idx}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => setLightbox(idx)}
+                className="relative aspect-square rounded-[1.5rem] overflow-hidden cursor-pointer group shadow-sm border border-brand-warm-black/5 bg-white shrink-0 w-[82%] sm:w-[50%] md:w-full snap-center md:snap-align-none"
+              >
+                <img 
+                  src={img.src} 
+                  alt={img.title} 
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                />
+                
+                {/* Mobile Info Overlay */}
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent p-4 pt-10 text-white block md:hidden">
+                  <h4 className="text-xs font-bold truncate">{img.title}</h4>
+                  <p className="text-[9px] text-white/70 line-clamp-1">{img.desc}</p>
+                </div>
+
+                <div className="absolute inset-0 bg-brand-green/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden md:flex items-center justify-center">
+                  <Maximize2 size={24} className="text-white transform scale-75 group-hover:scale-100 transition-all duration-300" />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Swipe Progress Bar - Mobile Only */}
+          <div className="md:hidden mt-4 h-1 bg-brand-green/10 rounded-full w-full max-w-[180px] mx-auto overflow-hidden">
+            <div 
+              className="h-full bg-brand-green transition-all duration-150 rounded-full" 
+              style={{ width: `${Math.max(8, scrollProgress)}%` }}
+            />
+          </div>
         </div>
       </section>
 
@@ -192,10 +278,10 @@ export default function ExcellentGirlProgram() {
         <div className="max-w-5xl mx-auto bg-brand-green text-center text-white p-16 rounded-[4rem] relative overflow-hidden shadow-2xl">
           <h2 className="text-2xl font-serif font-bold text-white mb-4">  Support A Golden Mind and Body. </h2>
           <p className="text-white/75 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-            A small direct contribution allows our administrative teams to order raw items in high volumes, curate custom girl packages, and host impactful school site outreaches.
+            We believe every girl deserves to thrive. That’s why we talk to young girls about excellence — in character, academics, and life. Then we back it up by equipping them with real vocational skills that open doors to independence, purpose, and impact.
           </p>
           <NavLink to="/donate" className="px-10 py-5 bg-brand-orange text-white font-bold rounded-2xl shadow-xl shadow-brand-orange/20 inline-flex items-center gap-3 hover:scale-105 active:scale-95 transition-all">
-            Sponsor Hygiene Kits <HeartHandshake size={20} />
+            Sponsor this Project <HeartHandshake size={20} />
           </NavLink>
         </div>
       </section>

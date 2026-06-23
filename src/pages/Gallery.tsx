@@ -2,7 +2,7 @@ import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { PageHeader } from '../components/PageHeader';
 import { SEO } from '../components/SEO';
-import { Camera, PlayCircle, Maximize2, FolderOpen, ArrowRight, ExternalLink, ChevronLeft, ChevronRight, X, Facebook } from 'lucide-react';
+import { Camera, PlayCircle, Maximize2, FolderOpen, ArrowRight, ExternalLink, ChevronLeft, ChevronRight, X, Facebook, Quote, Play, User } from 'lucide-react';
 import { cn } from '../lib/utils';
 
 const HERO_IMG = "https://i.postimg.cc/tJtvRRY3/DSC-0004.jpg";
@@ -82,6 +82,28 @@ const skillup2025Images = [
 ];
 
 const excellentImages = [
+  { src: "https://i.postimg.cc/MvL8KpsY/excelemt-10.jpg" },
+  { src: "https://i.postimg.cc/7fhkk2NY/excelemt-11.jpg" },
+  { src: "https://i.postimg.cc/svxrrhJg/excelemt-12.jpg" },
+  { src: "https://i.postimg.cc/BXb00KC3/excelemt-13.jpg" },
+  { src: "https://i.postimg.cc/18N1g12t/excelemt-14.jpg" },
+  { src: "https://i.postimg.cc/m12GhzfY/excelemt-15.jpg" },
+  { src: "https://i.postimg.cc/TLxxMNkG/excelemt-16.jpg" },
+  { src: "https://i.postimg.cc/1VzLskw2/excelemt-17.jpg" },
+  { src: "https://i.postimg.cc/2VVPJfzF/excelemt-18.jpg" },
+  { src: "https://i.postimg.cc/DWLhN3PW/excelemt-19.jpg" },
+  { src: "https://i.postimg.cc/p9zvSMBN/excelemt-20.jpg" },
+  { src: "https://i.postimg.cc/grMCN0Px/excelemt-21.jpg" },
+  { src: "https://i.postimg.cc/d7rFfcjH/excelemt-22.jpg" },
+  { src: "https://i.postimg.cc/w7Mppmkg/excelemt-9.jpg" },
+  { src: "https://i.postimg.cc/XB70XGSc/excelent-1.jpg" },
+  { src: "https://i.postimg.cc/CB4gFCtx/excelent-2.jpg" },
+  { src: "https://i.postimg.cc/4HNTn7kD/excelent-3.jpg" },
+  { src: "https://i.postimg.cc/9zx6Jfjj/excelent-4.jpg" },
+  { src: "https://i.postimg.cc/G9qCVQGx/excelent-5.jpg" },
+  { src: "https://i.postimg.cc/QHC33TqJ/excelent-6.jpg" },
+  { src: "https://i.postimg.cc/q6MdghVc/excelent-7.jpg" },
+  { src: "https://i.postimg.cc/JtPLvqj7/excelent-8.jpg" },
   { src: "https://i.postimg.cc/rs4sDmWw/466631038-18052364986939617-6262507189763328855-n.jpg" },
   { src: "https://i.postimg.cc/PfvP3670/466846370-18052365919939617-2117216860870530175-n.jpg" },
   { src: "https://i.postimg.cc/ZnNnWR3b/466849251-18052365286939617-2775084372203690106-n.jpg" },
@@ -95,9 +117,48 @@ const excellentImages = [
   { src: "https://i.postimg.cc/SQYJTZ50/excelemt.jpg" }
 ];
 
+const videoTestimonials = [
+  {
+    id: "1uVkthQYR5cpICk5IZwNnheXgsTUdW1SL",
+    name: "Amina Bello",
+    title: "Vocational Graduate Success",
+  },
+  {
+    id: "1zjSjtk9h5OEXfT2FTfNcpdRMJnZZo1jc",
+    name: "Tunde Alabi",
+    title: "Skill Acquisition Impact",
+  },
+  {
+    id: "1ofxELTgDbapBYC3mNL0Y19LEAawnEjFo",
+    name: "Deborah Oguntoye",
+    title: "Empowerment Program Testimonial",
+  },
+  {
+    id: "1-fhpdkm0wOLjeqEDm-U4b-_8rV0xmASj",
+    name: "Chinonso Eze",
+    title: "Project 25 Participant Voice",
+  },
+  {
+    id: "1o7ymrZskuJYSoLPfbbOB0wT_kzvYTTN8",
+    name: "Fatima Yusuf",
+    title: "Capacity Building Success Story",
+  }
+];
+
 const Gallery: React.FC = () => {
   const [lightbox, setLightbox] = React.useState<{ group: 'archive' | 'project25' | 'skillup2025' | 'excellent'; index: number } | null>(null);
   const [isMobile, setIsMobile] = React.useState(false);
+  const [activeVideoId, setActiveVideoId] = React.useState<string | null>(null);
+  const [activeVideoTitle, setActiveVideoTitle] = React.useState<string>("");
+  const [currentVideoIdx, setCurrentVideoIdx] = React.useState(0);
+
+  const nextVideo = () => {
+    setCurrentVideoIdx((prev) => (prev + 1) % videoTestimonials.length);
+  };
+
+  const prevVideo = () => {
+    setCurrentVideoIdx((prev) => (prev - 1 + videoTestimonials.length) % videoTestimonials.length);
+  };
 
   React.useEffect(() => {
     const handleResize = () => {
@@ -579,7 +640,7 @@ const Gallery: React.FC = () => {
       </section>
 
       {/* Social Feed Callout */}
-      <section className="px-6 py-24 bg-brand-cream">
+      <section className="px-6 py-24 bg-brand-cream animate-fade-in">
          <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-green mb-8 tracking-tight">Follow Our Live Journey</h2>
             <p className="text-brand-warm-black/60 text-base md:text-lg mb-12">Get daily updates and behind-the-scenes moments from our field missions on social media.</p>
@@ -589,6 +650,156 @@ const Gallery: React.FC = () => {
             </div>
          </div>
       </section>
+
+      {/* Video Testimonials Section */}
+      <section className="py-24 px-6 bg-white relative overflow-hidden border-t border-brand-warm-black/5">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-[10px] h-fit font-black uppercase tracking-widest text-[#cf762b] bg-brand-orange/5 px-4 py-1.5 rounded-full border border-brand-orange/15 inline-block mb-3">
+              Voices of Transformation
+            </span>
+            <h2 className="text-3xl md:text-5xl font-serif font-bold mb-4 text-brand-green leading-tight">
+              Testimonial Video Stories
+            </h2>
+            <p className="text-brand-warm-black/70 text-base md:text-lg leading-relaxed">
+              Listen directly to the girls and young women whose pathways were changed through the Jaotem specialized empowerment frameworks.
+            </p>
+          </div>
+
+          <div className="relative max-w-5xl mx-auto px-4 md:px-12 py-2">
+            <div className="overflow-hidden">
+              <motion.div
+                key={currentVideoIdx}
+                initial={{ opacity: 0, scale: 0.98, y: 15 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.98, y: -15 }}
+                transition={{ duration: 0.4 }}
+                className="bg-brand-cream/60 p-6 md:p-8 rounded-[2.5rem] shadow-xl flex flex-col md:flex-row gap-8 items-center transition-all group border border-brand-warm-black/5"
+              >
+                {/* Interactive Video Playback Cover/Poster */}
+                <div className="w-full md:w-1/2 aspect-video rounded-3xl overflow-hidden shadow-inner bg-black border border-brand-warm-black/5 flex-shrink-0 relative">
+                  <button
+                    onClick={() => {
+                      setActiveVideoId(videoTestimonials[currentVideoIdx].id);
+                      setActiveVideoTitle(videoTestimonials[currentVideoIdx].title);
+                    }}
+                    className="absolute inset-0 w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-brand-green via-brand-green/90 to-brand-orange/40 text-white group/btn transition-all duration-300 hover:from-brand-green/95 hover:to-brand-orange/50 p-6 overflow-hidden cursor-pointer"
+                  >
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full bg-white/5 scale-50 group-hover/btn:scale-100 transition-transform duration-700 blur-xl pointer-events-none" />
+                    
+                    <div className="relative bg-white/20 backdrop-blur-md text-brand-gold p-4 rounded-full border border-white/30 shadow-lg group-hover/btn:scale-110 group-hover/btn:bg-white/35 transition-all duration-300 flex items-center justify-center animate-pulse">
+                      <Play size={24} className="fill-current text-white translate-x-[1.5px]" />
+                    </div>
+                    
+                    <span className="relative mt-4 text-[10px] font-black uppercase tracking-widest text-[#fce8cc]/90 group-hover/btn:text-white transition-colors duration-300">
+                      Play Fullscreen Testimony
+                    </span>
+                    
+                    <span className="relative text-[9px] text-white/50 mt-1 pointer-events-none">
+                      Cinematic Video Player
+                    </span>
+                  </button>
+                </div>
+
+                {/* Text details for the video story */}
+                <div className="w-full md:w-1/2 flex flex-col justify-between text-left self-stretch py-2">
+                  <div>
+                    <span className="text-[10px] font-black uppercase tracking-widest text-brand-green bg-brand-green/5 px-3 py-1 rounded-full border border-brand-green/10 inline-block mb-4">
+                      Verified Graduate Testimony
+                    </span>
+                    <h4 className="text-xl md:text-2xl lg:text-3xl font-serif font-semibold text-brand-green leading-snug">
+                      {videoTestimonials[currentVideoIdx].title}
+                    </h4>
+                    <p className="text-base text-brand-warm-black/70 font-medium mt-3">
+                      Featuring: <span className="text-brand-green font-bold">{videoTestimonials[currentVideoIdx].name}</span>
+                    </p>
+                    <p className="text-sm text-brand-warm-black/60 leading-relaxed mt-4">
+                      Watch this inspiring video highlight demonstrating the true, generational impact forged here at Jaotem Foundation.
+                    </p>
+                  </div>
+
+                  <div className="mt-8 pt-4 border-t border-brand-warm-black/5 flex items-center justify-between">
+                    <span className="text-xs text-brand-warm-black/40 font-mono font-medium">
+                      Testimony Video {currentVideoIdx + 1} of {videoTestimonials.length}
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Carousel Controls */}
+            <div className="flex items-center justify-between mt-8 px-2">
+              {/* Dots indicator */}
+              <div className="flex gap-2">
+                {videoTestimonials.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setCurrentVideoIdx(idx)}
+                    className={cn(
+                      "w-2.5 h-2.5 rounded-full transition-all duration-300 cursor-pointer",
+                      idx === currentVideoIdx 
+                        ? "bg-brand-green w-8" 
+                        : "bg-brand-green/20 hover:bg-brand-green/45"
+                    )}
+                    aria-label={`Go to video story ${idx + 1}`}
+                  />
+                ))}
+              </div>
+
+              {/* Arrow buttons */}
+              <div className="flex gap-3">
+                <button
+                  onClick={prevVideo}
+                  className="p-3 rounded-full bg-white/80 backdrop-blur border border-brand-green/10 text-brand-green hover:bg-brand-green/10 transition-all cursor-pointer shadow-md hover:scale-105 active:scale-95 flex items-center justify-center"
+                  aria-label="Previous testimony"
+                >
+                  <ChevronLeft size={20} />
+                </button>
+                <button
+                  onClick={nextVideo}
+                  className="p-3 rounded-full bg-white/80 backdrop-blur border border-brand-green/10 text-brand-green hover:bg-brand-green/10 transition-all cursor-pointer shadow-md hover:scale-105 active:scale-95 flex items-center justify-center"
+                  aria-label="Next testimony"
+                >
+                  <ChevronRight size={20} />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Full-Screen Video Modal Overlay - Play on clicked */}
+      {activeVideoId && (
+        <div className="fixed inset-0 bg-brand-warm-black/95 backdrop-blur-lg z-50 flex items-center justify-center p-4 md:p-8 animate-fade-in">
+          <div 
+            className="absolute inset-0 cursor-pointer" 
+            onClick={() => setActiveVideoId(null)}
+          />
+          <div className="bg-neutral-950 w-full max-w-5xl rounded-[2rem] overflow-hidden shadow-2xl relative border border-white/10 z-10 aspect-video flex items-center justify-center transition-transform scale-100">
+            {/* Close Button overlay */}
+            <button 
+              onClick={() => setActiveVideoId(null)}
+              className="absolute top-4 right-4 bg-white/10 hover:bg-white/20 text-white p-3 rounded-full backdrop-blur-md transition-all border border-white/20 z-20 cursor-pointer shadow-lg hover:scale-105 active:scale-95"
+              title="Close Video"
+            >
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            <iframe
+              src={`https://drive.google.com/file/d/${activeVideoId}/preview?autoplay=1`}
+              width="100%"
+              height="100%"
+              allow="autoplay; fullscreen"
+              allowFullScreen
+              referrerPolicy="no-referrer"
+              className="w-full h-full border-0 absolute inset-0"
+              title={activeVideoTitle || "Cinematic Testimony Video Player"}
+            />
+          </div>
+        </div>
+      )}
 
       {/* Immersive Sandbox Lightbox Modal */}
       <AnimatePresence>

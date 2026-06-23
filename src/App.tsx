@@ -23,6 +23,7 @@ import Contact from './pages/Contact';
 import SkillUpProgram from './pages/SkillUpProgram';
 import ExcellentGirlProgram from './pages/ExcellentGirlProgram';
 import Project25Program from './pages/Project25Program';
+import MentorshipProgram from './pages/MentorshipProgram';
 
 // Admin Pages
 import AdminLogin from './pages/AdminLogin';
@@ -61,6 +62,7 @@ function Layout() {
             <Route path="/programs/skill-up" element={<PageContainer><SkillUpProgram /></PageContainer>} />
             <Route path="/programs/excellent-girl" element={<PageContainer><ExcellentGirlProgram /></PageContainer>} />
             <Route path="/programs/project-25" element={<PageContainer><Project25Program /></PageContainer>} />
+            <Route path="/programs/mentorship" element={<PageContainer><MentorshipProgram /></PageContainer>} />
             <Route path="/blog" element={<PageContainer><Blog /></PageContainer>} />
             <Route path="/blog/:id" element={<PageContainer><BlogPost /></PageContainer>} />
             <Route path="/gallery" element={<PageContainer><Gallery /></PageContainer>} />
