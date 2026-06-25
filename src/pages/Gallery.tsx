@@ -120,8 +120,27 @@ const excellentImages = [
 const videoTestimonials = [
   {
     id: "1uVkthQYR5cpICk5IZwNnheXgsTUdW1SL",
+    type: "drive",
     name: "Skill Up Summit",
     title: "Jaotem Skill Up Summit Highlight",
+  },
+  {
+    id: "1204624712",
+    type: "vimeo",
+    name: "Oyebamiji Hiqmat",
+    title: "Jaotem Skill Summit Beneficiary (Fashion Designing)",
+  },
+  {
+    id: "1204624714",
+    type: "vimeo",
+    name: "Olorunfemi Faith",
+    title: "Jaotem Skill Summit Beneficiary (Fashion Designing)",
+  },
+  {
+    id: "1204624713",
+    type: "vimeo",
+    name: "Olaoluwa Miracle",
+    title: "Jaotem Skill Summit Beneficiary (Adire Making)",
   }
 ];
 
@@ -751,62 +770,74 @@ const Gallery: React.FC = () => {
       </section>
 
       {/* Full-Screen Video Modal Overlay - Play on clicked */}
-      {activeVideoId && (
-        <div className="fixed inset-0 bg-brand-warm-black/95 backdrop-blur-lg z-50 flex items-center justify-center p-4 md:p-8 animate-fade-in">
-          <div 
-            className="absolute inset-0 cursor-pointer" 
-            onClick={() => setActiveVideoId(null)}
-          />
-          <div className="bg-neutral-950 w-full max-w-5xl rounded-3xl overflow-hidden shadow-2xl relative border border-white/10 z-10 flex flex-col transition-transform scale-100 max-h-[95vh] sm:max-h-[90vh]">
-            {/* Modal Header (Outside video content) */}
-            <div className="w-full bg-[#111] border-b border-white/5 py-3 px-5 flex items-center justify-between gap-4 shrink-0">
-              <span className="text-white font-semibold text-xs sm:text-sm truncate">
-                {activeVideoTitle || "Cinematic Video"}
-              </span>
-              <button 
-                onClick={() => setActiveVideoId(null)}
-                className="bg-white/10 hover:bg-white/20 text-white p-2 rounded-full backdrop-blur-md transition-all border border-white/20 cursor-pointer shadow-lg hover:scale-105 active:scale-95 shrink-0"
-                title="Close Video"
-              >
-                <X size={16} />
-              </button>
-            </div>
+      {activeVideoId && (() => {
+        const activeVideo = videoTestimonials.find(v => v.id === activeVideoId);
+        const isVimeo = activeVideo?.type === 'vimeo';
+        const embedUrl = isVimeo 
+          ? `https://player.vimeo.com/video/${activeVideoId}?autoplay=1` 
+          : `https://drive.google.com/file/d/${activeVideoId}/preview?autoplay=1`;
+        const watchUrl = isVimeo 
+          ? `https://vimeo.com/${activeVideoId}` 
+          : `https://drive.google.com/file/d/${activeVideoId}/view?usp=sharing`;
+        const watchPlatform = isVimeo ? 'Vimeo' : 'Google Drive';
 
-            {/* Aspect Video wrapper for iframe */}
-            <div className="w-full aspect-[4/3] sm:aspect-video relative bg-black shrink-0">
-              <iframe
-                src={`https://drive.google.com/file/d/${activeVideoId}/preview?autoplay=1`}
-                width="100%"
-                height="100%"
-                allow="autoplay; fullscreen"
-                allowFullScreen
-                referrerPolicy="no-referrer"
-                className="w-full h-full border-0 absolute inset-0"
-                title={activeVideoTitle || "Cinematic Testimony Video Player"}
-              />
-            </div>
-
-            {/* Watch Directly fallback bar at the bottom */}
-            <div className="w-full bg-[#111] border-t border-white/5 py-3.5 px-5 sm:py-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shrink-0">
-              <div className="space-y-1">
-                <p className="text-white font-medium text-xs sm:text-sm">Cannot play the video?</p>
-                <p className="text-white/40 text-[10px] sm:text-xs leading-relaxed">
-                  If the video is blank or blocked by third-party cookie/iframe settings, use the button to watch it directly on Google Drive.
-                </p>
+        return (
+          <div className="fixed inset-0 bg-brand-warm-black/95 backdrop-blur-lg z-50 flex items-center justify-center p-4 md:p-8 animate-fade-in">
+            <div 
+              className="absolute inset-0 cursor-pointer" 
+              onClick={() => setActiveVideoId(null)}
+            />
+            <div className="bg-neutral-950 w-full max-w-5xl rounded-3xl overflow-hidden shadow-2xl relative border border-white/10 z-10 flex flex-col transition-transform scale-100 max-h-[95vh] sm:max-h-[90vh]">
+              {/* Modal Header (Outside video content) */}
+              <div className="w-full bg-[#111] border-b border-white/5 py-3 px-5 flex items-center justify-between gap-4 shrink-0">
+                <span className="text-white font-semibold text-xs sm:text-sm truncate">
+                  {activeVideoTitle || "Cinematic Video"}
+                </span>
+                <button 
+                  onClick={() => setActiveVideoId(null)}
+                  className="bg-white/10 hover:bg-white/20 text-white p-2 rounded-full backdrop-blur-md transition-all border border-white/20 cursor-pointer shadow-lg hover:scale-105 active:scale-95 shrink-0"
+                  title="Close Video"
+                >
+                  <X size={16} />
+                </button>
               </div>
-              <a
-                href={`https://drive.google.com/file/d/${activeVideoId}/view?usp=sharing`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-orange hover:bg-brand-orange/90 text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-colors cursor-pointer whitespace-nowrap shadow-md shadow-brand-orange/10 shrink-0"
-              >
-                <span>Watch on Google Drive</span>
-                <ExternalLink size={14} className="shrink-0" />
-              </a>
+
+              {/* Aspect Video wrapper for iframe */}
+              <div className="w-full aspect-[4/3] sm:aspect-video relative bg-black shrink-0">
+                <iframe
+                  src={embedUrl}
+                  width="100%"
+                  height="100%"
+                  allow="autoplay; fullscreen"
+                  allowFullScreen
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full border-0 absolute inset-0"
+                  title={activeVideoTitle || "Cinematic Testimony Video Player"}
+                />
+              </div>
+
+              {/* Watch Directly fallback bar at the bottom */}
+              <div className="w-full bg-[#111] border-t border-white/5 py-3.5 px-5 sm:py-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shrink-0">
+                <div className="space-y-1">
+                  <p className="text-white font-medium text-xs sm:text-sm">Cannot play the video?</p>
+                  <p className="text-white/40 text-[10px] sm:text-xs leading-relaxed">
+                    If the video is blank or blocked by third-party cookie/iframe settings, use the button to watch it directly on {watchPlatform}.
+                  </p>
+                </div>
+                <a
+                  href={watchUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-orange hover:bg-brand-orange/90 text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-colors cursor-pointer whitespace-nowrap shadow-md shadow-brand-orange/10 shrink-0"
+                >
+                  <span>Watch on {watchPlatform}</span>
+                  <ExternalLink size={14} className="shrink-0" />
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        );
+      })()}
 
       {/* Immersive Sandbox Lightbox Modal */}
       <AnimatePresence>
