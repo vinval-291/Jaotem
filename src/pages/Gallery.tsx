@@ -120,28 +120,8 @@ const excellentImages = [
 const videoTestimonials = [
   {
     id: "1uVkthQYR5cpICk5IZwNnheXgsTUdW1SL",
-    name: "Amina Bello",
-    title: "Vocational Graduate Success",
-  },
-  {
-    id: "1zjSjtk9h5OEXfT2FTfNcpdRMJnZZo1jc",
-    name: "Tunde Alabi",
-    title: "Skill Acquisition Impact",
-  },
-  {
-    id: "1ofxELTgDbapBYC3mNL0Y19LEAawnEjFo",
-    name: "Deborah Oguntoye",
-    title: "Empowerment Program Testimonial",
-  },
-  {
-    id: "1-fhpdkm0wOLjeqEDm-U4b-_8rV0xmASj",
-    name: "Chinonso Eze",
-    title: "Project 25 Participant Voice",
-  },
-  {
-    id: "1o7ymrZskuJYSoLPfbbOB0wT_kzvYTTN8",
-    name: "Fatima Yusuf",
-    title: "Capacity Building Success Story",
+    name: "Skill Up Summit",
+    title: "Jaotem Skill Up Summit Highlight",
   }
 ];
 
@@ -677,7 +657,7 @@ const Gallery: React.FC = () => {
                 className="bg-brand-cream/60 p-6 md:p-8 rounded-[2.5rem] shadow-xl flex flex-col md:flex-row gap-8 items-center transition-all group border border-brand-warm-black/5"
               >
                 {/* Interactive Video Playback Cover/Poster */}
-                <div className="w-full md:w-1/2 aspect-video rounded-3xl overflow-hidden shadow-inner bg-black border border-brand-warm-black/5 flex-shrink-0 relative">
+                <div className="w-full md:w-1/2 h-64 sm:h-80 md:h-auto md:aspect-video rounded-3xl overflow-hidden shadow-inner bg-black border border-brand-warm-black/5 flex-shrink-0 relative">
                   <button
                     onClick={() => {
                       setActiveVideoId(videoTestimonials[currentVideoIdx].id);
@@ -728,42 +708,44 @@ const Gallery: React.FC = () => {
             </div>
 
             {/* Carousel Controls */}
-            <div className="flex items-center justify-between mt-8 px-2">
-              {/* Dots indicator */}
-              <div className="flex gap-2">
-                {videoTestimonials.map((_, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setCurrentVideoIdx(idx)}
-                    className={cn(
-                      "w-2.5 h-2.5 rounded-full transition-all duration-300 cursor-pointer",
-                      idx === currentVideoIdx 
-                        ? "bg-brand-green w-8" 
-                        : "bg-brand-green/20 hover:bg-brand-green/45"
-                    )}
-                    aria-label={`Go to video story ${idx + 1}`}
-                  />
-                ))}
-              </div>
+            {videoTestimonials.length > 1 && (
+              <div className="flex items-center justify-between mt-8 px-2">
+                {/* Dots indicator */}
+                <div className="flex gap-2">
+                  {videoTestimonials.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setCurrentVideoIdx(idx)}
+                      className={cn(
+                        "w-2.5 h-2.5 rounded-full transition-all duration-300 cursor-pointer",
+                        idx === currentVideoIdx 
+                          ? "bg-brand-green w-8" 
+                          : "bg-brand-green/20 hover:bg-brand-green/45"
+                      )}
+                      aria-label={`Go to video story ${idx + 1}`}
+                    />
+                  ))}
+                </div>
 
-              {/* Arrow buttons */}
-              <div className="flex gap-3">
-                <button
-                  onClick={prevVideo}
-                  className="p-3 rounded-full bg-white/80 backdrop-blur border border-brand-green/10 text-brand-green hover:bg-brand-green/10 transition-all cursor-pointer shadow-md hover:scale-105 active:scale-95 flex items-center justify-center"
-                  aria-label="Previous testimony"
-                >
-                  <ChevronLeft size={20} />
-                </button>
-                <button
-                  onClick={nextVideo}
-                  className="p-3 rounded-full bg-white/80 backdrop-blur border border-brand-green/10 text-brand-green hover:bg-brand-green/10 transition-all cursor-pointer shadow-md hover:scale-105 active:scale-95 flex items-center justify-center"
-                  aria-label="Next testimony"
-                >
-                  <ChevronRight size={20} />
-                </button>
+                {/* Arrow buttons */}
+                <div className="flex gap-3">
+                  <button
+                    onClick={prevVideo}
+                    className="p-3 rounded-full bg-white/80 backdrop-blur border border-brand-green/10 text-brand-green hover:bg-brand-green/10 transition-all cursor-pointer shadow-md hover:scale-105 active:scale-95 flex items-center justify-center"
+                    aria-label="Previous testimony"
+                  >
+                    <ChevronLeft size={20} />
+                  </button>
+                  <button
+                    onClick={nextVideo}
+                    className="p-3 rounded-full bg-white/80 backdrop-blur border border-brand-green/10 text-brand-green hover:bg-brand-green/10 transition-all cursor-pointer shadow-md hover:scale-105 active:scale-95 flex items-center justify-center"
+                    aria-label="Next testimony"
+                  >
+                    <ChevronRight size={20} />
+                  </button>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </section>
@@ -775,28 +757,53 @@ const Gallery: React.FC = () => {
             className="absolute inset-0 cursor-pointer" 
             onClick={() => setActiveVideoId(null)}
           />
-          <div className="bg-neutral-950 w-full max-w-5xl rounded-[2rem] overflow-hidden shadow-2xl relative border border-white/10 z-10 aspect-video flex items-center justify-center transition-transform scale-100">
-            {/* Close Button overlay */}
-            <button 
-              onClick={() => setActiveVideoId(null)}
-              className="absolute top-4 right-4 bg-white/10 hover:bg-white/20 text-white p-3 rounded-full backdrop-blur-md transition-all border border-white/20 z-20 cursor-pointer shadow-lg hover:scale-105 active:scale-95"
-              title="Close Video"
-            >
-              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
+          <div className="bg-neutral-950 w-full max-w-5xl rounded-3xl overflow-hidden shadow-2xl relative border border-white/10 z-10 flex flex-col transition-transform scale-100 max-h-[95vh] sm:max-h-[90vh]">
+            {/* Modal Header (Outside video content) */}
+            <div className="w-full bg-[#111] border-b border-white/5 py-3 px-5 flex items-center justify-between gap-4 shrink-0">
+              <span className="text-white font-semibold text-xs sm:text-sm truncate">
+                {activeVideoTitle || "Cinematic Video"}
+              </span>
+              <button 
+                onClick={() => setActiveVideoId(null)}
+                className="bg-white/10 hover:bg-white/20 text-white p-2 rounded-full backdrop-blur-md transition-all border border-white/20 cursor-pointer shadow-lg hover:scale-105 active:scale-95 shrink-0"
+                title="Close Video"
+              >
+                <X size={16} />
+              </button>
+            </div>
 
-            <iframe
-              src={`https://drive.google.com/file/d/${activeVideoId}/preview?autoplay=1`}
-              width="100%"
-              height="100%"
-              allow="autoplay; fullscreen"
-              allowFullScreen
-              referrerPolicy="no-referrer"
-              className="w-full h-full border-0 absolute inset-0"
-              title={activeVideoTitle || "Cinematic Testimony Video Player"}
-            />
+            {/* Aspect Video wrapper for iframe */}
+            <div className="w-full aspect-[4/3] sm:aspect-video relative bg-black shrink-0">
+              <iframe
+                src={`https://drive.google.com/file/d/${activeVideoId}/preview?autoplay=1`}
+                width="100%"
+                height="100%"
+                allow="autoplay; fullscreen"
+                allowFullScreen
+                referrerPolicy="no-referrer"
+                className="w-full h-full border-0 absolute inset-0"
+                title={activeVideoTitle || "Cinematic Testimony Video Player"}
+              />
+            </div>
+
+            {/* Watch Directly fallback bar at the bottom */}
+            <div className="w-full bg-[#111] border-t border-white/5 py-3.5 px-5 sm:py-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shrink-0">
+              <div className="space-y-1">
+                <p className="text-white font-medium text-xs sm:text-sm">Cannot play the video?</p>
+                <p className="text-white/40 text-[10px] sm:text-xs leading-relaxed">
+                  If the video is blank or blocked by third-party cookie/iframe settings, use the button to watch it directly on Google Drive.
+                </p>
+              </div>
+              <a
+                href={`https://drive.google.com/file/d/${activeVideoId}/view?usp=sharing`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-orange hover:bg-brand-orange/90 text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-colors cursor-pointer whitespace-nowrap shadow-md shadow-brand-orange/10 shrink-0"
+              >
+                <span>Watch on Google Drive</span>
+                <ExternalLink size={14} className="shrink-0" />
+              </a>
+            </div>
           </div>
         </div>
       )}

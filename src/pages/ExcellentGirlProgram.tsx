@@ -44,6 +44,7 @@ const excellentImages = [
 ];
 
 export default function ExcellentGirlProgram() {
+  const displayedImages = excellentImages.slice(0, 8);
   const [lightbox, setLightbox] = React.useState<number | null>(null);
   const [scrollProgress, setScrollProgress] = React.useState(0);
   const carouselRef = React.useRef<HTMLDivElement>(null);
@@ -210,7 +211,7 @@ export default function ExcellentGirlProgram() {
           {/* Scroll Buttons - Mobile Only */}
           <div className="flex md:hidden justify-between items-center mb-6">
             <span className="text-xs font-black tracking-wider text-brand-warm-black/40 uppercase">
-              Swipe to explore ({excellentImages.length} photos)
+              Swipe to explore ({displayedImages.length} photos)
             </span>
             <div className="flex gap-2">
               <button
@@ -235,7 +236,7 @@ export default function ExcellentGirlProgram() {
             onScroll={handleScroll}
             className="flex md:grid md:grid-cols-4 gap-4 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none scrollbar-none pb-6 md:pb-0"
           >
-            {excellentImages.map((img, idx) => (
+            {displayedImages.map((img, idx) => (
               <motion.div
                 key={idx}
                 whileHover={{ scale: 1.03 }}
@@ -270,6 +271,17 @@ export default function ExcellentGirlProgram() {
               style={{ width: `${Math.max(8, scrollProgress)}%` }}
             />
           </div>
+
+          {/* Full Gallery Redirect Button */}
+          <div className="flex justify-center mt-12">
+            <NavLink
+              to="/gallery"
+              className="inline-flex items-center gap-2.5 px-8 py-4 bg-brand-orange text-white text-xs font-black uppercase tracking-wider rounded-2xl hover:bg-brand-green hover:scale-105 transition-all shadow-lg shadow-brand-orange/20 cursor-pointer"
+            >
+              <span>View Full Gallery</span>
+              <ChevronRightIcon size={14} className="shrink-0" />
+            </NavLink>
+          </div>
         </div>
       </section>
 
@@ -290,7 +302,7 @@ export default function ExcellentGirlProgram() {
       <AnimatePresence>
         {lightbox !== null && (() => {
           const activeIndex = lightbox;
-          const activeImg = excellentImages[activeIndex];
+          const activeImg = displayedImages[activeIndex];
 
           return (
             <motion.div
@@ -323,7 +335,7 @@ export default function ExcellentGirlProgram() {
               {/* Main Stage viewport */}
               <div className="flex-1 flex items-center justify-between gap-2 md:gap-6 max-w-7xl mx-auto w-full py-4 overflow-hidden">
                 <button 
-                  onClick={() => setLightbox((activeIndex - 1 + excellentImages.length) % excellentImages.length)}
+                  onClick={() => setLightbox((activeIndex - 1 + displayedImages.length) % displayedImages.length)}
                   className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-brand-green hover:text-white hover:scale-110 active:scale-95 transition-all shrink-0"
                 >
                   <ChevronLeft size={24} />
@@ -344,7 +356,7 @@ export default function ExcellentGirlProgram() {
                 </div>
 
                 <button 
-                  onClick={() => setLightbox((activeIndex + 1) % excellentImages.length)}
+                  onClick={() => setLightbox((activeIndex + 1) % displayedImages.length)}
                   className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-brand-green hover:text-white hover:scale-110 active:scale-95 transition-all shrink-0"
                 >
                   <ChevronRightIcon size={24} />
@@ -353,7 +365,7 @@ export default function ExcellentGirlProgram() {
 
               {/* Bottom indicators */}
               <div className="max-w-7xl mx-auto w-full flex justify-center gap-1.5 overflow-x-auto py-2 shrink-0">
-                {excellentImages.map((_, i) => (
+                {displayedImages.map((_, i) => (
                   <button
                     key={i}
                     onClick={() => setLightbox(i)}

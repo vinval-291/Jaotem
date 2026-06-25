@@ -6,7 +6,7 @@ import { Mail, Phone, MapPin, Send, MessageSquare, Clock, Globe, CheckCircle2 } 
 import { doc, setDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { db, handleFirestoreError, OperationType } from '../lib/firebase';
 
-const CONTACT_IMG = "https://images.unsplash.com/photo-1559027615-cd2428ee0a2a?q=80&w=1200&auto=format&fit=crop";
+const CONTACT_IMG = "https://i.postimg.cc/j5Z0vhhV/DSC-9786.jpg";
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = React.useState({

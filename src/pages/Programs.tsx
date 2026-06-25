@@ -22,7 +22,7 @@ const upcomingPrograms = [
     date: '29th of August, 2026',
     time: '6:00 PM - 10:00 PM',
     location: 'Abeokuta, Nigeria',
-    type: 'Summit / Fundraiser',
+    type: 'Summit 2026',
     img: 'https://i.postimg.cc/hG3R0bdv/Skill-Up-Summit-2026.jpg',
     desc: `Registration is open.
     Let’s join hands to make academic mentorship, vocational education, and youth empowerment thrive.`,
